@@ -7,10 +7,15 @@ program concurrent_inference
   use sourcery_m, only : string_t, command_line_t, file_t
   use assert_m, only : assert
   use iso_fortran_env, only : int64, real64
+  use omp_lib
+
   implicit none
 
   type(string_t) network_file_name
   type(command_line_t) command_line
+
+  integer :: num_devices,nteams,nthreads
+  logical :: initial_device
 
   network_file_name = string_t(command_line%flag_value("--network"))
 
@@ -18,6 +23,20 @@ program concurrent_inference
     error stop new_line('a') // new_line('a') // &
       'Usage: ./build/run-fpm.sh run --example identity -- --network "<file-name>"' 
   end if
+
+  num_devices = omp_get_num_devices()
+  print *, "Number of available devices", num_devices
+
+  !$omp target map(nteams,nthreads)
+    !initial_device = omp_is_initial_device()
+    !nteams= omp_get_num_teams()
+    !nthreads= omp_get_num_threads()
+  !$omp end target 
+  !if (initial_device) then
+  !  write(*,*) "Running on host"
+  !else 
+  !  write(*,'(A,I4,A,I4,A)') "Running on device with ",nteams, " teams in total and ", nthreads, " threads in each team"
+  !end if
 
   block 
     type(inference_engine_t) network, inference_engine
