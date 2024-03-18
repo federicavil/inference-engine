@@ -9,7 +9,7 @@ module inference_engine_m_
   use differentiable_activation_strategy_m, only :differentiable_activation_strategy_t
   implicit none
 
-  private
+  public
   public :: inference_engine_t
   public :: difference_t
   public :: exchange_t
@@ -20,7 +20,7 @@ module inference_engine_m_
 
   type inference_engine_t
     !! Encapsulate the minimal information needed to perform inference
-    private
+    !private
     type(string_t) metadata_(size(key))
     real(rkind), allocatable :: weights_(:,:,:), biases_(:,:)
     integer, allocatable :: nodes_(:)

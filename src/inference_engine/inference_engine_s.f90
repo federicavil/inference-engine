@@ -66,7 +66,7 @@ contains
 
        allocate(a(lat, lon, lev, maxval(n), input_layer:output_layer))
 
-       a(:,:,:,1:n(input_layer),input_layer) = inputs(:,:,:, 1:input_layer)
+       a(:,:,:,1:n(input_layer),input_layer) = inputs
 
        feed_forward: &
        do l = input_layer+1, output_layer

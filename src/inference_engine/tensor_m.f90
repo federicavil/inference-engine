@@ -8,7 +8,7 @@ module tensor_m
   public :: tensor_t
 
   type tensor_t
-    private
+    !private
     real(rkind), allocatable :: values_(:)
   contains
     procedure values
