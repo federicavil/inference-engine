@@ -28,11 +28,12 @@ program concurrent_inferences
     class(activation_strategy_t), allocatable :: act_strategy
     real, allocatable :: input_components(:,:,:,:), output_components(:,:,:,:)
     integer, parameter :: lat=350, lon=450, lev=20 ! latitudes, longitudes, levels (elevations)
-    integer i, j, k, jk,l
+    integer i, j, k, ij,jk,l
     real, parameter :: tolerance = 1.e-06
+    real, parameter :: tolerance_2 = 1.e-02
     integer, allocatable :: n(:)
     real(rkind), allocatable :: w(:,:,:), b(:,:)
-    real(rkind), allocatable :: a(:,:,:,:,:)
+    real(rkind), allocatable :: a(:,:)
     integer :: output_level
     print *, "Constructing a new inference_engine_t object from the file " // network_file_name%string()
     inference_engine = inference_engine_t(file_t(network_file_name))
@@ -43,7 +44,7 @@ program concurrent_inferences
     b = inference_engine%biases_
     output_level = ubound(n,1)
     act_strategy = inference_engine%activation_strategy_
-    allocate(a(lat,lon,lev,maxval(n),0:ubound(n,1)))
+    allocate(a(maxval(n),0:ubound(n,1)))
     print *,"Defining an array of tensor_t input objects with random normalized components"
     allocate(inputs(lat,lon,lev))
     allocate(input_components(lat,lon,lev,inference_engine%num_inputs()))
@@ -138,20 +139,51 @@ program concurrent_inferences
         call assert(all(abs(outputs(i,j,k)%values() - outputs_elem_infer(i,j,k)%values()) < tolerance), &
           "all(openmp_outputs == outputs_elemental_infer)")
       end do
-      
-      print *, "performing inference with openmp offloading"
+
+      print *, "performing inference with omp multithreading and inline code"
       call system_clock(t_start)
-      !$omp target map(from:a) map(to:input_components,n,w,b)
-      !$omp teams distribute parallel do shared (input_components, output_components, n, w, b, output_level) collapse(3)
+      !$omp parallel do default(none) shared(input_components, output_components, n,w,b,output_level) private(a)
         do j=1,lon
           do k=1,lev
             do i=1,lat
-              a(i,j,k,1:n(0),0) = input_components(i,j,k,:)
+              a(1:n(0),0) = input_components(i,j,k,:)
               feed_forward: &
               do l = 1, output_level
-                a(i,j,k,1:n(l),l) = 1./(1.+exp(-(matmul(w(1:n(l),1:n(l-1),l), a(i,j,k,1:n(l-1),l-1)) + b(1:n(l),l))))
+                a(1:n(l),l) = 1./(1.+exp(-(matmul(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l))))
               end do feed_forward
-              !output_components(i,j,k,:) = a(i,j,k,1:n(output_level), output_level)
+              output_components(i,j,k,:) = a(1:n(output_level), output_level)
+            end do
+          end do
+        end do
+      !$omp end parallel do
+      call system_clock(t_finish)
+      print *,"Concurrent inference time with omp multithreading and inline code: ", & 
+      real(t_finish - t_start, real64)/real(clock_rate)
+      
+      do concurrent(i=1:lat, j=1:lon, k=1:lev)
+        outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
+      end do
+
+      !Openmp offloading inference test
+      do concurrent(i=1:lat, j=1:lon, k=1:lev)
+        call assert(all(abs(outputs(i,j,k)%values() - outputs_elem_infer(i,j,k)%values()) < tolerance), &
+          "all(openmp_offloading_outputs == outputs_elemental_infer)", &
+          intrinsic_array_t(outputs(i,j,k)%values()))
+      end do  
+      
+      print *, "performing inference with openmp offloading"
+      call system_clock(t_start)
+      !$omp target map(from:output_components) map(to:input_components,n,w,b,a)
+      !$omp teams distribute parallel do shared (input_components, output_components, n, w, b, output_level) firstprivate(a) &
+      !$omp collapse(3)
+        do j=1,lon
+          do k=1,lev
+            do i=1,lat
+              a(1:n(0),0) = input_components(i,j,k,:)
+              do l = 1, output_level
+                a(1:n(l),l) = 1./(1.+exp(-(matmul(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l))))
+              end do 
+              output_components(i,j,k,:) = a(1:n(output_level), output_level)
             end do
           end do
         end do
@@ -161,7 +193,7 @@ program concurrent_inferences
       print *,"Concurrent inference time with openmp offloading: ", real(t_finish - t_start, real64)/real(clock_rate)
       
       do concurrent(i=1:lat, j=1:lon, k=1:lev)
-        outputs(i,j,k) = tensor_t(a(i,j,k,1:n(output_level), output_level))
+        outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
       end do
 
       !Openmp offloading inference test
@@ -170,6 +202,44 @@ program concurrent_inferences
           "all(openmp_offloading_outputs == outputs_elemental_infer)", &
           intrinsic_array_t(outputs(i,j,k)%values()))
       end do  
+
+      print *,"Performing inference with openacc"
+      call system_clock(t_start)
+      !$acc data copyout(output_components) copyin(input_components,n,w,b) create(a)
+      !$acc parallel loop collapse(3)
+      !!$acc parallel loop gang num_gangs(lat*lon) num_workers(lev) 
+      do i=1,lat
+      ! do ij=1,lat*lon
+      !   j = (ij/lat) +1
+      !   i = mod(ij,lat)
+        !!$acc loop worker
+        do j=1,lon
+          !!$acc loop worker
+          do k=1,lev
+            a(1:n(0),0) = input_components(i,j,k,:)
+            feedforward: &
+            do l = 1, output_level
+              a(1:n(l),l) = 1./(1.+exp(-(matmul(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l))))
+            end do feedforward
+            output_components(i,j,k,:) = a(1:n(output_level), output_level)
+          end do
+        end do
+      end do
+      !!$acc end parallel
+      !$acc end data
+      call system_clock(t_finish)
+      print *,"Openacc offloading time: ", real(t_finish - t_start, real64)/real(clock_rate, real64)
+
+      do concurrent(i=1:lat, j=1:lon, k=1:lev)
+        outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
+      end do
+
+      !Openmp offloading inference test
+      do concurrent(i=1:lat, j=1:lon, k=1:lev)
+        call assert(all(abs(outputs(i,j,k)%values() - outputs_elem_infer(i,j,k)%values()) < tolerance_2), &
+          "all(openacc_offloading_outputs == outputs_elemental_infer)", &
+          intrinsic_array_t(outputs(i,j,k)%values()-outputs_elem_infer(i,j,k)%values()))
+      end do
 
       print *,"Performing batched inferences via intrinsic-array input and output"
       block 
@@ -198,39 +268,6 @@ program concurrent_inferences
   end block
 
   contains
-  ! function single_infer_dev(n,w,b,inputs) result(outputs)
-  !   real(rkind), intent(in) :: inputs(:)
-  !   integer, intent(in) :: n(:)
-  !   real(rkind), intent(in) :: w(:,:,:), b(:,:)
-  !   integer, parameter :: input_layer = 0
-  !   integer :: output_layer
-  !   real(rkind), dimension(maxval(n),input_layer:ubound(n,1)) :: a
-  !   real(rkind), allocatable :: outputs(:)
-  !   real(rkind), allocatable :: z(:)
-  !   integer k, l, i
-    
-  !   output_layer = ubound(n,1)
-  !   a(1:n(input_layer),input_layer) = inputs
-
-  !     feed_forward: &
-  !     do l = input_layer+1, output_layer
-  !       a(1:n(l),l) = matmul(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l)
-  !       ! do i = 1,n(l)
-  !       !   a(i,l) = 1./(1.+exp(-z(i)))
-  !       ! end do
-  !       ! Activation strategy to fix
-  !       !a(1:n(l),l) =  1./(1.+(1/(z+3)))
-  !       !a(1:n(l),l) = 1./(1.+exp(-(matrix_vector_multiplication(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l))))
-  !       !a(1:n(l),l) = 1./(1.+exp(-z))
-  !       !a(1:n(l),l) = z
-  !     end do feed_forward
-  !     outputs = a(1:n(output_layer), output_layer)
-  !     !outputs = inputs
-      
-  
-  !  ! end associate
-  ! end function
-  
   function batch_infer_(self, inputs) result(outputs)
     implicit none
     class(inference_engine_t), intent(in) :: self
@@ -267,7 +304,7 @@ program concurrent_inferences
        do l = input_layer+1, output_layer
         block
           integer i, j, k
-          !$omp parallel do default(none) shared(a,w,b,n,l,lat,lon,lev,self) collapse(3)
+          !$omp parallel do default(none) shared(a,w,b,n,l,lat,lon,lev,self) schedule(static,1)
           do j=1,lon
             do k=1,lev
               do i=1,lat
