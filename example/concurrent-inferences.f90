@@ -208,6 +208,7 @@ program concurrent_inferences
       !$acc data copyout(output_components) copyin(input_components,n,w,b) create(a)
       !$acc parallel loop collapse(3)
       !!$acc parallel loop gang num_gangs(lat*lon) num_workers(lev) 
+      
       do i=1,lat
       ! do ij=1,lat*lon
       !   j = (ij/lat) +1
