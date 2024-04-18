@@ -25,6 +25,8 @@ contains
   module procedure construct_from_inference_engine
 
     associate(exchange => inference_engine%to_exchange())
+      trainable_engine%input_range_ = exchange%input_range_
+      trainable_engine%output_range_ = exchange%output_range_
       trainable_engine%metadata_ = exchange%metadata_
       trainable_engine%w = exchange%weights_
       trainable_engine%b = exchange%biases_
@@ -68,7 +70,9 @@ contains
 
       allocate(a(maxval(n), input_layer:output_layer)) ! Activations
 
-      a(1:n(input_layer),input_layer) = inputs%values()
+      associate(normalized_inputs => self%input_range_%map_to_training_range(inputs))
+        a(1:n(input_layer),input_layer) = normalized_inputs%values()
+      end associate
 
       feed_forward: &
       do l = 1,output_layer
@@ -77,7 +81,9 @@ contains
         )
       end do feed_forward
  
-      outputs = tensor_t(a(1:n(output_layer),output_layer))
+      associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
+        outputs = self%output_range_%map_from_training_range(normalized_outputs)
+      end associate
 
     end associate
 
@@ -119,7 +125,7 @@ contains
       vdb = 0.d0
       sdb = 1.d0
 
-      associate(w => self%w, b => self%b, n => self%n, num_mini_batches => size(mini_batches))
+      associate(w => self%w, b => self%b, n => self%n, num_mini_batches => size(mini_batches_arr))
 
         if (present(cost)) allocate(cost(num_mini_batches))
       
@@ -129,7 +135,7 @@ contains
           if (present(cost)) cost(batch) = 0.
           dcdw = 0.; dcdb = 0.
           
-          associate(input_output_pairs => mini_batches(batch)%input_output_pairs())
+          associate(input_output_pairs => mini_batches_arr(batch)%input_output_pairs())
             inputs = input_output_pairs%inputs()
             expected_outputs = input_output_pairs%expected_outputs()
             mini_batch_size = size(input_output_pairs)
@@ -219,22 +225,47 @@ contains
     
   end procedure
 
+#ifdef __INTEL_COMPILER
+  module procedure construct_trainable_engine_from_padded_arrays
+#else
   module procedure construct_from_padded_arrays
+#endif
 
-     trainable_engine%metadata_ = metadata
-     trainable_engine%n = nodes
-     trainable_engine%w = weights
-     trainable_engine%b = biases
-     trainable_engine%differentiable_activation_strategy_ = differentiable_activation_strategy
 
-     call trainable_engine%assert_consistent
+    trainable_engine%metadata_ = metadata
+    trainable_engine%n = nodes
+    trainable_engine%w = weights
+    trainable_engine%b = biases
+    trainable_engine%differentiable_activation_strategy_ = differentiable_activation_strategy
+
+    block 
+      integer i
+
+      if (present(input_range)) then
+         trainable_engine%input_range_ = input_range
+      else
+        associate(num_inputs => nodes(lbound(nodes,1)))
+          trainable_engine%input_range_ = tensor_range_t("inputs", minima=[(0., i=1,num_inputs)], maxima=[(1., i=1,num_inputs)])
+        end associate
+      end if
+
+      if (present(output_range)) then
+         trainable_engine%output_range_ = output_range
+      else
+        associate(num_outputs => nodes(ubound(nodes,1)))
+          trainable_engine%output_range_ = tensor_range_t("outputs", minima=[(0., i=1,num_outputs)], maxima=[(1., i=1,num_outputs)])
+        end associate
+      end if
+    end block
+
+    call trainable_engine%assert_consistent
   end procedure
 
   module procedure to_inference_engine
     ! assignment-stmt disallows the procedure from being pure because it might
     ! deallocate polymorphic allocatable subcomponent `activation_strategy_`
     ! TODO: consider how this affects design
-    inference_engine = inference_engine_t(metadata = self%metadata_, weights = self%w, biases = self%b, nodes = self%n)
+    inference_engine = inference_engine_t(self%metadata_, self%w, self%b, self%n, self%input_range_, self%output_range_)
   end procedure
 
   module procedure perturbed_identity_network
@@ -257,7 +288,8 @@ contains
           activation => training_configuration%differentiable_activation_strategy() &
         )
           trainable_engine = trainable_engine_t( &
-            nodes = n, weights = w, biases = b, differentiable_activation_strategy = activation, metadata = metadata &
+            nodes = n, weights = w, biases = b, differentiable_activation_strategy = activation, metadata = metadata, &
+            input_range = input_range, output_range = output_range &
           )
         end associate
       end associate
@@ -273,5 +305,22 @@ contains
     end function
 
   end procedure
+
+  module procedure map_to_input_training_range
+    normalized_tensor = self%input_range_%map_to_training_range(tensor)
+  end procedure
+
+  module procedure map_from_input_training_range
+    unnormalized_tensor = self%input_range_%map_from_training_range(tensor)
+  end procedure
+  
+  module procedure map_to_output_training_range
+    normalized_tensor = self%output_range_%map_to_training_range(tensor)
+  end procedure
+
+  module procedure map_from_output_training_range
+    unnormalized_tensor = self%output_range_%map_from_training_range(tensor)
+  end procedure
+  
 
 end submodule trainable_engine_s
