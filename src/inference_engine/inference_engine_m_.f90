@@ -16,6 +16,7 @@ module inference_engine_m_
   public :: difference_t
   public :: exchange_t
   public :: infer
+  public :: parallel_infer
 
   character(len=*), parameter :: key(*) = [character(len=len("usingSkipConnections")) :: &
     "modelName", "modelAuthor", "compilationDate", "activationFunction", "usingSkipConnections"]
@@ -30,6 +31,7 @@ module inference_engine_m_
     class(activation_strategy_t), allocatable :: activation_strategy_ ! Strategy Pattern facilitates elemental activation
   contains
     procedure :: infer
+    procedure :: parallel_infer
     procedure :: to_json
     procedure :: num_inputs
     procedure :: num_outputs
@@ -116,6 +118,13 @@ module inference_engine_m_
       class(inference_engine_t), intent(in) :: self
       type(tensor_t), intent(in) :: inputs
       type(tensor_t) outputs
+    end function
+
+    module function parallel_infer(self, inputs) result(outputs)
+      implicit none 
+      class(inference_engine_t), intent(in) :: self
+      type(tensor_t), intent(in) :: inputs(:,:,:)
+      type(tensor_t), allocatable :: outputs(:,:,:)
     end function
 
     elemental module function num_outputs(self) result(output_count)

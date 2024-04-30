@@ -59,6 +59,107 @@ contains
 
   end procedure
 
+  module procedure parallel_infer
+    real(rkind), allocatable :: a(:,:)
+    integer, parameter :: input_layer = 0
+    integer i,j,k, l, dims(3)
+    real(rkind), allocatable :: w(:,:,:), b(:,:)
+    integer, allocatable :: n(:)
+    integer output_layer
+
+#ifdef __OFFLOADING
+    real, allocatable, dimension(:) :: min_in, max_in, min_out, max_out
+        real, allocatable :: input_components(:,:,:,:), output_components(:,:,:,:)
+    integer :: lat, lon, lev
+    dims = shape(inputs)
+    lon = dims(1)
+    lev = dims(2)
+    lat = dims(3)
+    min_in = self%input_range_%minima_
+    max_in = self%input_range_%maxima_
+    min_out = self%output_range_%minima_
+    max_out = self%output_range_%maxima_
+    allocate(input_components(dims(1),dims(2),dims(3),self%num_inputs()))
+    allocate(output_components(dims(1),dims(2),dims(3),self%num_outputs()))
+    do concurrent(i=1:lon, j=1:lev, k=1:lat)
+      input_components(i,j,k,:) = inputs(i,j,k)%values()
+    end do
+    
+#endif
+    call assert_consistency(self)
+    dims = shape(inputs)
+    w = self%weights_ 
+    n = self%nodes_
+    b = self%biases_
+    output_layer = ubound(n,1)
+
+    allocate(a(maxval(n), input_layer:output_layer))
+    allocate(outputs(dims(1),dims(2),dims(3)))
+
+#ifndef __OFFLOADING
+    !$omp parallel do private(a) shared(inputs, outputs, n,w,b,output_layer)
+#else
+    !$omp target map(from:output_components) map(to:input_components,n,w,b,a,min_in,max_in,min_out,max_out)
+    !$omp teams distribute parallel do firstprivate(a) &
+    !$omp shared (input_components,output_components,n,w,b,output_layer,min_in,max_in,min_out,max_out) &
+    !$omp collapse(3)
+
+    !$acc data copyout(output_components) create(a) &
+    !$acc copyin(input_components,n,w,b,min_in, max_in, min_out, max_out) 
+    !$acc parallel loop
+#endif
+    do i=1,dims(1)
+#ifdef __OFFLOADING
+      !$acc loop 
+#endif
+      do j=1,dims(2)
+#ifdef __OFFLOADING
+      !$acc loop
+#endif
+        do k=1,dims(3)
+#ifndef __OFFLOADING
+          associate(normalized_inputs => self%input_range_%map_to_training_range(inputs(i,j,k)))
+            a(1:n(input_layer),input_layer) = normalized_inputs%values()
+          end associate
+#else
+          a(1:n(input_layer),input_layer) = (input_components(i,j,k,:) - min_in)/(max_in- min_in)
+#endif
+          feed_forward: &
+          do l = input_layer+1, output_layer
+            
+#ifndef __OFFLOADING
+            associate(z => matmul(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l))
+              a(1:n(l),l) = self%activation_strategy_%activation(z)
+            end associate
+#else
+            a(1:n(l),l) = 1./(1.+exp(-(matmul(w(1:n(l),1:n(l-1),l), a(1:n(l-1),l-1)) + b(1:n(l),l))))
+#endif
+          end do feed_forward
+
+#ifndef __OFFLOADING
+          associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
+            outputs(i,j,k) = self%output_range_%map_from_training_range(normalized_outputs)
+          end associate
+#else
+          output_components(i,j,k,:) = min_out + a(1:n(output_layer), output_layer)*(max_out - min_out)
+#endif        
+        end do
+      end do
+    end do  
+#ifndef __OFFLOADING    
+    !$omp end parallel do
+#else
+    !$acc end data
+    !$omp end teams distribute parallel do
+    !$omp end target
+    do concurrent(i=1:lon, j=1:lev, k=1:lat)
+      outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
+    end do
+#endif
+  end procedure
+
+
+
   pure subroutine inference_engine_consistency(self)
 
     type(inference_engine_t), intent(in) :: self

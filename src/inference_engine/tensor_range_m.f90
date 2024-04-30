@@ -9,7 +9,7 @@ module tensor_range_m
   public :: tensor_range_t
 
   type tensor_range_t
-    private
+    !private
     character(len=:), allocatable :: layer_
     real, allocatable, dimension(:) :: minima_, maxima_
   contains
