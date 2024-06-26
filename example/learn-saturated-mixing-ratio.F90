@@ -120,12 +120,12 @@ program train_saturated_mixture_ratio
         block
           integer p
 
-          associate(network_outputs => trainable_engine%infer(inputs))
-            print *,"Inputs (normalized)          | Outputs      | Desired outputs"
-            do p = 1, num_pairs
-              print "(4(G13.5,2x))", inputs(p)%values(), network_outputs(p)%values(), desired_outputs(p)%values()
-            end do
-          end associate
+          ! associate(network_outputs => trainable_engine%infer(inputs))
+          !   print *,"Inputs (normalized)          | Outputs      | Desired outputs"
+          !   do p = 1, num_pairs
+          !     print "(4(G13.5,2x))", inputs(p)%values(), network_outputs(p)%values(), desired_outputs(p)%values()
+          !   end do
+          ! end associate
         end block report_network_performance
 
       end block

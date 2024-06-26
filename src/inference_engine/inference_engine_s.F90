@@ -84,7 +84,7 @@ contains
     do concurrent(i=1:lon, j=1:lev, k=1:lat)
       input_components(i,j,k,:) = inputs(i,j,k)%values()
     end do
-    
+
 #endif
     call assert_consistency(self)
     dims = shape(inputs)
@@ -97,25 +97,18 @@ contains
     allocate(outputs(dims(1),dims(2),dims(3)))
 
 #ifndef __OFFLOADING
-    !$omp parallel do private(a) shared(inputs, outputs, n,w,b,output_layer)
+    !$omp parallel do private(a) shared(inputs, outputs, n,w,b,output_layer) collapse(3)
 #else
     !$omp target map(from:output_components) map(to:input_components,n,w,b,a,min_in,max_in,min_out,max_out)
     !$omp teams distribute parallel do firstprivate(a) &
-    !$omp shared (input_components,output_components,n,w,b,output_layer,min_in,max_in,min_out,max_out) &
     !$omp collapse(3)
 
     !$acc data copyout(output_components) create(a) &
-    !$acc copyin(input_components,n,w,b,min_in, max_in, min_out, max_out) 
-    !$acc parallel loop
+    !$acc present_or_copyin(n,w,b) copyin(input_components,min_in,max_in,min_out,max_out) 
+    !$acc parallel loop collapse(3)
 #endif
     do i=1,dims(1)
-#ifdef __OFFLOADING
-      !$acc loop 
-#endif
       do j=1,dims(2)
-#ifdef __OFFLOADING
-      !$acc loop
-#endif
         do k=1,dims(3)
 #ifndef __OFFLOADING
           associate(normalized_inputs => self%input_range_%map_to_training_range(inputs(i,j,k)))

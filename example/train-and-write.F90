@@ -73,14 +73,14 @@ program train_and_write
         real, parameter :: tolerance = 1.E-06
         integer p
 
-        associate(network_outputs => trainable_engine%infer(inputs))
-          print *," Outputs                          |&
-                   Desired outputs                    |&
-                   Errors"
-          do p = 1, num_pairs
-            print *,network_outputs(p)%values(),"|", inputs(p)%values(), "|",  network_outputs(p)%values() - inputs(p)%values()
-          end do
-        end associate
+        ! associate(network_outputs => trainable_engine%infer(inputs))
+        !   print *," Outputs                          |&
+        !            Desired outputs                    |&
+        !            Errors"
+        !   do p = 1, num_pairs
+        !     print *,network_outputs(p)%values(),"|", inputs(p)%values(), "|",  network_outputs(p)%values() - inputs(p)%values()
+        !   end do
+        ! end associate
       end block
 
    end associate

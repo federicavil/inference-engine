@@ -85,12 +85,12 @@ program learn_addition
         real, parameter :: tolerance = 1.E-06
         integer p
 
-        associate(network_outputs => trainable_engine%infer(inputs))
-          print "(a,69x,a)","  Outputs", "| Desired outputs"
-          do p = 1, num_pairs
-            print "(6G13.5, a1, 6G13.5)",network_outputs(p)%values(),       "|", desired_outputs(p)%values()
-          end do
-        end associate
+        ! associate(network_outputs => trainable_engine%infer(inputs))
+        !   print "(a,69x,a)","  Outputs", "| Desired outputs"
+        !   do p = 1, num_pairs
+        !     print "(6G13.5, a1, 6G13.5)",network_outputs(p)%values(),       "|", desired_outputs(p)%values()
+        !   end do
+        ! end associate
       end block
 
    end associate
