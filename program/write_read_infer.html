@@ -1,0 +1,1401 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>write_read_infer &ndash; Inference-Engine</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>write_read_infer      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 5.6% of total for programs.">51 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/write-read-infer.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/write-read-infer.f90.html'>write-read-infer.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">write_read_infer</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/write_read_infer.html#variable-command_line~5">command_line</a>
+            <a class="list-group-item" href="../program/write_read_infer.html#variable-file_name~5">file_name</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/write_read_infer.html#proc-identity_network">identity_network</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/write_read_infer.html#proc-write_read_query_infer">write_read_query_infer</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/kind_parameters_m.html'>kind_parameters_m</a></li>
+                  <li class="list-inline-item"><a href='../module/inference_engine_m.html'>inference_engine_m</a></li>
+                  <li class="list-inline-item">julienne_m</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: program~~write_read_infer~~UsesGraph Pages: 1 -->
+<svg id="programwrite_read_inferUsesGraph" width="641pt" height="506pt"
+ viewBox="0.00 0.00 641.00 505.61" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~write_read_infer~~UsesGraph" class="graph" transform="scale(0.555633 0.555633) rotate(0) translate(4 905.97)">
+<title>program~~write_read_infer~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-905.97 1149.64,-905.97 1149.64,4 -4,4"/>
+<!-- program~write_read_infer -->
+<g id="program~~write_read_infer~~UsesGraph_node1" class="node">
+<title>program~write_read_infer</title>
+<polygon fill="none" stroke="black" points="1145.64,-197.82 1048.62,-197.82 1048.62,-173.55 1145.64,-173.55 1145.64,-197.82"/>
+<text text-anchor="middle" x="1097.13" y="-182.09" font-family="Helvetica,sans-Serif" font-size="10.50">write_read_infer</text>
+</g>
+<!-- julienne_m -->
+<g id="program~~write_read_infer~~UsesGraph_node2" class="node">
+<title>julienne_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="252.54,-62.82 182.52,-62.82 182.52,-38.55 252.54,-38.55 252.54,-62.82"/>
+<text text-anchor="middle" x="217.53" y="-47.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</g>
+<!-- program~write_read_infer&#45;&gt;julienne_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge1" class="edge">
+<title>program~write_read_infer&#45;&gt;julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M419.3,-50.69C366.23,-48.08 305.16,-48.58 264.45,-49.41"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="264.45,-45.91 254.53,-49.63 264.6,-52.91 264.45,-45.91"/>
+</g>
+<!-- module~inference_engine_m -->
+<g id="program~~write_read_infer~~UsesGraph_node3" class="node">
+<title>module~inference_engine_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node3"><a xlink:href="../module/inference_engine_m.html" xlink:title="inference_engine_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1012.62,-352.82 893.1,-352.82 893.1,-328.55 1012.62,-328.55 1012.62,-352.82"/>
+<text text-anchor="middle" x="952.86" y="-337.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m</text>
+</a>
+</g>
+</g>
+<!-- program~write_read_infer&#45;&gt;module~inference_engine_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge2" class="edge">
+<title>program~write_read_infer&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1084.73,-198.11C1060.38,-224.64 1003.08,-287.07 973.02,-319.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="970.52,-317.36 966.34,-327.09 975.68,-322.09 970.52,-317.36"/>
+</g>
+<!-- module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_node4" class="node">
+<title>module~kind_parameters_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node4"><a xlink:href="../module/kind_parameters_m.html" xlink:title="kind_parameters_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="117.27,-394.82 0,-394.82 0,-370.55 117.27,-370.55 117.27,-394.82"/>
+<text text-anchor="middle" x="58.63" y="-379.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">kind_parameters_m</text>
+</a>
+</g>
+</g>
+<!-- program~write_read_infer&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge3" class="edge">
+<title>program~write_read_infer&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1055.2,-173.07C950.81,-141.86 665.64,-62.71 421.3,-50.69"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M419.3,-50.69C328.85,-40.87 302.39,24.62 218.53,-10.69"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M216.53,-10.69C189.47,-22.08 173.69,-8.6 153.27,-29.69 106.57,-77.93 73.06,-287.95 62.87,-359.05"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="59.43,-358.41 61.5,-368.8 66.36,-359.38 59.43,-358.41"/>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge10" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M943.7,-328.19C923.41,-298.27 867.37,-222.51 799.47,-188.69"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-188.69C727.56,-153.88 708.54,-145.7 632.32,-128.69"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M630.32,-128.69C538.01,-108.09 514.99,-101.69 421.3,-88.69"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M419.3,-88.69C373.38,-82.32 358.44,-86.99 317.79,-64.69 298.23,-53.96 301.03,-41 281.79,-29.69 256.48,-14.81 245.59,0.7 218.53,-10.69"/>
+</g>
+<!-- module~activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_node5" class="node">
+<title>module~activation_strategy_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node5"><a xlink:href="../module/activation_strategy_m.html" xlink:title="activation_strategy_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="281.79,-512.82 153.27,-512.82 153.27,-488.55 281.79,-488.55 281.79,-512.82"/>
+<text text-anchor="middle" x="217.53" y="-497.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">activation_strategy_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge4" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-716.69C753.75,-747.3 360.29,-724.96 317.79,-692.69 277.5,-662.09 305.32,-629.48 281.79,-584.69 269.66,-561.59 251.35,-538.09 237.55,-521.85"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="240.21,-519.58 231.01,-514.32 234.93,-524.17 240.21,-519.58"/>
+</g>
+<!-- module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_node6" class="node">
+<title>module~differentiable_activation_strategy_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node6"><a xlink:href="../module/differentiable_activation_strategy_m.html" xlink:title="differentiable_activation_strategy_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="522.81,-650.82 317.79,-650.82 317.79,-626.55 522.81,-626.55 522.81,-650.82"/>
+<text text-anchor="middle" x="420.3" y="-635.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">differentiable_activation_strategy_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge5" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M951.35,-352.96C948.36,-407.17 928.41,-626.39 799.47,-716.69"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-716.69C746.79,-752.18 756.69,-645.83 703.83,-613.69 675.73,-596.6 663.58,-584.47 632.32,-594.69"/>
+</g>
+<!-- module~gelu_m -->
+<g id="program~~write_read_infer~~UsesGraph_node7" class="node">
+<title>module~gelu_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node7"><a xlink:href="../module/gelu_m.html" xlink:title="gelu_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="658.32,-646.82 604.32,-646.82 604.32,-622.55 658.32,-622.55 658.32,-646.82"/>
+<text text-anchor="middle" x="631.32" y="-631.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gelu_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~gelu_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge6" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~gelu_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-360.69C771.44,-367.77 757.29,-359.13 739.83,-379.69 673.13,-458.21 769.33,-529.16 703.83,-608.69 695.26,-619.1 682.15,-625.34 669.48,-629.08"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="668.94,-625.62 660.07,-631.41 670.61,-632.41 668.94,-625.62"/>
+</g>
+<!-- module~hyperparameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_node8" class="node">
+<title>module~hyperparameters_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node8"><a xlink:href="../module/hyperparameters_m.html" xlink:title="hyperparameters_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="277.67,-804.82 157.4,-804.82 157.4,-780.55 277.67,-780.55 277.67,-804.82"/>
+<text text-anchor="middle" x="217.53" y="-789.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hyperparameters_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~hyperparameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge7" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~hyperparameters_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M630.32,-872.69C498.59,-917.55 445.08,-909.93 317.79,-853.69 297.38,-844.67 300.45,-830.93 281.79,-818.69 276.95,-815.51 271.66,-812.61 266.27,-809.98"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="267.79,-806.82 257.23,-805.89 264.91,-813.2 267.79,-806.82"/>
+</g>
+<!-- module~inference_engine_m_ -->
+<g id="program~~write_read_infer~~UsesGraph_node9" class="node">
+<title>module~inference_engine_m_</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node9"><a xlink:href="../module/inference_engine_m_.html" xlink:title="inference_engine_m_">
+<polygon fill="#337ab7" stroke="#337ab7" points="693.71,-332.82 568.94,-332.82 568.94,-308.55 693.71,-308.55 693.71,-332.82"/>
+<text text-anchor="middle" x="631.32" y="-317.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m_</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~inference_engine_m_ -->
+<g id="program~~write_read_infer~~UsesGraph_edge8" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~inference_engine_m_</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M892.87,-344.69C864.3,-347.57 829.72,-352.45 799.47,-360.69"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-360.69C775.24,-366.74 718.66,-350.52 677.93,-336.95"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="679.19,-333.68 668.59,-333.79 676.94,-340.31 679.19,-333.68"/>
+</g>
+<!-- module~input_output_pair_m -->
+<g id="program~~write_read_infer~~UsesGraph_node10" class="node">
+<title>module~input_output_pair_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node10"><a xlink:href="../module/input_output_pair_m.html" xlink:title="input_output_pair_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="480.44,-140.82 360.17,-140.82 360.17,-116.55 480.44,-116.55 480.44,-140.82"/>
+<text text-anchor="middle" x="420.3" y="-125.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">input_output_pair_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~input_output_pair_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge9" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~input_output_pair_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M630.32,-128.69C585,-118.58 532.76,-118.57 491.84,-121.1"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="491.86,-117.59 482.12,-121.77 492.34,-124.57 491.86,-117.59"/>
+</g>
+<!-- module~mini_batch_m -->
+<g id="program~~write_read_infer~~UsesGraph_node11" class="node">
+<title>module~mini_batch_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node11"><a xlink:href="../module/mini_batch_m.html" xlink:title="mini_batch_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="674.21,-180.82 588.44,-180.82 588.44,-156.55 674.21,-156.55 674.21,-180.82"/>
+<text text-anchor="middle" x="631.32" y="-165.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mini_batch_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~mini_batch_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge11" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~mini_batch_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-188.69C762.78,-172 719.44,-167.27 685.87,-166.57"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="685.97,-163.07 675.94,-166.49 685.91,-170.07 685.97,-163.07"/>
+</g>
+<!-- module~network_configuration_m -->
+<g id="program~~write_read_infer~~UsesGraph_node12" class="node">
+<title>module~network_configuration_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node12"><a xlink:href="../module/network_configuration_m.html" xlink:title="network_configuration_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="493.56,-844.82 347.04,-844.82 347.04,-820.55 493.56,-820.55 493.56,-844.82"/>
+<text text-anchor="middle" x="420.3" y="-829.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">network_configuration_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~network_configuration_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge12" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-716.69C714.76,-774.61 727.9,-840.14 632.32,-872.69"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M630.32,-872.69C616.51,-877.39 540.15,-861.06 483.7,-847.86"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="484.71,-844.51 474.17,-845.62 483.1,-851.32 484.71,-844.51"/>
+</g>
+<!-- module~relu_m -->
+<g id="program~~write_read_infer~~UsesGraph_node13" class="node">
+<title>module~relu_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node13"><a xlink:href="../module/relu_m.html" xlink:title="relu_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="658.32,-454.82 604.32,-454.82 604.32,-430.55 658.32,-430.55 658.32,-454.82"/>
+<text text-anchor="middle" x="631.32" y="-439.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">relu_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~relu_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge13" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~relu_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-360.69C771.44,-367.77 762.24,-364.68 739.83,-379.69 719.41,-393.37 724.48,-408.34 703.83,-421.69 693.64,-428.28 681.33,-432.85 669.81,-436.01"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="669.02,-432.6 660.13,-438.36 670.68,-439.4 669.02,-432.6"/>
+</g>
+<!-- module~sigmoid_m -->
+<g id="program~~write_read_infer~~UsesGraph_node14" class="node">
+<title>module~sigmoid_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node14"><a xlink:href="../module/sigmoid_m.html" xlink:title="sigmoid_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="665.96,-768.82 596.69,-768.82 596.69,-744.55 665.96,-744.55 665.96,-768.82"/>
+<text text-anchor="middle" x="631.32" y="-753.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sigmoid_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~sigmoid_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge14" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~sigmoid_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-716.69C762.08,-741.47 713.13,-750.99 677.73,-754.6"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="677.44,-751.11 667.78,-755.48 678.05,-758.08 677.44,-751.11"/>
+</g>
+<!-- module~step_m -->
+<g id="program~~write_read_infer~~UsesGraph_node15" class="node">
+<title>module~step_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node15"><a xlink:href="../module/step_m.html" xlink:title="step_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="447.3,-452.82 393.3,-452.82 393.3,-428.55 447.3,-428.55 447.3,-452.82"/>
+<text text-anchor="middle" x="420.3" y="-437.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">step_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~step_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge15" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~step_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-360.69C694.8,-388.64 655.73,-335.78 558.81,-379.69 538.48,-388.9 542.27,-403.78 522.81,-414.69 503.18,-425.7 478.81,-432.14 458.88,-435.85"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="458.49,-432.37 449.21,-437.49 459.65,-439.27 458.49,-432.37"/>
+</g>
+<!-- module~swish_m -->
+<g id="program~~write_read_infer~~UsesGraph_node16" class="node">
+<title>module~swish_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node16"><a xlink:href="../module/swish_m.html" xlink:title="swish_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="659.21,-412.82 603.44,-412.82 603.44,-388.55 659.21,-388.55 659.21,-412.82"/>
+<text text-anchor="middle" x="631.32" y="-397.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">swish_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~swish_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge16" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~swish_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-360.69C754.31,-372.44 704.34,-384.3 670.77,-392.02"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="670.06,-388.59 661.09,-394.24 671.62,-395.42 670.06,-388.59"/>
+</g>
+<!-- module~tensor_m -->
+<g id="program~~write_read_infer~~UsesGraph_node17" class="node">
+<title>module~tensor_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node17"><a xlink:href="../module/tensor_m.html" xlink:title="tensor_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="248.04,-142.82 187.02,-142.82 187.02,-118.55 248.04,-118.55 248.04,-142.82"/>
+<text text-anchor="middle" x="217.53" y="-127.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~tensor_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge17" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M419.3,-88.69C362.88,-80.86 298.58,-99.21 258.28,-114.08"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="257.08,-110.79 248.99,-117.62 259.58,-117.33 257.08,-110.79"/>
+</g>
+<!-- module~tensor_range_m -->
+<g id="program~~write_read_infer~~UsesGraph_node18" class="node">
+<title>module~tensor_range_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node18"><a xlink:href="../module/tensor_range_m.html" xlink:title="tensor_range_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="469.19,-220.82 371.42,-220.82 371.42,-196.55 469.19,-196.55 469.19,-220.82"/>
+<text text-anchor="middle" x="420.3" y="-205.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_range_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~tensor_range_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge18" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~tensor_range_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-188.69C790.44,-185.31 584.83,-198.08 480.63,-204.81"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="480.62,-201.3 470.86,-205.44 481.07,-208.28 480.62,-201.3"/>
+</g>
+<!-- module~trainable_engine_m -->
+<g id="program~~write_read_infer~~UsesGraph_node19" class="node">
+<title>module~trainable_engine_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node19"><a xlink:href="../module/trainable_engine_m.html" xlink:title="trainable_engine_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="857.1,-332.82 739.83,-332.82 739.83,-308.55 857.1,-308.55 857.1,-332.82"/>
+<text text-anchor="middle" x="798.47" y="-317.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~trainable_engine_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge19" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~trainable_engine_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M892.94,-332.96C885.03,-331.92 876.85,-330.85 868.78,-329.79"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="869.35,-326.33 858.98,-328.5 868.44,-333.27 869.35,-326.33"/>
+</g>
+<!-- module~training_configuration_m -->
+<g id="program~~write_read_infer~~UsesGraph_node20" class="node">
+<title>module~training_configuration_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node20"><a xlink:href="../module/training_configuration_m.html" xlink:title="training_configuration_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="703.83,-688.82 558.81,-688.82 558.81,-664.55 703.83,-664.55 703.83,-688.82"/>
+<text text-anchor="middle" x="631.32" y="-673.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~training_configuration_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge20" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M797.47,-716.69C787.89,-723.39 726.91,-706.48 681.83,-692.61"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="683.07,-689.33 672.48,-689.71 680.99,-696.02 683.07,-689.33"/>
+</g>
+<!-- module~ubounds_m -->
+<g id="program~~write_read_infer~~UsesGraph_node21" class="node">
+<title>module~ubounds_m</title>
+<g id="a_program~~write_read_infer~~UsesGraph_node21"><a xlink:href="../module/ubounds_m.html" xlink:title="ubounds_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="834.98,-412.82 761.96,-412.82 761.96,-388.55 834.98,-388.55 834.98,-412.82"/>
+<text text-anchor="middle" x="798.47" y="-397.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ubounds_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~ubounds_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge21" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~ubounds_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M919.91,-353.27C897.26,-362.19 866.61,-374.25 841.9,-383.98"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="840.8,-380.65 832.78,-387.57 843.37,-387.17 840.8,-380.65"/>
+</g>
+<!-- module~activation_strategy_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge23" class="edge">
+<title>module~activation_strategy_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M199.74,-488.06C172.25,-467.39 117.49,-426.2 85.17,-401.9"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="87.61,-399.35 77.51,-396.14 83.4,-404.94 87.61,-399.35"/>
+</g>
+<!-- julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_node23" class="node">
+<title>julienne_string_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="111.27,-610.82 6,-610.82 6,-586.55 111.27,-586.55 111.27,-610.82"/>
+<text text-anchor="middle" x="58.63" y="-595.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</g>
+<!-- module~activation_strategy_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge22" class="edge">
+<title>module~activation_strategy_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M196.34,-513.3C169.16,-530.28 120.59,-560.62 89.26,-580.18"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="87.66,-577.06 81.03,-585.33 91.37,-583 87.66,-577.06"/>
+</g>
+<!-- module~differentiable_activation_strategy_m&#45;&gt;module~activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge24" class="edge">
+<title>module~differentiable_activation_strategy_m&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#ff5900" stroke-dasharray="5,2" d="M394.59,-626.26C373.45,-615.18 342.58,-597.93 317.79,-579.69 300.31,-566.83 298.59,-560.43 281.79,-546.69 270.49,-537.45 257.52,-527.86 246.28,-519.84"/>
+<polygon fill="#ff5900" stroke="#ff5900" points="248.36,-517.02 238.17,-514.12 244.33,-522.74 248.36,-517.02"/>
+</g>
+<!-- module~gelu_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge27" class="edge">
+<title>module~gelu_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M603.95,-643.06C564.65,-654.89 488.16,-675.43 421.3,-678.69"/>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M419.3,-678.69C373.46,-680.93 354.21,-687.62 317.79,-659.69 288.45,-637.19 307.83,-610.94 281.79,-584.69 236.99,-539.52 201.23,-563.49 153.27,-521.69 114.76,-488.13 85.03,-435.22 70.15,-405.29"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="73.35,-403.87 65.85,-396.39 67.05,-406.92 73.35,-403.87"/>
+</g>
+<!-- module~gelu_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge26" class="edge">
+<title>module~gelu_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M603.85,-635.2C585.78,-635.54 560.47,-636.03 534.45,-636.52"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="534.72,-633.02 524.79,-636.71 534.85,-640.02 534.72,-633.02"/>
+</g>
+<!-- module~gelu_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge25" class="edge">
+<title>module~gelu_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M419.3,-678.69C324.31,-683.32 309.47,-780.52 218.53,-752.69"/>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M216.53,-752.69C187.78,-743.89 177.12,-747 153.27,-728.69 114.92,-699.26 85.49,-649.87 70.54,-621.19"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="73.85,-619.99 66.21,-612.65 67.61,-623.15 73.85,-619.99"/>
+</g>
+<!-- module~hyperparameters_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge29" class="edge">
+<title>module~hyperparameters_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#f0ff00" stroke-dasharray="5,2" d="M199.68,-780.09C185.2,-768.37 164.87,-749.59 153.27,-728.69 119.78,-668.37 135.05,-644.35 117.27,-577.69 100.59,-515.17 78.25,-442.22 66.91,-405.82"/>
+<polygon fill="#f0ff00" stroke="#f0ff00" points="70.28,-404.89 63.96,-396.39 63.6,-406.98 70.28,-404.89"/>
+</g>
+<!-- module~hyperparameters_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge28" class="edge">
+<title>module~hyperparameters_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#f0ff00" stroke-dasharray="5,2" d="M174.72,-780.2C167.03,-776.65 159.49,-772.21 153.27,-766.69 107.51,-726.05 79.28,-657.49 66.93,-621.82"/>
+<polygon fill="#f0ff00" stroke="#f0ff00" points="70.31,-620.89 63.83,-612.51 63.67,-623.1 70.31,-620.89"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge34" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M576.99,-308.14C534.97,-299.2 474.76,-288.46 421.3,-286.69"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge32" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M610.55,-333.19C594.83,-343.94 573.18,-360.69 558.81,-379.69 534.81,-411.44 554.68,-437.85 522.81,-461.69 487.65,-487.99 371.55,-496.59 293.36,-499.38"/>
+<polygon fill="#96ff00" stroke="#96ff00" points="293.5,-495.87 283.63,-499.7 293.74,-502.87 293.5,-495.87"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge33" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M607.96,-333.2C591.68,-343.52 570.52,-359.69 558.81,-379.69 513.19,-457.64 574.64,-505.72 522.81,-579.69 509.72,-598.37 488.68,-611.99 469.14,-621.41"/>
+<polygon fill="#96ff00" stroke="#96ff00" points="467.86,-618.15 460.19,-625.46 470.74,-624.53 467.86,-618.15"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~tensor_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge35" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M591.51,-308.17C580.74,-304.27 569.17,-299.67 558.81,-294.69 541.91,-286.56 540.15,-279.82 522.81,-272.69 479.94,-255.05 464.28,-266.07 421.3,-248.69"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~tensor_range_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge36" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~tensor_range_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M581.73,-308.15C573.55,-304.65 565.54,-300.24 558.81,-294.69 534.82,-274.91 547.74,-253.28 522.81,-234.69 510.61,-225.59 495.54,-219.66 480.78,-215.81"/>
+<polygon fill="#96ff00" stroke="#96ff00" points="481.61,-212.41 471.08,-213.58 480.04,-219.23 481.61,-212.41"/>
+</g>
+<!-- julienne_file_m -->
+<g id="program~~write_read_infer~~UsesGraph_node22" class="node">
+<title>julienne_file_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="466.19,-570.82 374.42,-570.82 374.42,-546.55 466.19,-546.55 466.19,-570.82"/>
+<text text-anchor="middle" x="420.3" y="-555.09" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_file_m</text>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;julienne_file_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge30" class="edge">
+<title>module~inference_engine_m_&#45;&gt;julienne_file_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M609.32,-333.21C593.34,-343.74 571.93,-360.19 558.81,-379.69 528.92,-424.13 555.47,-452.24 522.81,-494.69 507.27,-514.89 483.4,-530.4 462.71,-541.09"/>
+<polygon fill="#96ff00" stroke="#96ff00" points="461.34,-537.86 453.91,-545.42 464.43,-544.14 461.34,-537.86"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge31" class="edge">
+<title>module~inference_engine_m_&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M568.49,-332.11C469.31,-351.03 279.6,-389.84 218.53,-420.69"/>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M216.53,-420.69C146.58,-455.92 93.99,-537 71.56,-576.39"/>
+<polygon fill="#96ff00" stroke="#96ff00" points="68.57,-574.56 66.78,-585 74.69,-577.96 68.57,-574.56"/>
+</g>
+<!-- module~input_output_pair_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge37" class="edge">
+<title>module~input_output_pair_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#3cff00" stroke-dasharray="5,2" d="M359.74,-122.36C344.84,-118.5 329.73,-112.38 317.79,-102.69 289.7,-79.9 309.41,-53.06 281.79,-29.69 259.38,-10.73 245.59,0.7 218.53,-10.69"/>
+</g>
+<!-- module~input_output_pair_m&#45;&gt;module~tensor_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge38" class="edge">
+<title>module~input_output_pair_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#3cff00" stroke-dasharray="5,2" d="M359.88,-129.28C327.66,-129.6 288.65,-129.99 259.78,-130.28"/>
+<polygon fill="#3cff00" stroke="#3cff00" points="259.95,-126.78 249.98,-130.38 260.02,-133.78 259.95,-126.78"/>
+</g>
+<!-- module~mini_batch_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge40" class="edge">
+<title>module~mini_batch_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00ff1e" stroke-dasharray="5,2" d="M588.12,-175.79C525.62,-184.25 406.29,-192.37 317.79,-149.69 296.25,-139.3 303.64,-119.42 281.79,-109.69 229.61,-86.45 199.75,-76.49 153.27,-109.69 70.99,-168.45 60.25,-304.19 59.38,-359.05"/>
+<polygon fill="#00ff1e" stroke="#00ff1e" points="55.89,-358.79 59.34,-368.81 62.89,-358.82 55.89,-358.79"/>
+</g>
+<!-- module~mini_batch_m&#45;&gt;module~input_output_pair_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge39" class="edge">
+<title>module~mini_batch_m&#45;&gt;module~input_output_pair_m</title>
+<path fill="none" stroke="#00ff1e" stroke-dasharray="5,2" d="M588.02,-160.6C560.38,-155.31 523.62,-148.27 491.65,-142.15"/>
+<polygon fill="#00ff1e" stroke="#00ff1e" points="492.53,-138.76 482.05,-140.32 491.21,-145.63 492.53,-138.76"/>
+</g>
+<!-- module~network_configuration_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge41" class="edge">
+<title>module~network_configuration_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#00ff78" stroke-dasharray="5,2" d="M361.1,-845.31C319.42,-851.42 263.04,-853.53 218.53,-832.69"/>
+</g>
+<!-- module~relu_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge44" class="edge">
+<title>module~relu_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00ffd1" stroke-dasharray="5,2" d="M603.85,-436.83C582.11,-432.06 550.51,-425.24 522.81,-419.69 477.81,-410.67 465.07,-414.5 421.3,-400.69"/>
+</g>
+<!-- module~relu_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge43" class="edge">
+<title>module~relu_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#00ffd1" stroke-dasharray="5,2" d="M626.11,-455.23C614.82,-486.9 580.7,-570.58 522.81,-612.69 518.15,-616.08 513.08,-619.03 507.79,-621.6"/>
+<polygon fill="#00ffd1" stroke="#00ffd1" points="506.57,-618.31 498.76,-625.47 509.33,-624.74 506.57,-618.31"/>
+</g>
+<!-- module~relu_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge42" class="edge">
+<title>module~relu_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#00ffd1" stroke-dasharray="5,2" d="M625.01,-455.03C612.2,-483.09 576.6,-551.42 522.81,-579.69 402.87,-642.73 353.39,-585.52 218.53,-598.69"/>
+</g>
+<!-- module~sigmoid_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge47" class="edge">
+<title>module~sigmoid_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M596.22,-765.44C555.08,-775.31 483.67,-790.33 421.3,-792.69"/>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M419.3,-792.69C372.97,-794.44 359.26,-789.41 317.79,-768.69 299.16,-759.38 299.77,-749.19 281.79,-738.69 255.82,-723.52 241.46,-734.15 218.53,-714.69"/>
+</g>
+<!-- module~sigmoid_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge46" class="edge">
+<title>module~sigmoid_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M607.95,-744.06C570.79,-723.08 496.18,-680.96 453.4,-656.81"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="455.25,-653.84 444.83,-651.97 451.81,-659.94 455.25,-653.84"/>
+</g>
+<!-- module~sigmoid_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge45" class="edge">
+<title>module~sigmoid_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M419.3,-792.69C373.43,-794.42 362.8,-802.72 317.79,-811.69 273.57,-820.5 259.37,-851.81 218.53,-832.69"/>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M216.53,-832.69C189.94,-820.24 175.23,-833.18 153.27,-813.69 94.81,-761.8 71.37,-666.81 63.3,-622.55"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="66.76,-622.02 61.64,-612.75 59.86,-623.2 66.76,-622.02"/>
+</g>
+<!-- module~step_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge50" class="edge">
+<title>module~step_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#0078ff" stroke-dasharray="5,2" d="M393.02,-433.99C356.24,-424.64 292.69,-408.62 281.79,-406.69 230.94,-397.7 172.91,-391.57 128.92,-387.76"/>
+<polygon fill="#0078ff" stroke="#0078ff" points="129.24,-384.27 118.98,-386.92 128.65,-391.25 129.24,-384.27"/>
+</g>
+<!-- module~step_m&#45;&gt;module~activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge49" class="edge">
+<title>module~step_m&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#0078ff" stroke-dasharray="5,2" d="M392.85,-446.86C372.27,-451.8 343.06,-459.14 317.79,-466.69 299.89,-472.04 280.41,-478.56 263.48,-484.45"/>
+<polygon fill="#0078ff" stroke="#0078ff" points="262.47,-481.09 254.19,-487.71 264.79,-487.7 262.47,-481.09"/>
+</g>
+<!-- module~step_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge48" class="edge">
+<title>module~step_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#0078ff" stroke-dasharray="5,2" d="M392.82,-434.56C345.45,-424.16 248.39,-405.61 218.53,-420.69"/>
+</g>
+<!-- module~swish_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge53" class="edge">
+<title>module~swish_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M603.14,-405.78C562.49,-412.27 483.94,-420.46 421.3,-400.69"/>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M419.3,-400.69C321.44,-369.81 320.21,-272.91 218.53,-286.69"/>
+</g>
+<!-- module~swish_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge52" class="edge">
+<title>module~swish_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M603.07,-402.14C588.03,-404.37 570.15,-409.62 558.81,-421.69 509.48,-474.16 565.48,-521.67 522.81,-579.69 509.09,-598.34 487.56,-612.06 467.86,-621.54"/>
+<polygon fill="#001dff" stroke="#001dff" points="466.5,-618.31 458.84,-625.63 469.39,-624.69 466.5,-618.31"/>
+</g>
+<!-- module~swish_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge51" class="edge">
+<title>module~swish_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M603.06,-403.41C588.56,-406.06 571.22,-411.31 558.81,-421.69 531.36,-444.64 551.09,-471.77 522.81,-493.69 449.15,-550.78 404.29,-503.02 317.79,-537.69 269.73,-556.96 270.04,-593.41 218.53,-598.69"/>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M216.53,-598.69C185.94,-601.93 151.8,-602.32 123.2,-601.73"/>
+<polygon fill="#001dff" stroke="#001dff" points="123.32,-598.23 113.23,-601.48 123.14,-605.23 123.32,-598.23"/>
+</g>
+<!-- module~tensor_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge54" class="edge">
+<title>module~tensor_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#3c00ff" stroke-dasharray="5,2" d="M208.75,-143.19C183.76,-183.32 105.31,-309.33 73.37,-360.63"/>
+<polygon fill="#3c00ff" stroke="#3c00ff" points="70.58,-358.49 68.26,-368.83 76.52,-362.19 70.58,-358.49"/>
+</g>
+<!-- module~tensor_range_m&#45;&gt;julienne_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge55" class="edge">
+<title>module~tensor_range_m&#45;&gt;julienne_m</title>
+<path fill="none" stroke="#9500ff" stroke-dasharray="5,2" d="M392.85,-196.2C371.47,-185.46 341.21,-168.71 317.79,-149.69 299.23,-134.61 298.55,-126.75 281.79,-109.69 268.66,-96.33 253.31,-81.98 241.02,-70.78"/>
+<polygon fill="#9500ff" stroke="#9500ff" points="243.57,-68.37 233.81,-64.26 238.87,-73.56 243.57,-68.37"/>
+</g>
+<!-- module~tensor_range_m&#45;&gt;module~tensor_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge56" class="edge">
+<title>module~tensor_range_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#9500ff" stroke-dasharray="5,2" d="M371.08,-198.76C353.98,-194.61 334.77,-189.21 317.79,-182.69 293.89,-173.51 268.32,-160.02 249.12,-149.09"/>
+<polygon fill="#9500ff" stroke="#9500ff" points="250.88,-146.06 240.48,-144.07 247.37,-152.12 250.88,-146.06"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge60" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M630.32,-280.69C538.42,-266.86 514.19,-289.77 421.3,-286.69"/>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M419.3,-286.69C330.12,-283.73 306.95,-274.7 218.53,-286.69"/>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M216.53,-286.69C160.85,-294.24 107.59,-336.76 79.73,-362.62"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="77.52,-359.88 72.7,-369.32 82.35,-364.95 77.52,-359.88"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge58" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M757.56,-333.26C750.96,-336.76 744.69,-341.17 739.83,-346.69 703.84,-387.49 724.97,-413.56 703.83,-463.69 678.05,-524.81 695.36,-574.07 632.32,-594.69"/>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M630.32,-594.69C606.37,-602.53 548.93,-614.44 500.32,-623.9"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="499.78,-620.44 490.63,-625.77 501.11,-627.31 499.78,-620.44"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~inference_engine_m_ -->
+<g id="program~~write_read_infer~~UsesGraph_edge59" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~inference_engine_m_</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M739.71,-320.69C728.61,-320.69 716.86,-320.69 705.36,-320.69"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="705.49,-317.19 695.49,-320.69 705.49,-324.19 705.49,-317.19"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~mini_batch_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge61" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~mini_batch_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M783.95,-308.25C755.4,-281.97 688.74,-220.62 654.1,-188.73"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="656.86,-186.52 647.13,-182.33 652.12,-191.67 656.86,-186.52"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~tensor_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge62" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M630.32,-280.69C537.39,-266.7 508.42,-283.93 421.3,-248.69"/>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M419.3,-248.69C376.75,-231.48 358.41,-251.07 317.79,-229.69 282.17,-210.94 251.15,-175.1 233.65,-152.08"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="236.66,-150.26 227.9,-144.3 231.03,-154.42 236.66,-150.26"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~tensor_range_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge63" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~tensor_range_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M754.76,-308.15C721.66,-298.96 674.47,-287.03 632.32,-280.69"/>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M630.32,-280.69C578.93,-272.95 572.02,-251.41 522.81,-234.69 509.29,-230.09 494.51,-225.87 480.52,-222.23"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="481.53,-218.87 470.98,-219.8 479.81,-225.66 481.53,-218.87"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~training_configuration_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge64" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M755.54,-333.22C749.48,-336.7 743.91,-341.11 739.83,-346.69 658.21,-458.29 792.96,-549.99 703.83,-655.69 703.57,-656 703.31,-656.3 703.04,-656.59"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="700.77,-653.93 695.46,-663.09 705.33,-659.25 700.77,-653.93"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge57" class="edge">
+<title>module~trainable_engine_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M630.32,-280.69C582.26,-273.46 570.6,-291.82 522.81,-300.69 354.82,-331.88 277.76,-289.66 153.27,-406.69 102.58,-454.34 75.9,-535.26 65.26,-575.1"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="61.92,-574.04 62.84,-584.59 68.7,-575.77 61.92,-574.04"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge69" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M605.74,-689.26C567.51,-708.03 490.92,-742.47 421.3,-754.69"/>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M419.3,-754.69C396.9,-758.62 235.87,-729.41 218.53,-714.69"/>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M216.53,-714.69C116.49,-629.78 75.9,-466.8 63.83,-406.17"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="67.32,-405.81 62.01,-396.64 60.44,-407.12 67.32,-405.81"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge67" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M561.01,-664.09C542.14,-660.66 521.53,-656.91 502.08,-653.37"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="502.73,-649.94 492.27,-651.59 501.48,-656.82 502.73,-649.94"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~hyperparameters_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge68" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~hyperparameters_m</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M419.3,-754.69C375.89,-762.31 327.33,-771.48 288.84,-778.91"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="288.39,-775.43 279.24,-780.76 289.72,-782.3 288.39,-775.43"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~network_configuration_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge70" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M614.78,-689.12C600.16,-700.91 577.75,-719.21 558.81,-735.69 542.43,-749.93 540.06,-755.52 522.81,-768.69 500.57,-785.67 473.73,-802.45 453.23,-814.57"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="451.62,-811.46 444.75,-819.52 455.15,-817.5 451.62,-811.46"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;julienne_file_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge65" class="edge">
+<title>module~training_configuration_m&#45;&gt;julienne_file_m</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M576.28,-664.19C570.18,-661.81 564.22,-659 558.81,-655.69 538.96,-643.55 541.05,-632.13 522.81,-617.69 502.53,-601.64 477.42,-587.01 457.24,-576.33"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="459.03,-573.31 448.54,-571.81 455.8,-579.52 459.03,-573.31"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;julienne_string_m -->
+<g id="program~~write_read_infer~~UsesGraph_edge66" class="edge">
+<title>module~training_configuration_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M419.3,-754.69C331.41,-770.12 303.86,-778.81 218.53,-752.69"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramwrite_read_inferUsesGraph = svgPanZoom('#programwrite_read_inferUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 510.88 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>This program demonstrates how to write a neural network to a JSON file,
+read the same network from the written file, query the network object for
+some of its properties, print those properties, and use the network to
+perform inference.  The network performs an identity mapping from any
+non-negative inputs to the corresponding outputs using a RELU activation
+function.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: program~~write_read_infer~~CallsGraph Pages: 1 -->
+<svg id="programwrite_read_inferCallsGraph" width="641pt" height="472pt"
+ viewBox="0.00 0.00 641.00 472.16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~write_read_infer~~CallsGraph" class="graph" transform="scale(0.971492 0.971492) rotate(0) translate(4 482.02)">
+<title>program~~write_read_infer~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-482.02 655.81,-482.02 655.81,4 -4,4"/>
+<!-- program~write_read_infer -->
+<g id="program~~write_read_infer~~CallsGraph_node1" class="node">
+<title>program~write_read_infer</title>
+<polygon fill="none" stroke="black" points="97.02,-288.02 0,-288.02 0,-263.75 97.02,-263.75 97.02,-288.02"/>
+<text text-anchor="middle" x="48.51" y="-272.28" font-family="Helvetica,sans-Serif" font-size="10.50">write_read_infer</text>
+</g>
+<!-- flag_value -->
+<g id="program~~write_read_infer~~CallsGraph_node2" class="node">
+<title>flag_value</title>
+<polygon fill="#777777" stroke="#777777" points="232.66,-348.02 166.39,-348.02 166.39,-323.75 232.66,-323.75 232.66,-348.02"/>
+<text text-anchor="middle" x="199.53" y="-332.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">flag_value</text>
+</g>
+<!-- program~write_read_infer&#45;&gt;flag_value -->
+<g id="program~~write_read_infer~~CallsGraph_edge1" class="edge">
+<title>program~write_read_infer&#45;&gt;flag_value</title>
+<path fill="none" stroke="#ff0000" d="M80.03,-288.38C95.83,-294.84 115.45,-302.82 133.02,-309.88 140.51,-312.89 148.48,-316.08 156.2,-319.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.86,-322.38 165.45,-322.82 157.44,-315.87 154.86,-322.38"/>
+</g>
+<!-- proc~write_read_query_infer -->
+<g id="program~~write_read_infer~~CallsGraph_node3" class="node">
+<title>proc~write_read_query_infer</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node3"><a xlink:href="../proc/write_read_query_infer.html" xlink:title="write_read_query_infer">
+<polygon fill="#d9534f" stroke="#d9534f" points="266.04,-268.02 133.02,-268.02 133.02,-243.75 266.04,-243.75 266.04,-268.02"/>
+<text text-anchor="middle" x="199.53" y="-252.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_read_query_infer</text>
+</a>
+</g>
+</g>
+<!-- program~write_read_infer&#45;&gt;proc~write_read_query_infer -->
+<g id="program~~write_read_infer~~CallsGraph_edge2" class="edge">
+<title>program~write_read_infer&#45;&gt;proc~write_read_query_infer</title>
+<path fill="none" stroke="#ff0000" d="M97.48,-269.44C105.2,-268.41 113.36,-267.31 121.56,-266.21"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="121.78,-269.72 131.23,-264.92 120.85,-262.78 121.78,-269.72"/>
+</g>
+<!-- string -->
+<g id="program~~write_read_infer~~CallsGraph_node4" class="node">
+<title>string</title>
+<polygon fill="#777777" stroke="#777777" points="458.92,-478.02 404.92,-478.02 404.92,-453.75 458.92,-453.75 458.92,-478.02"/>
+<text text-anchor="middle" x="431.92" y="-462.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string</text>
+</g>
+<!-- program~write_read_infer&#45;&gt;string -->
+<g id="program~~write_read_infer~~CallsGraph_edge3" class="edge">
+<title>program~write_read_infer&#45;&gt;string</title>
+<path fill="none" stroke="#ff0000" d="M97.29,-278.65C153.4,-282.87 241.91,-292.88 266.04,-314.88 310.34,-355.28 257.41,-404.85 302.04,-444.88 326.59,-466.9 364.85,-470.68 393.32,-469.83"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="393.15,-473.35 402.95,-469.34 392.79,-466.36 393.15,-473.35"/>
+</g>
+<!-- string_t -->
+<g id="program~~write_read_infer~~CallsGraph_node5" class="node">
+<title>string_t</title>
+<polygon fill="#777777" stroke="#777777" points="651.81,-59.02 597.81,-59.02 597.81,-34.75 651.81,-34.75 651.81,-59.02"/>
+<text text-anchor="middle" x="624.81" y="-43.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string_t</text>
+</g>
+<!-- program~write_read_infer&#45;&gt;string_t -->
+<g id="program~~write_read_infer~~CallsGraph_edge4" class="edge">
+<title>program~write_read_infer&#45;&gt;string_t</title>
+<path fill="none" stroke="#ff0000" d="M56.85,-263.44C83.25,-220.15 178.32,-75.91 302.04,-24.88 408.77,19.14 448.03,-5.29 561.81,-24.88 570.09,-26.31 578.73,-28.73 586.84,-31.46"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="585.47,-34.69 596.07,-34.79 587.85,-28.1 585.47,-34.69"/>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;string -->
+<g id="program~~write_read_infer~~CallsGraph_edge14" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;string</title>
+<path fill="none" stroke="#7fff00" d="M248.56,-268.44C255.15,-271.89 261.28,-276.29 266.04,-281.88 314.13,-338.38 248.14,-393.91 302.04,-444.88 326.07,-467.61 364.57,-471.25 393.25,-470.18"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="393.19,-473.69 402.96,-469.6 392.77,-466.7 393.19,-473.69"/>
+</g>
+<!-- file_t -->
+<g id="program~~write_read_infer~~CallsGraph_node6" class="node">
+<title>file_t</title>
+<polygon fill="#777777" stroke="#777777" points="458.92,-436.02 404.92,-436.02 404.92,-411.75 458.92,-411.75 458.92,-436.02"/>
+<text text-anchor="middle" x="431.92" y="-420.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">file_t</text>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;file_t -->
+<g id="program~~write_read_infer~~CallsGraph_edge5" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;file_t</title>
+<path fill="none" stroke="#7fff00" d="M247.55,-268.4C254.44,-271.88 260.92,-276.29 266.04,-281.88 303.92,-323.28 259.92,-365.82 302.04,-402.88 326.69,-424.57 364.69,-428.44 393.05,-427.71"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="393.22,-431.21 403.04,-427.23 392.88,-424.22 393.22,-431.21"/>
+</g>
+<!-- interface~activation_function_name -->
+<g id="program~~write_read_infer~~CallsGraph_node7" class="node">
+<title>interface~activation_function_name</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node7"><a xlink:href="../interface/activation_function_name.html" xlink:title="inference_engine_t%activation_function_name">
+<polygon fill="#a7506f" stroke="#a7506f" points="561.81,-394.02 302.04,-394.02 302.04,-369.75 561.81,-369.75 561.81,-394.02"/>
+<text text-anchor="middle" x="431.92" y="-378.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t%activation_function_name</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~activation_function_name -->
+<g id="program~~write_read_infer~~CallsGraph_edge6" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~activation_function_name</title>
+<path fill="none" stroke="#7fff00" d="M245.55,-268.39C253,-271.89 260.19,-276.32 266.04,-281.88 293.99,-308.48 271.38,-337.46 302.04,-360.88 303.23,-361.79 304.45,-362.67 305.68,-363.51"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="303.89,-366.52 314.27,-368.61 307.46,-360.5 303.89,-366.52"/>
+</g>
+<!-- interface~infer -->
+<g id="program~~write_read_infer~~CallsGraph_node8" class="node">
+<title>interface~infer</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node8"><a xlink:href="../interface/infer.html" xlink:title="inference_engine_t%infer">
+<polygon fill="#a7506f" stroke="#a7506f" points="505.56,-352.02 358.29,-352.02 358.29,-327.75 505.56,-327.75 505.56,-352.02"/>
+<text text-anchor="middle" x="431.92" y="-336.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t%infer</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~infer -->
+<g id="program~~write_read_infer~~CallsGraph_edge7" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~infer</title>
+<path fill="none" stroke="#7fff00" d="M239.99,-268.43C248.92,-272.1 258.1,-276.59 266.04,-281.88 285.12,-294.62 281.69,-308.28 302.04,-318.88 315.79,-326.05 331.4,-330.88 346.88,-334.12"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="346.15,-337.55 356.62,-335.93 347.43,-330.66 346.15,-337.55"/>
+</g>
+<!-- interface~nodes_per_layer -->
+<g id="program~~write_read_infer~~CallsGraph_node9" class="node">
+<title>interface~nodes_per_layer</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node9"><a xlink:href="../interface/nodes_per_layer.html" xlink:title="inference_engine_t%nodes_per_layer">
+<polygon fill="#a7506f" stroke="#a7506f" points="537.06,-310.02 326.79,-310.02 326.79,-285.75 537.06,-285.75 537.06,-310.02"/>
+<text text-anchor="middle" x="431.92" y="-294.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t%nodes_per_layer</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~nodes_per_layer -->
+<g id="program~~write_read_infer~~CallsGraph_edge8" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~nodes_per_layer</title>
+<path fill="none" stroke="#7fff00" d="M259.22,-268.47C273.23,-271.35 288.15,-274.32 302.04,-276.88 314.11,-279.11 326.84,-281.34 339.41,-283.46"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="338.46,-286.85 348.9,-285.05 339.62,-279.95 338.46,-286.85"/>
+</g>
+<!-- interface~num_inputs~2 -->
+<g id="program~~write_read_infer~~CallsGraph_node10" class="node">
+<title>interface~num_inputs~2</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node10"><a xlink:href="../interface/num_inputs~2.html" xlink:title="inference_engine_t%num_inputs">
+<polygon fill="#a7506f" stroke="#a7506f" points="523.93,-268.02 339.91,-268.02 339.91,-243.75 523.93,-243.75 523.93,-268.02"/>
+<text text-anchor="middle" x="431.92" y="-252.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t%num_inputs</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~num_inputs~2 -->
+<g id="program~~write_read_infer~~CallsGraph_edge9" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~num_inputs~2</title>
+<path fill="none" stroke="#7fff00" d="M266.24,-255.88C285.64,-255.88 307.34,-255.88 328.46,-255.88"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="328.26,-259.38 338.26,-255.88 328.26,-252.38 328.26,-259.38"/>
+</g>
+<!-- interface~num_outputs -->
+<g id="program~~write_read_infer~~CallsGraph_node11" class="node">
+<title>interface~num_outputs</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node11"><a xlink:href="../interface/num_outputs.html" xlink:title="inference_engine_t%num_outputs">
+<polygon fill="#a7506f" stroke="#a7506f" points="527.68,-226.02 336.16,-226.02 336.16,-201.75 527.68,-201.75 527.68,-226.02"/>
+<text text-anchor="middle" x="431.92" y="-210.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t%num_outputs</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~num_outputs -->
+<g id="program~~write_read_infer~~CallsGraph_edge10" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~num_outputs</title>
+<path fill="none" stroke="#7fff00" d="M259.22,-243.3C273.23,-240.42 288.15,-237.45 302.04,-234.88 314.11,-232.65 326.84,-230.43 339.41,-228.3"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="339.62,-231.82 348.9,-226.71 338.46,-224.91 339.62,-231.82"/>
+</g>
+<!-- interface~to_json~2 -->
+<g id="program~~write_read_infer~~CallsGraph_node12" class="node">
+<title>interface~to_json~2</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node12"><a xlink:href="../interface/to_json~2.html" xlink:title="inference_engine_t%to_json">
+<polygon fill="#a7506f" stroke="#a7506f" points="511.93,-184.02 351.91,-184.02 351.91,-159.75 511.93,-159.75 511.93,-184.02"/>
+<text text-anchor="middle" x="431.92" y="-168.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t%to_json</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~to_json~2 -->
+<g id="program~~write_read_infer~~CallsGraph_edge11" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~to_json~2</title>
+<path fill="none" stroke="#7fff00" d="M216.36,-243.26C235.49,-228.7 269.22,-205.18 302.04,-192.88 314.23,-188.32 327.44,-184.74 340.59,-181.94"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="340.98,-185.43 350.12,-180.06 339.63,-178.56 340.98,-185.43"/>
+</g>
+<!-- interface~values -->
+<g id="program~~write_read_infer~~CallsGraph_node13" class="node">
+<title>interface~values</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node13"><a xlink:href="../interface/values.html" xlink:title="tensor_t%values">
+<polygon fill="#a7506f" stroke="#a7506f" points="481.18,-142.02 382.66,-142.02 382.66,-117.75 481.18,-117.75 481.18,-142.02"/>
+<text text-anchor="middle" x="431.92" y="-126.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_t%values</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;interface~values -->
+<g id="program~~write_read_infer~~CallsGraph_edge12" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;interface~values</title>
+<path fill="none" stroke="#7fff00" d="M208.54,-243.35C223.74,-220.73 259.13,-173.33 302.04,-150.88 323.09,-139.87 348.51,-134.36 371.18,-131.68"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="371.3,-135.19 380.9,-130.71 370.6,-128.22 371.3,-135.19"/>
+</g>
+<!-- proc~identity_network -->
+<g id="program~~write_read_infer~~CallsGraph_node14" class="node">
+<title>proc~identity_network</title>
+<g id="a_program~~write_read_infer~~CallsGraph_node14"><a xlink:href="../proc/identity_network.html" xlink:title="identity_network">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="481.56,-100.02 382.29,-100.02 382.29,-75.75 481.56,-75.75 481.56,-100.02"/>
+<text text-anchor="middle" x="431.92" y="-84.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">identity_network</text>
+</a>
+</g>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;proc~identity_network -->
+<g id="program~~write_read_infer~~CallsGraph_edge13" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;proc~identity_network</title>
+<path fill="none" stroke="#7fff00" d="M205.11,-243.49C216.5,-214.54 249.09,-142.37 302.04,-108.88 322.2,-96.13 347.56,-90.31 370.44,-87.89"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="370.61,-91.38 380.28,-87.06 370.02,-84.41 370.61,-91.38"/>
+</g>
+<!-- write_lines -->
+<g id="program~~write_read_infer~~CallsGraph_node15" class="node">
+<title>write_lines</title>
+<polygon fill="#777777" stroke="#777777" points="465.81,-58.02 398.04,-58.02 398.04,-33.75 465.81,-33.75 465.81,-58.02"/>
+<text text-anchor="middle" x="431.92" y="-42.28" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_lines</text>
+</g>
+<!-- proc~write_read_query_infer&#45;&gt;write_lines -->
+<g id="program~~write_read_infer~~CallsGraph_edge15" class="edge">
+<title>proc~write_read_query_infer&#45;&gt;write_lines</title>
+<path fill="none" stroke="#7fff00" d="M203.13,-243.68C211.11,-209.46 238.67,-112.1 302.04,-66.88 326.31,-49.56 359.67,-44.5 386.37,-43.67"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="386.25,-47.17 396.22,-43.56 386.18,-40.17 386.25,-47.17"/>
+</g>
+<!-- proc~identity_network&#45;&gt;string_t -->
+<g id="program~~write_read_infer~~CallsGraph_edge16" class="edge">
+<title>proc~identity_network&#45;&gt;string_t</title>
+<path fill="none" stroke="#cc00ff" d="M481.93,-81.67C506.14,-78.15 535.69,-73.18 561.81,-66.88 569.97,-64.91 578.62,-62.4 586.78,-59.83"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="587.65,-63.23 596.07,-56.8 585.48,-56.57 587.65,-63.23"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramwrite_read_inferCallsGraph = svgPanZoom('#programwrite_read_inferCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 28.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-command_line~5"></span>
+              type(command_line_t)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>command_line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file_name~5"></span>
+              type(string_t)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-identity_network"></span> <h3> function <a href='../proc/identity_network.html'>identity_network</a>() result(inference_engine)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+    <h4>
+    Return Value
+    <small>type(<a href='../type/inference_engine_t.html'>inference_engine_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-write_read_query_infer"></span> <h3> subroutine <a href='../proc/write_read_query_infer.html'>write_read_query_infer</a>(output_file_name)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-output_file_name"></span>
+              type(string_t),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>output_file_name</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

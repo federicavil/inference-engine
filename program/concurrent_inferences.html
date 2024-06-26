@@ -1,0 +1,1238 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>concurrent_inferences &ndash; Inference-Engine</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>concurrent_inferences      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 6.9% of total for programs.">63 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/concurrent-inferences.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/concurrent-inferences.f90.html'>concurrent-inferences.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">concurrent_inferences</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/concurrent_inferences.html#variable-command_line~9">command_line</a>
+            <a class="list-group-item" href="../program/concurrent_inferences.html#variable-network_file_name">network_file_name</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/inference_engine_m.html'>inference_engine_m</a></li>
+                  <li class="list-inline-item">assert_m</li>
+                  <li class="list-inline-item">julienne_m</li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: program~~concurrent_inferences~~UsesGraph Pages: 1 -->
+<svg id="programconcurrent_inferencesUsesGraph" width="641pt" height="457pt"
+ viewBox="0.00 0.00 641.00 456.93" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~concurrent_inferences~~UsesGraph" class="graph" transform="scale(0.540181 0.540181) rotate(0) translate(4 841.89)">
+<title>program~~concurrent_inferences~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-841.89 1182.64,-841.89 1182.64,4 -4,4"/>
+<!-- program~concurrent_inferences -->
+<g id="program~~concurrent_inferences~~UsesGraph_node1" class="node">
+<title>program~concurrent_inferences</title>
+<polygon fill="none" stroke="black" points="1178.64,-775.89 1048.62,-775.89 1048.62,-751.62 1178.64,-751.62 1178.64,-775.89"/>
+<text text-anchor="middle" x="1113.63" y="-760.16" font-family="Helvetica,sans-Serif" font-size="10.50">concurrent_inferences</text>
+</g>
+<!-- assert_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node2" class="node">
+<title>assert_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="982.62,-837.89 923.1,-837.89 923.1,-813.62 982.62,-813.62 982.62,-837.89"/>
+<text text-anchor="middle" x="952.86" y="-822.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assert_m</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;assert_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge1" class="edge">
+<title>program~concurrent_inferences&#45;&gt;assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1083.01,-776.31C1063.19,-784.62 1036.45,-795.62 1012.62,-804.76 1006.46,-807.12 999.91,-809.54 993.51,-811.87"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="992.6,-808.47 984.37,-815.15 994.97,-815.06 992.6,-808.47"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~concurrent_inferences~~UsesGraph_node3" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node3"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="999.5,-795.89 906.23,-795.89 906.23,-771.62 999.5,-771.62 999.5,-795.89"/>
+<text text-anchor="middle" x="952.86" y="-780.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;iso_fortran_env -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge2" class="edge">
+<title>program~concurrent_inferences&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1048.51,-771.83C1036.12,-773.39 1023.21,-775.02 1011.06,-776.55"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1010.66,-773.07 1001.18,-777.8 1011.54,-780.02 1010.66,-773.07"/>
+</g>
+<!-- julienne_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node4" class="node">
+<title>julienne_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="252.54,-715.89 182.52,-715.89 182.52,-691.62 252.54,-691.62 252.54,-715.89"/>
+<text text-anchor="middle" x="217.53" y="-700.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;julienne_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge3" class="edge">
+<title>program~concurrent_inferences&#45;&gt;julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1048.33,-759.44C876.79,-747.93 411.37,-716.7 263.96,-706.8"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="264.41,-703.33 254.2,-706.15 263.94,-710.31 264.41,-703.33"/>
+</g>
+<!-- module~inference_engine_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node5" class="node">
+<title>module~inference_engine_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node5"><a xlink:href="../module/inference_engine_m.html" xlink:title="inference_engine_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1012.62,-596.89 893.1,-596.89 893.1,-572.62 1012.62,-572.62 1012.62,-596.89"/>
+<text text-anchor="middle" x="952.86" y="-581.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m</text>
+</a>
+</g>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;module~inference_engine_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge4" class="edge">
+<title>program~concurrent_inferences&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1101.47,-751.17C1074.41,-720.67 1005.15,-642.58 972.03,-605.24"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="975.06,-603.38 965.81,-598.22 969.82,-608.03 975.06,-603.38"/>
+</g>
+<!-- module~activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node6" class="node">
+<title>module~activation_strategy_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node6"><a xlink:href="../module/activation_strategy_m.html" xlink:title="activation_strategy_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="281.79,-266.89 153.27,-266.89 153.27,-242.62 281.79,-242.62 281.79,-266.89"/>
+<text text-anchor="middle" x="217.53" y="-251.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">activation_strategy_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge5" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C755.63,-189.99 751.44,-263.62 703.83,-277.76 555.58,-321.79 370.74,-290.95 277.78,-269.9"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="278.64,-266.51 268.11,-267.66 277.06,-273.33 278.64,-266.51"/>
+</g>
+<!-- module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node7" class="node">
+<title>module~differentiable_activation_strategy_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node7"><a xlink:href="../module/differentiable_activation_strategy_m.html" xlink:title="differentiable_activation_strategy_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="522.81,-228.89 317.79,-228.89 317.79,-204.62 522.81,-204.62 522.81,-228.89"/>
+<text text-anchor="middle" x="420.3" y="-213.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">differentiable_activation_strategy_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge6" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C735.99,-176.65 703.53,-234.53 632.32,-216.76"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M630.32,-216.76C599.83,-209.14 566.04,-206.68 534.68,-206.76"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="534.72,-203.26 524.76,-206.88 534.8,-210.26 534.72,-203.26"/>
+</g>
+<!-- module~gelu_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node8" class="node">
+<title>module~gelu_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node8"><a xlink:href="../module/gelu_m.html" xlink:title="gelu_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="658.32,-268.89 604.32,-268.89 604.32,-244.62 658.32,-244.62 658.32,-268.89"/>
+<text text-anchor="middle" x="631.32" y="-253.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gelu_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~gelu_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge7" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~gelu_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C786.76,-209.77 714.86,-230.58 669.53,-244.75"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="668.56,-241.38 660.07,-247.73 670.66,-248.06 668.56,-241.38"/>
+</g>
+<!-- module~hyperparameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node9" class="node">
+<title>module~hyperparameters_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node9"><a xlink:href="../module/hyperparameters_m.html" xlink:title="hyperparameters_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="277.67,-460.89 157.4,-460.89 157.4,-436.62 277.67,-436.62 277.67,-460.89"/>
+<text text-anchor="middle" x="217.53" y="-445.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hyperparameters_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~hyperparameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge8" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~hyperparameters_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C715.3,-163.81 778.74,-352.96 703.83,-415.76 581.07,-518.67 373.78,-487.19 274.64,-463.98"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="275.68,-460.63 265.14,-461.69 274.04,-467.43 275.68,-460.63"/>
+</g>
+<!-- module~inference_engine_m_ -->
+<g id="program~~concurrent_inferences~~UsesGraph_node10" class="node">
+<title>module~inference_engine_m_</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node10"><a xlink:href="../module/inference_engine_m_.html" xlink:title="inference_engine_m_">
+<polygon fill="#337ab7" stroke="#337ab7" points="693.71,-406.89 568.94,-406.89 568.94,-382.62 693.71,-382.62 693.71,-406.89"/>
+<text text-anchor="middle" x="631.32" y="-391.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m_</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~inference_engine_m_ -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge9" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~inference_engine_m_</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C734.46,-175.65 759.83,-307.53 703.83,-357.76 695.32,-365.39 684.96,-371.92 674.79,-377.27"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="673.53,-373.99 666.11,-381.56 676.63,-380.26 673.53,-373.99"/>
+</g>
+<!-- module~input_output_pair_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node11" class="node">
+<title>module~input_output_pair_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node11"><a xlink:href="../module/input_output_pair_m.html" xlink:title="input_output_pair_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="480.44,-696.89 360.17,-696.89 360.17,-672.62 480.44,-672.62 480.44,-696.89"/>
+<text text-anchor="middle" x="420.3" y="-681.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">input_output_pair_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~input_output_pair_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge10" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~input_output_pair_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-665.76C724.28,-684.41 706.88,-693.72 632.32,-705.76"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M630.32,-705.76C581.34,-713.66 525.4,-707.23 483.72,-699.48"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="484.6,-696.08 474.12,-697.61 483.27,-702.95 484.6,-696.08"/>
+</g>
+<!-- module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node12" class="node">
+<title>module~kind_parameters_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node12"><a xlink:href="../module/kind_parameters_m.html" xlink:title="kind_parameters_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="117.27,-538.89 0,-538.89 0,-514.62 117.27,-514.62 117.27,-538.89"/>
+<text text-anchor="middle" x="58.63" y="-523.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">kind_parameters_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge11" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M630.32,-705.76C420.84,-739.56 332.54,-838.28 153.27,-724.76 91.59,-685.7 69.76,-593.85 62.7,-550.37"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="66.2,-550.11 61.27,-540.74 59.28,-551.14 66.2,-550.11"/>
+</g>
+<!-- module~mini_batch_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node13" class="node">
+<title>module~mini_batch_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node13"><a xlink:href="../module/mini_batch_m.html" xlink:title="mini_batch_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="674.21,-677.89 588.44,-677.89 588.44,-653.62 674.21,-653.62 674.21,-677.89"/>
+<text text-anchor="middle" x="631.32" y="-662.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mini_batch_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~mini_batch_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge12" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~mini_batch_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-665.76C760.86,-674.78 718.29,-674.53 685.53,-672.16"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="686.15,-668.69 675.89,-671.36 685.57,-675.67 686.15,-668.69"/>
+</g>
+<!-- module~network_configuration_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node14" class="node">
+<title>module~network_configuration_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node14"><a xlink:href="../module/network_configuration_m.html" xlink:title="network_configuration_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="493.56,-148.89 347.04,-148.89 347.04,-124.62 493.56,-124.62 493.56,-148.89"/>
+<text text-anchor="middle" x="420.3" y="-133.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">network_configuration_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~network_configuration_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge13" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C755.87,-189.62 750.94,-171.49 703.83,-155.76 639.46,-134.26 562.36,-130.42 504.97,-131.45"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="505.19,-127.94 495.28,-131.68 505.36,-134.94 505.19,-127.94"/>
+</g>
+<!-- module~relu_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node15" class="node">
+<title>module~relu_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node15"><a xlink:href="../module/relu_m.html" xlink:title="relu_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="658.32,-108.89 604.32,-108.89 604.32,-84.62 658.32,-84.62 658.32,-108.89"/>
+<text text-anchor="middle" x="631.32" y="-93.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">relu_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~relu_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge14" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~relu_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C748.08,-184.54 753.54,-154.48 703.83,-122.76 693.37,-116.08 680.95,-110.8 669.42,-106.79"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="670.77,-103.55 660.18,-103.8 668.61,-110.21 670.77,-103.55"/>
+</g>
+<!-- module~sigmoid_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node16" class="node">
+<title>module~sigmoid_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node16"><a xlink:href="../module/sigmoid_m.html" xlink:title="sigmoid_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="665.96,-188.89 596.69,-188.89 596.69,-164.62 665.96,-164.62 665.96,-188.89"/>
+<text text-anchor="middle" x="631.32" y="-173.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sigmoid_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~sigmoid_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge15" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~sigmoid_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C761.39,-193.22 712.75,-183.52 677.61,-179.53"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="678.06,-176.06 667.76,-178.54 677.35,-183.02 678.06,-176.06"/>
+</g>
+<!-- module~step_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node17" class="node">
+<title>module~step_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node17"><a xlink:href="../module/step_m.html" xlink:title="step_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="447.3,-68.89 393.3,-68.89 393.3,-44.62 447.3,-44.62 447.3,-68.89"/>
+<text text-anchor="middle" x="420.3" y="-53.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">step_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~step_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge16" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~step_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M951.36,-572.18C948.44,-517.66 928.77,-300.77 799.47,-216.76"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C720.85,-166.98 781.77,-81.43 703.83,-33.76 663.65,-9.18 525.58,-34.22 458.49,-48.41"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="458.11,-44.91 449.07,-50.44 459.58,-51.76 458.11,-44.91"/>
+</g>
+<!-- module~swish_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node18" class="node">
+<title>module~swish_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node18"><a xlink:href="../module/swish_m.html" xlink:title="swish_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="659.21,-66.89 603.44,-66.89 603.44,-42.62 659.21,-42.62 659.21,-66.89"/>
+<text text-anchor="middle" x="631.32" y="-51.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">swish_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~swish_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge17" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~swish_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C734.46,-175.65 764.39,-120.39 703.83,-75.76 694.14,-68.62 682.06,-63.89 670.59,-60.77"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="671.46,-57.38 660.92,-58.5 669.86,-64.2 671.46,-57.38"/>
+</g>
+<!-- module~tensor_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node19" class="node">
+<title>module~tensor_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node19"><a xlink:href="../module/tensor_m.html" xlink:title="tensor_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="248.04,-597.89 187.02,-597.89 187.02,-573.62 248.04,-573.62 248.04,-597.89"/>
+<text text-anchor="middle" x="217.53" y="-582.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~tensor_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge18" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M892.95,-573.2C794.17,-555.88 589.42,-528.87 421.3,-564.76"/>
+</g>
+<!-- module~tensor_range_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node20" class="node">
+<title>module~tensor_range_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node20"><a xlink:href="../module/tensor_range_m.html" xlink:title="tensor_range_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="469.19,-616.89 371.42,-616.89 371.42,-592.62 469.19,-592.62 469.19,-616.89"/>
+<text text-anchor="middle" x="420.3" y="-601.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_range_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~tensor_range_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge19" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~tensor_range_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M935.18,-597.24C908.3,-616.49 853,-652.57 799.47,-665.76"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-665.76C756.05,-675.96 745.79,-652.42 703.83,-644.76 627.23,-630.77 538.19,-618.88 480.86,-611.78"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="481.33,-608.31 470.98,-610.57 480.48,-615.26 481.33,-608.31"/>
+</g>
+<!-- module~trainable_engine_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node21" class="node">
+<title>module~trainable_engine_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node21"><a xlink:href="../module/trainable_engine_m.html" xlink:title="trainable_engine_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="857.1,-406.89 739.83,-406.89 739.83,-382.62 857.1,-382.62 857.1,-406.89"/>
+<text text-anchor="middle" x="798.47" y="-391.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~trainable_engine_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge20" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~trainable_engine_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M941.86,-572.29C916.24,-540.34 848,-455.27 816.21,-415.63"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="819.24,-413.81 810.25,-408.2 813.78,-418.19 819.24,-413.81"/>
+</g>
+<!-- module~training_configuration_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node22" class="node">
+<title>module~training_configuration_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node22"><a xlink:href="../module/training_configuration_m.html" xlink:title="training_configuration_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="703.83,-348.89 558.81,-348.89 558.81,-324.62 703.83,-324.62 703.83,-348.89"/>
+<text text-anchor="middle" x="631.32" y="-333.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~training_configuration_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge21" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M797.47,-216.76C748.08,-184.54 753.54,-279.03 703.83,-310.76 698.61,-314.09 692.9,-317.07 687.07,-319.72"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="685.76,-316.47 677.88,-323.55 688.46,-322.93 685.76,-316.47"/>
+</g>
+<!-- module~ubounds_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node23" class="node">
+<title>module~ubounds_m</title>
+<g id="a_program~~concurrent_inferences~~UsesGraph_node23"><a xlink:href="../module/ubounds_m.html" xlink:title="ubounds_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="834.98,-616.89 761.96,-616.89 761.96,-592.62 834.98,-592.62 834.98,-616.89"/>
+<text text-anchor="middle" x="798.47" y="-601.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ubounds_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~ubounds_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge22" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~ubounds_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M892.94,-592.49C877.61,-594.5 861.29,-596.64 846.65,-598.56"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="846.28,-595.08 836.82,-599.85 847.19,-602.02 846.28,-595.08"/>
+</g>
+<!-- module~activation_strategy_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge24" class="edge">
+<title>module~activation_strategy_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M201.42,-267.22C187.53,-279.29 167.06,-298.66 153.27,-318.76 111.15,-380.15 80.4,-463.55 67.03,-503.52"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="63.78,-502.21 63.99,-512.8 70.43,-504.39 63.78,-502.21"/>
+</g>
+<!-- julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node25" class="node">
+<title>julienne_string_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="111.27,-266.89 6,-266.89 6,-242.62 111.27,-242.62 111.27,-266.89"/>
+<text text-anchor="middle" x="58.63" y="-251.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</g>
+<!-- module~activation_strategy_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge23" class="edge">
+<title>module~activation_strategy_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M153.17,-254.76C143.26,-254.76 133.03,-254.76 123.12,-254.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="123.2,-251.26 113.2,-254.76 123.2,-258.26 123.2,-251.26"/>
+</g>
+<!-- module~differentiable_activation_strategy_m&#45;&gt;module~activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge25" class="edge">
+<title>module~differentiable_activation_strategy_m&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#ff5400" stroke-dasharray="5,2" d="M352.73,-229.36C333.74,-232.95 312.92,-236.89 293.47,-240.57"/>
+<polygon fill="#ff5400" stroke="#ff5400" points="292.86,-237.13 283.69,-242.42 294.16,-244 292.86,-237.13"/>
+</g>
+<!-- module~gelu_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge27" class="edge">
+<title>module~gelu_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#ffaa00" stroke-dasharray="5,2" d="M603.85,-251.69C577.25,-246.6 534.99,-238.51 497.83,-231.4"/>
+<polygon fill="#ffaa00" stroke="#ffaa00" points="498.96,-228.05 488.48,-229.61 497.64,-234.93 498.96,-228.05"/>
+</g>
+<!-- module~gelu_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge28" class="edge">
+<title>module~gelu_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ffaa00" stroke-dasharray="5,2" d="M603.87,-260.82C514.87,-274.87 227.71,-323.59 153.27,-377.76 108.63,-410.24 80.36,-471.1 67.59,-504.09"/>
+<polygon fill="#ffaa00" stroke="#ffaa00" points="64.45,-502.5 64.24,-513.09 71.01,-504.94 64.45,-502.5"/>
+</g>
+<!-- module~gelu_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge26" class="edge">
+<title>module~gelu_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ffaa00" stroke-dasharray="5,2" d="M604.03,-259.37C549.27,-263.9 419.65,-269.92 317.79,-237.76 268.41,-222.16 269.87,-170 218.53,-176.76"/>
+</g>
+<!-- module~hyperparameters_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge30" class="edge">
+<title>module~hyperparameters_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M184.03,-461.26C174.05,-465.33 163.11,-470.02 153.27,-474.76 131.74,-485.12 108.23,-498.18 90.16,-508.62"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="88.65,-505.45 81.77,-513.5 92.17,-511.49 88.65,-505.45"/>
+</g>
+<!-- module~hyperparameters_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge29" class="edge">
+<title>module~hyperparameters_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M203.07,-436.32C189.83,-423.82 169.31,-403.72 153.27,-384.76 122.67,-348.57 91.33,-302.96 73.78,-276.51"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="76.81,-274.75 68.39,-268.32 70.96,-278.59 76.81,-274.75"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge33" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M595.55,-407.34C569.75,-416.56 536.74,-428.08 522.81,-431.76 478.43,-443.48 467.13,-453.36 421.3,-450.76"/>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M419.3,-450.76C373.47,-448.15 354.21,-459.69 317.79,-431.76 288.45,-409.26 299.56,-389.18 281.79,-356.76 266.35,-328.59 246.57,-297.37 233.28,-276.98"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="236.22,-275.08 227.8,-268.64 230.37,-278.92 236.22,-275.08"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge34" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M600.89,-382.16C587.47,-375.77 571.73,-367.33 558.81,-357.76 509.97,-321.57 462.66,-267.65 438.3,-238.08"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="441.2,-236.1 432.18,-230.56 435.77,-240.52 441.2,-236.1"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge35" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M419.3,-450.76C360.84,-447.43 201.37,-487.93 115.75,-511.13"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="114.87,-507.74 106.14,-513.74 116.71,-514.49 114.87,-507.74"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~tensor_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge36" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M621.8,-407.26C596.47,-442.99 517.36,-544.25 421.3,-564.76"/>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M419.3,-564.76C364.87,-576.38 300.7,-581.66 259.83,-584"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="259.74,-580.5 249.95,-584.53 260.12,-587.49 259.74,-580.5"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;module~tensor_range_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge37" class="edge">
+<title>module~inference_engine_m_&#45;&gt;module~tensor_range_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M622.4,-407.39C609.01,-428.86 581.15,-473.93 558.81,-512.76 542.15,-541.72 549.18,-558.24 522.81,-578.76 510.62,-588.24 495.35,-594.29 480.39,-598.15"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="480.05,-594.63 471.07,-600.25 481.59,-601.46 480.05,-594.63"/>
+</g>
+<!-- julienne_file_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_node24" class="node">
+<title>julienne_file_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="466.19,-422.89 374.42,-422.89 374.42,-398.62 466.19,-398.62 466.19,-422.89"/>
+<text text-anchor="middle" x="420.3" y="-407.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_file_m</text>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;julienne_file_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge31" class="edge">
+<title>module~inference_engine_m_&#45;&gt;julienne_file_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M568.46,-399.49C539.68,-401.69 505.69,-404.3 477.63,-406.44"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="477.62,-402.93 467.91,-407.19 478.15,-409.91 477.62,-402.93"/>
+</g>
+<!-- module~inference_engine_m_&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge32" class="edge">
+<title>module~inference_engine_m_&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M419.3,-450.76C289.82,-443.12 259.12,-405.72 153.27,-330.76 128.13,-312.95 100.96,-290.51 82.39,-274.64"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="84.78,-272.07 74.92,-268.2 80.21,-277.38 84.78,-272.07"/>
+</g>
+<!-- module~input_output_pair_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge38" class="edge">
+<title>module~input_output_pair_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#54ff00" stroke-dasharray="5,2" d="M359.82,-678.36C319.05,-672.67 264.28,-662.43 218.53,-644.76"/>
+</g>
+<!-- module~input_output_pair_m&#45;&gt;module~tensor_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge39" class="edge">
+<title>module~input_output_pair_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#54ff00" stroke-dasharray="5,2" d="M393.87,-672.22C358.52,-654.78 294.35,-623.14 254.21,-603.35"/>
+<polygon fill="#54ff00" stroke="#54ff00" points="255.94,-600.3 245.42,-599.02 252.85,-606.58 255.94,-600.3"/>
+</g>
+<!-- module~mini_batch_m&#45;&gt;module~input_output_pair_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge40" class="edge">
+<title>module~mini_batch_m&#45;&gt;module~input_output_pair_m</title>
+<path fill="none" stroke="#00ff55" stroke-dasharray="5,2" d="M588.02,-669.6C560.38,-672.11 523.62,-675.46 491.65,-678.36"/>
+<polygon fill="#00ff55" stroke="#00ff55" points="491.71,-674.84 482.07,-679.23 492.35,-681.81 491.71,-674.84"/>
+</g>
+<!-- module~mini_batch_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge41" class="edge">
+<title>module~mini_batch_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00ff55" stroke-dasharray="5,2" d="M587.95,-665.09C489.73,-663.34 252.29,-657.8 218.53,-644.76"/>
+<path fill="none" stroke="#00ff55" stroke-dasharray="5,2" d="M216.53,-644.76C160.7,-622.02 107.13,-574.38 79.34,-547.1"/>
+<polygon fill="#00ff55" stroke="#00ff55" points="81.87,-544.68 72.33,-540.08 76.92,-549.63 81.87,-544.68"/>
+</g>
+<!-- module~network_configuration_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge42" class="edge">
+<title>module~network_configuration_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#00ffa9" stroke-dasharray="5,2" d="M346.73,-131.11C291.22,-129.73 214.13,-134.33 153.27,-162.76 119.79,-178.4 91.15,-211.14 74.66,-233.04"/>
+<polygon fill="#00ffa9" stroke="#00ffa9" points="71.91,-230.87 68.85,-241.02 77.57,-234.99 71.91,-230.87"/>
+</g>
+<!-- module~relu_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge44" class="edge">
+<title>module~relu_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M608.35,-109.37C571.26,-130.66 496.1,-173.81 453.21,-198.44"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="451.54,-195.36 444.61,-203.38 455.02,-201.43 451.54,-195.36"/>
+</g>
+<!-- module~relu_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge45" class="edge">
+<title>module~relu_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M604.06,-94.23C564.26,-90.96 486.41,-86.8 421.3,-96.76"/>
+</g>
+<!-- module~relu_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge43" class="edge">
+<title>module~relu_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M604.06,-92.66C589.87,-89.58 572.5,-84.37 558.81,-75.76 538.57,-63.01 543.67,-47.46 522.81,-35.76 482.79,-13.29 466.77,-22.99 421.3,-16.76"/>
+</g>
+<!-- module~sigmoid_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge47" class="edge">
+<title>module~sigmoid_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M596.27,-183.27C569.77,-188.34 531.95,-195.58 498.25,-202.03"/>
+<polygon fill="#00a9ff" stroke="#00a9ff" points="497.65,-198.58 488.49,-203.9 498.97,-205.46 497.65,-198.58"/>
+</g>
+<!-- module~sigmoid_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge48" class="edge">
+<title>module~sigmoid_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M419.3,-176.76C389.1,-178.17 175.51,-213.28 153.27,-233.76 74,-306.75 61.52,-446.71 59.79,-502.72"/>
+<polygon fill="#00a9ff" stroke="#00a9ff" points="56.29,-502.62 59.59,-512.69 63.29,-502.77 56.29,-502.62"/>
+</g>
+<!-- module~sigmoid_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge46" class="edge">
+<title>module~sigmoid_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M596.27,-175.78C554.88,-174.82 482.92,-173.88 421.3,-176.76"/>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M419.3,-176.76C330.17,-180.92 306.9,-164.38 218.53,-176.76"/>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M216.53,-176.76C166.19,-183.81 114.71,-214.89 85.04,-235.62"/>
+<polygon fill="#00a9ff" stroke="#00a9ff" points="83.17,-232.66 77.07,-241.33 87.24,-238.35 83.17,-232.66"/>
+</g>
+<!-- module~step_m&#45;&gt;module~activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge50" class="edge">
+<title>module~step_m&#45;&gt;module~activation_strategy_m</title>
+<path fill="none" stroke="#0054ff" stroke-dasharray="5,2" d="M393.06,-66.79C370.66,-76.47 338.82,-93 317.79,-115.76 292.7,-142.91 303.08,-160.53 281.79,-190.76 270.39,-206.95 254.77,-222.79 241.9,-234.67"/>
+<polygon fill="#0054ff" stroke="#0054ff" points="239.74,-231.91 234.65,-241.2 244.42,-237.11 239.74,-231.91"/>
+</g>
+<!-- module~step_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge51" class="edge">
+<title>module~step_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#0054ff" stroke-dasharray="5,2" d="M216.53,-62.76C183.49,-84.15 172.56,-90.44 153.27,-124.76 150.87,-129.02 84.5,-418.24 64.98,-503.41"/>
+<polygon fill="#0054ff" stroke="#0054ff" points="61.62,-502.43 62.79,-512.96 68.44,-503.99 61.62,-502.43"/>
+</g>
+<!-- module~step_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge49" class="edge">
+<title>module~step_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#0054ff" stroke-dasharray="5,2" d="M393.04,-49.56C352.11,-39.97 272.24,-27.98 218.53,-62.76"/>
+<path fill="none" stroke="#0054ff" stroke-dasharray="5,2" d="M216.53,-62.76C147.68,-107.34 94.41,-191.91 71.66,-232.25"/>
+<polygon fill="#0054ff" stroke="#0054ff" points="68.69,-230.4 66.92,-240.85 74.82,-233.78 68.69,-230.4"/>
+</g>
+<!-- module~swish_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge53" class="edge">
+<title>module~swish_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M603.2,-57.17C588.57,-59.73 571.05,-64.99 558.81,-75.76 528.92,-102.04 549.32,-128.07 522.81,-157.76 506.81,-175.67 484.04,-189.59 464.11,-199.4"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="462.63,-196.23 455.07,-203.65 465.61,-202.56 462.63,-196.23"/>
+</g>
+<!-- module~swish_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge54" class="edge">
+<title>module~swish_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M603.07,-61.08C563.31,-70.11 486.98,-86.71 421.3,-96.76"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M419.3,-96.76C294.74,-115.8 234.35,-98.3 153.27,-194.76 132.78,-219.13 81.7,-432.18 65.01,-503.56"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="61.67,-502.46 62.81,-512.99 68.49,-504.05 61.67,-502.46"/>
+</g>
+<!-- module~swish_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge52" class="edge">
+<title>module~swish_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M603.05,-49.01C563.26,-40.82 486.89,-25.75 421.3,-16.76"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M419.3,-16.76C301.32,-0.57 249.36,21.59 153.27,-48.76 92.41,-93.31 70.17,-186.91 62.85,-230.92"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="59.41,-230.27 61.36,-240.68 66.33,-231.32 59.41,-230.27"/>
+</g>
+<!-- module~tensor_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge55" class="edge">
+<title>module~tensor_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#5400ff" stroke-dasharray="5,2" d="M186.65,-574.52C163.21,-565.7 130.22,-553.3 103.74,-543.34"/>
+<polygon fill="#5400ff" stroke="#5400ff" points="105.22,-540.16 94.63,-539.92 102.76,-546.71 105.22,-540.16"/>
+</g>
+<!-- module~tensor_range_m&#45;&gt;julienne_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge56" class="edge">
+<title>module~tensor_range_m&#45;&gt;julienne_m</title>
+<path fill="none" stroke="#aa00ff" stroke-dasharray="5,2" d="M393.87,-617.29C358.52,-634.73 294.35,-666.37 254.21,-686.16"/>
+<polygon fill="#aa00ff" stroke="#aa00ff" points="252.85,-682.93 245.42,-690.49 255.94,-689.21 252.85,-682.93"/>
+</g>
+<!-- module~tensor_range_m&#45;&gt;module~tensor_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge57" class="edge">
+<title>module~tensor_range_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#aa00ff" stroke-dasharray="5,2" d="M370.96,-600.18C336.96,-596.96 291.95,-592.7 259.67,-589.65"/>
+<polygon fill="#aa00ff" stroke="#aa00ff" points="260.19,-586.18 249.9,-588.73 259.53,-593.15 260.19,-586.18"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge59" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M793.75,-382.19C784.16,-352.01 755.63,-275.07 703.83,-235.76 677.63,-215.88 664.23,-224.72 632.32,-216.76"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~inference_engine_m_ -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge60" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~inference_engine_m_</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M739.71,-394.76C728.61,-394.76 716.86,-394.76 705.36,-394.76"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="705.49,-391.26 695.49,-394.76 705.49,-398.26 705.49,-391.26"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge61" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M216.53,-526.76C189.02,-516.59 156.9,-514.98 128.91,-516.52"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="128.84,-513.01 119.11,-517.21 129.33,-520 128.84,-513.01"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~mini_batch_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge62" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~mini_batch_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M789.94,-407.1C764.15,-449.43 679.08,-589.03 645.82,-643.61"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="642.89,-641.68 640.68,-652.04 648.87,-645.32 642.89,-641.68"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~tensor_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge63" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~tensor_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M630.32,-526.76C544.29,-565.67 513.64,-545.04 421.3,-564.76"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~tensor_range_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge64" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~tensor_range_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M630.32,-526.76C581.96,-548.63 572.66,-560.52 522.81,-578.76 509.4,-583.66 494.66,-588 480.68,-591.67"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="479.97,-588.24 471.13,-594.09 481.69,-595.02 479.97,-588.24"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~training_configuration_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge65" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M761.63,-382.17C737.39,-373.66 705.14,-362.33 678.92,-353.12"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="680.11,-349.83 669.51,-349.82 677.79,-356.43 680.11,-349.83"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge58" class="edge">
+<title>module~trainable_engine_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M786.45,-407C761.75,-433.59 698.87,-496.65 632.32,-526.76"/>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M630.32,-526.76C588.63,-545.61 261.45,-542.62 218.53,-526.76"/>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M216.53,-526.76C113.06,-485.3 74.79,-336.57 63.57,-278.35"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="67.08,-278.08 61.85,-268.87 60.19,-279.33 67.08,-278.08"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~differentiable_activation_strategy_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge68" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~differentiable_activation_strategy_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M608.35,-324.14C571.26,-302.85 496.1,-259.7 453.21,-235.07"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="455.02,-232.08 444.61,-230.14 451.54,-238.15 455.02,-232.08"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~hyperparameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge69" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~hyperparameters_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M419.3,-370.76C373.69,-375.92 358.85,-369.24 317.79,-389.76 298.37,-399.46 300.11,-411.12 281.79,-422.76 276.72,-425.98 271.17,-428.94 265.55,-431.63"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="264.51,-428.26 256.8,-435.53 267.36,-434.65 264.51,-428.26"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~kind_parameters_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge70" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~kind_parameters_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M419.3,-370.76C299.41,-386.51 258.2,-367.66 153.27,-427.76 119.65,-447.01 90.73,-482.14 74.25,-504.96"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="71.52,-502.75 68.64,-512.95 77.25,-506.77 71.52,-502.75"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~network_configuration_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge71" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M610.55,-324.26C594.83,-313.51 573.18,-296.76 558.81,-277.76 534.81,-246.01 549.32,-225.44 522.81,-195.76 506.81,-177.84 484.04,-163.92 464.11,-154.11"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="465.61,-150.95 455.07,-149.86 462.63,-157.28 465.61,-150.95"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;julienne_file_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge66" class="edge">
+<title>module~training_configuration_m&#45;&gt;julienne_file_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M605.61,-349.23C584.12,-359.72 551.96,-374.6 522.81,-384.76 508.37,-389.79 492.46,-394.32 477.62,-398.14"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="476.83,-394.73 467.98,-400.55 478.53,-401.52 476.83,-394.73"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;julienne_string_m -->
+<g id="program~~concurrent_inferences~~UsesGraph_edge67" class="edge">
+<title>module~training_configuration_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M563.24,-349.37C522.36,-356.63 468.97,-365.36 421.3,-370.76"/>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M419.3,-370.76C355.25,-378.01 177.61,-305.78 98.5,-271.81"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="99.97,-268.64 89.41,-267.89 97.2,-275.06 99.97,-268.64"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramconcurrent_inferencesUsesGraph = svgPanZoom('#programconcurrent_inferencesUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 510.88 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>This program demonstrates how to read a neural network from a JSON file
+and use the network to perform concurrent inferences.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: program~~concurrent_inferences~~CallsGraph Pages: 1 -->
+<svg id="programconcurrent_inferencesCallsGraph" width="284pt" height="410pt"
+ viewBox="0.00 0.00 283.79 410.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~concurrent_inferences~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 406.27)">
+<title>program~~concurrent_inferences~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-406.27 279.79,-406.27 279.79,4 -4,4"/>
+<!-- program~concurrent_inferences -->
+<g id="program~~concurrent_inferences~~CallsGraph_node1" class="node">
+<title>program~concurrent_inferences</title>
+<polygon fill="none" stroke="black" points="130.02,-213.27 0,-213.27 0,-189 130.02,-189 130.02,-213.27"/>
+<text text-anchor="middle" x="65.01" y="-197.53" font-family="Helvetica,sans-Serif" font-size="10.50">concurrent_inferences</text>
+</g>
+<!-- assert -->
+<g id="program~~concurrent_inferences~~CallsGraph_node2" class="node">
+<title>assert</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-402.27 193.9,-402.27 193.9,-378 247.9,-378 247.9,-402.27"/>
+<text text-anchor="middle" x="220.9" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assert</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;assert -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge1" class="edge">
+<title>program~concurrent_inferences&#45;&gt;assert</title>
+<path fill="none" stroke="#ff0000" d="M70.17,-213.57C81.05,-244.27 113.18,-324.38 166.02,-369.13 171.08,-373.42 177.1,-376.89 183.27,-379.68"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="181.63,-382.79 192.22,-383.21 184.2,-376.28 181.63,-382.79"/>
+</g>
+<!-- file_t -->
+<g id="program~~concurrent_inferences~~CallsGraph_node3" class="node">
+<title>file_t</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-360.27 193.9,-360.27 193.9,-336 247.9,-336 247.9,-360.27"/>
+<text text-anchor="middle" x="220.9" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">file_t</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;file_t -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge2" class="edge">
+<title>program~concurrent_inferences&#45;&gt;file_t</title>
+<path fill="none" stroke="#ff0000" d="M72.87,-213.68C87.11,-238.62 122.2,-294.8 166.02,-327.13 171.12,-330.9 176.98,-334.08 182.92,-336.74"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="181.55,-339.97 192.13,-340.42 184.14,-333.46 181.55,-339.97"/>
+</g>
+<!-- flag_value -->
+<g id="program~~concurrent_inferences~~CallsGraph_node4" class="node">
+<title>flag_value</title>
+<polygon fill="#777777" stroke="#777777" points="254.04,-318.27 187.77,-318.27 187.77,-294 254.04,-294 254.04,-318.27"/>
+<text text-anchor="middle" x="220.9" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">flag_value</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;flag_value -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge3" class="edge">
+<title>program~concurrent_inferences&#45;&gt;flag_value</title>
+<path fill="none" stroke="#ff0000" d="M78.23,-213.74C96.12,-231.62 131.11,-264.44 166.02,-285.13 169.55,-287.23 173.33,-289.19 177.19,-291.01"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="175.51,-294.09 186.08,-294.87 178.3,-287.67 175.51,-294.09"/>
+</g>
+<!-- infer -->
+<g id="program~~concurrent_inferences~~CallsGraph_node5" class="node">
+<title>infer</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-276.27 193.9,-276.27 193.9,-252 247.9,-252 247.9,-276.27"/>
+<text text-anchor="middle" x="220.9" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">infer</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;infer -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge4" class="edge">
+<title>program~concurrent_inferences&#45;&gt;infer</title>
+<path fill="none" stroke="#ff0000" d="M95.25,-213.65C115.14,-222.11 142.11,-233.46 166.02,-243.13 171.46,-245.34 177.23,-247.63 182.9,-249.86"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="181.54,-253.09 192.13,-253.47 184.09,-246.57 181.54,-253.09"/>
+</g>
+<!-- input_components -->
+<g id="program~~concurrent_inferences~~CallsGraph_node6" class="node">
+<title>input_components</title>
+<polygon fill="#777777" stroke="#777777" points="275.79,-234.27 166.02,-234.27 166.02,-210 275.79,-210 275.79,-234.27"/>
+<text text-anchor="middle" x="220.9" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">input_components</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;input_components -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge5" class="edge">
+<title>program~concurrent_inferences&#45;&gt;input_components</title>
+<path fill="none" stroke="#ff0000" d="M130.38,-209.92C138.24,-210.99 146.28,-212.09 154.16,-213.16"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="153.66,-216.63 164.05,-214.51 154.61,-209.69 153.66,-216.63"/>
+</g>
+<!-- inputs -->
+<g id="program~~concurrent_inferences~~CallsGraph_node7" class="node">
+<title>inputs</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-192.27 193.9,-192.27 193.9,-168 247.9,-168 247.9,-192.27"/>
+<text text-anchor="middle" x="220.9" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inputs</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;inputs -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge6" class="edge">
+<title>program~concurrent_inferences&#45;&gt;inputs</title>
+<path fill="none" stroke="#ff0000" d="M130.38,-192.35C148.11,-189.93 166.74,-187.39 182.39,-185.25"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="182.78,-188.73 192.22,-183.91 181.84,-181.8 182.78,-188.73"/>
+</g>
+<!-- num_inputs -->
+<g id="program~~concurrent_inferences~~CallsGraph_node8" class="node">
+<title>num_inputs</title>
+<polygon fill="#777777" stroke="#777777" points="257.41,-150.27 184.39,-150.27 184.39,-126 257.41,-126 257.41,-150.27"/>
+<text text-anchor="middle" x="220.9" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">num_inputs</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;num_inputs -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge7" class="edge">
+<title>program~concurrent_inferences&#45;&gt;num_inputs</title>
+<path fill="none" stroke="#ff0000" d="M95.25,-188.62C115.14,-180.16 142.11,-168.81 166.02,-159.13 169.57,-157.7 173.26,-156.22 176.97,-154.75"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="177.94,-158.13 185.96,-151.21 175.37,-151.62 177.94,-158.13"/>
+</g>
+<!-- outputs -->
+<g id="program~~concurrent_inferences~~CallsGraph_node9" class="node">
+<title>outputs</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-108.27 193.9,-108.27 193.9,-84 247.9,-84 247.9,-108.27"/>
+<text text-anchor="middle" x="220.9" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">outputs</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;outputs -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge8" class="edge">
+<title>program~concurrent_inferences&#45;&gt;outputs</title>
+<path fill="none" stroke="#ff0000" d="M78.23,-188.53C96.12,-170.65 131.11,-137.83 166.02,-117.14 171.36,-113.97 177.27,-111.1 183.16,-108.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="184.21,-111.93 192.2,-104.98 181.62,-105.43 184.21,-111.93"/>
+</g>
+<!-- string -->
+<g id="program~~concurrent_inferences~~CallsGraph_node10" class="node">
+<title>string</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-66.27 193.9,-66.27 193.9,-42 247.9,-42 247.9,-66.27"/>
+<text text-anchor="middle" x="220.9" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;string -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge9" class="edge">
+<title>program~concurrent_inferences&#45;&gt;string</title>
+<path fill="none" stroke="#ff0000" d="M72.87,-188.59C87.11,-163.65 122.2,-107.47 166.02,-75.14 171.12,-71.37 176.98,-68.19 182.92,-65.53"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="184.14,-68.81 192.13,-61.85 181.55,-62.3 184.14,-68.81"/>
+</g>
+<!-- string_t -->
+<g id="program~~concurrent_inferences~~CallsGraph_node11" class="node">
+<title>string_t</title>
+<polygon fill="#777777" stroke="#777777" points="247.9,-24.27 193.9,-24.27 193.9,0 247.9,0 247.9,-24.27"/>
+<text text-anchor="middle" x="220.9" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string_t</text>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;string_t -->
+<g id="program~~concurrent_inferences~~CallsGraph_edge10" class="edge">
+<title>program~concurrent_inferences&#45;&gt;string_t</title>
+<path fill="none" stroke="#ff0000" d="M70.17,-188.7C81.05,-158 113.18,-77.89 166.02,-33.13 171.08,-28.85 177.1,-25.38 183.27,-22.59"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="184.2,-25.99 192.22,-19.06 181.63,-19.48 184.2,-25.99"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 28.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-command_line~9"></span>
+              type(command_line_t)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>command_line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-network_file_name"></span>
+              type(string_t)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>network_file_name</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

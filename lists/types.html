@@ -1,0 +1,668 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Types &ndash; Inference-Engine
+</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Derived Types</h1>
+			 <table class="table table-striped nostretched">
+			 <thead>
+			 <tr><th>Type</th><th>Location</th><th>Extends</th><th>Description</th></tr>
+			 </thead><tbody>
+			   <tr>
+                 <td><a href='../type/activation_strategy_t.html'>activation_strategy_t</a></td>
+                 <td><a href='../module/activation_strategy_m.html'>activation_strategy_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/difference_t.html'>difference_t</a></td>
+                 <td><a href='../module/inference_engine_m_.html'>inference_engine_m_</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/differentiable_activation_strategy_t.html'>differentiable_activation_strategy_t</a></td>
+                 <td><a href='../module/differentiable_activation_strategy_m.html'>differentiable_activation_strategy_m</a></td>
+                 <td><a href='../type/activation_strategy_t.html'>activation_strategy_t</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/exchange_t.html'>exchange_t</a></td>
+                 <td><a href='../module/inference_engine_m_.html'>inference_engine_m_</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/gelu_t.html'>gelu_t</a></td>
+                 <td><a href='../module/gelu_m.html'>gelu_m</a></td>
+                 <td><a href='../type/differentiable_activation_strategy_t.html'>differentiable_activation_strategy_t</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/hyperparameters_t.html'>hyperparameters_t</a></td>
+                 <td><a href='../module/hyperparameters_m.html'>hyperparameters_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/inference_engine_t.html'>inference_engine_t</a></td>
+                 <td><a href='../module/inference_engine_m_.html'>inference_engine_m_</a></td>
+                 <td>None</td>
+                 <td><p>Encapsulate the minimal information needed to perform inference</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/input_output_pair_t.html'>input_output_pair_t</a></td>
+                 <td><a href='../module/input_output_pair_m.html'>input_output_pair_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/layer_t.html'>layer_t</a></td>
+                 <td><a href='../module/layer_m.html'>layer_m</a></td>
+                 <td>None</td>
+                 <td><p>linked list of layers, each comprised of a linked list of neurons</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/mini_batch_t.html'>mini_batch_t</a></td>
+                 <td><a href='../module/mini_batch_m.html'>mini_batch_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/network_configuration_t.html'>network_configuration_t</a></td>
+                 <td><a href='../module/network_configuration_m.html'>network_configuration_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/neuron_t.html'>neuron_t</a></td>
+                 <td><a href='../module/neuron_m.html'>neuron_m</a></td>
+                 <td>None</td>
+                 <td><p>linked list of neurons</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/relu_t.html'>relu_t</a></td>
+                 <td><a href='../module/relu_m.html'>relu_m</a></td>
+                 <td><a href='../type/differentiable_activation_strategy_t.html'>differentiable_activation_strategy_t</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/sigmoid_t.html'>sigmoid_t</a></td>
+                 <td><a href='../module/sigmoid_m.html'>sigmoid_m</a></td>
+                 <td><a href='../type/differentiable_activation_strategy_t.html'>differentiable_activation_strategy_t</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/step_t.html'>step_t</a></td>
+                 <td><a href='../module/step_m.html'>step_m</a></td>
+                 <td><a href='../type/activation_strategy_t.html'>activation_strategy_t</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/swish_t.html'>swish_t</a></td>
+                 <td><a href='../module/swish_m.html'>swish_m</a></td>
+                 <td><a href='../type/differentiable_activation_strategy_t.html'>differentiable_activation_strategy_t</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/tensor_range_t.html'>tensor_range_t</a></td>
+                 <td><a href='../module/tensor_range_m.html'>tensor_range_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/tensor_t.html'>tensor_t</a></td>
+                 <td><a href='../module/tensor_m.html'>tensor_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/trainable_engine_t.html'>trainable_engine_t</a></td>
+                 <td><a href='../module/trainable_engine_m.html'>trainable_engine_m</a></td>
+                 <td>None</td>
+                 <td><p>Encapsulate the information needed to perform training</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/training_configuration_t.html'>training_configuration_t</a></td>
+                 <td><a href='../module/training_configuration_m.html'>training_configuration_m</a></td>
+                 <td>file_t</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../type/ubounds_t.html'>ubounds_t</a></td>
+                 <td><a href='../module/ubounds_m.html'>ubounds_m</a></td>
+                 <td>None</td>
+                 <td></td>
+               </tr>
+			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: type~~graph~~TypeGraph Pages: 1 -->
+<svg id="typegraphTypeGraph" width="835pt" height="726pt"
+ viewBox="0.00 0.00 835.31 726.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~graph~~TypeGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 722.27)">
+<title>type~~graph~~TypeGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-722.27 831.31,-722.27 831.31,4 -4,4"/>
+<!-- type~activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_node1" class="node">
+<title>type~activation_strategy_t</title>
+<g id="a_type~~graph~~TypeGraph_node1"><a xlink:href="../type/activation_strategy_t.html" xlink:title="activation_strategy_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="121.77,-222.27 0,-222.27 0,-198 121.77,-198 121.77,-222.27"/>
+<text text-anchor="middle" x="60.89" y="-206.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">activation_strategy_t</text>
+</a>
+</g>
+</g>
+<!-- type~difference_t -->
+<g id="type~~graph~~TypeGraph_node2" class="node">
+<title>type~difference_t</title>
+<g id="a_type~~graph~~TypeGraph_node2"><a xlink:href="../type/difference_t.html" xlink:title="difference_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="795.43,-478.27 720.91,-478.27 720.91,-454 795.43,-454 795.43,-478.27"/>
+<text text-anchor="middle" x="758.17" y="-462.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">difference_t</text>
+</a>
+</g>
+</g>
+<!-- type~differentiable_activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_node3" class="node">
+<title>type~differentiable_activation_strategy_t</title>
+<g id="a_type~~graph~~TypeGraph_node3"><a xlink:href="../type/differentiable_activation_strategy_t.html" xlink:title="differentiable_activation_strategy_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="486.54,-340.27 288.27,-340.27 288.27,-316 486.54,-316 486.54,-340.27"/>
+<text text-anchor="middle" x="387.4" y="-324.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">differentiable_activation_strategy_t</text>
+</a>
+</g>
+</g>
+<!-- type~differentiable_activation_strategy_t&#45;&gt;type~activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge1" class="edge">
+<title>type~differentiable_activation_strategy_t&#45;&gt;type~activation_strategy_t</title>
+<path fill="none" stroke="#ff9100" d="M351.68,-315.51C292.63,-294.04 172.72,-250.44 107.17,-226.6"/>
+<polygon fill="#ff9100" stroke="#ff9100" points="108.38,-223.32 97.79,-223.19 105.99,-229.9 108.38,-223.32"/>
+</g>
+<!-- type~exchange_t -->
+<g id="type~~graph~~TypeGraph_node4" class="node">
+<title>type~exchange_t</title>
+<g id="a_type~~graph~~TypeGraph_node4"><a xlink:href="../type/exchange_t.html" xlink:title="exchange_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="794.31,-66.27 722.04,-66.27 722.04,-42 794.31,-42 794.31,-66.27"/>
+<text text-anchor="middle" x="758.17" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">exchange_t</text>
+</a>
+</g>
+</g>
+<!-- type~exchange_t&#45;&gt;type~activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge4" class="edge">
+<title>type~exchange_t&#45;&gt;type~activation_strategy_t</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M721.84,-44.53C706.38,-40.79 687.94,-36.98 671.04,-35.13 597.48,-27.12 578.32,-29.41 504.54,-35.13 456.04,-38.9 324.17,-36.06 288.27,-68.88 263.85,-91.22 286.05,-112.05 270.27,-141.13 250.29,-177.97 247.18,-202.3 206.02,-210.13"/>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M204.02,-210.13C181.27,-214.21 156.13,-215.3 133.41,-215.05"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="133.71,-211.56 123.63,-214.85 133.56,-218.55 133.71,-211.56"/>
+<text text-anchor="middle" x="387.4" y="-71.36" font-family="Helvetica,sans-Serif" font-size="9.50">activation_strategy_</text>
+</g>
+<!-- type~tensor_range_t -->
+<g id="type~~graph~~TypeGraph_node17" class="node">
+<title>type~tensor_range_t</title>
+<g id="a_type~~graph~~TypeGraph_node17"><a xlink:href="../type/tensor_range_t.html" xlink:title="tensor_range_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="432.91,-168.27 341.89,-168.27 341.89,-144 432.91,-144 432.91,-168.27"/>
+<text text-anchor="middle" x="387.4" y="-152.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_range_t</text>
+</a>
+</g>
+</g>
+<!-- type~exchange_t&#45;&gt;type~tensor_range_t -->
+<g id="type~~graph~~TypeGraph_edge2" class="edge">
+<title>type~exchange_t&#45;&gt;type~tensor_range_t</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M737.76,-66.66C720.78,-77.07 695.15,-91.52 671.04,-100.13 630.1,-114.76 514.45,-135.34 444.42,-147.05"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="443.95,-143.58 434.66,-148.67 445.1,-150.48 443.95,-143.58"/>
+<text text-anchor="middle" x="587.79" y="-139.36" font-family="Helvetica,sans-Serif" font-size="9.50">input_range_, output_range_</text>
+</g>
+<!-- string_t -->
+<g id="type~~graph~~TypeGraph_node23" class="node">
+<title>string_t</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="414.4,-113.27 360.4,-113.27 360.4,-89 414.4,-89 414.4,-113.27"/>
+<text text-anchor="middle" x="387.4" y="-97.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string_t</text>
+</g>
+<!-- type~exchange_t&#45;&gt;string_t -->
+<g id="type~~graph~~TypeGraph_edge3" class="edge">
+<title>type~exchange_t&#45;&gt;string_t</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M721.78,-45.54C671.11,-35.11 576.11,-22.62 504.54,-54.88 493.56,-59.83 496.8,-68.82 486.54,-75.13 468.18,-86.43 444.96,-92.87 425.72,-96.51"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="425.39,-93.02 416.12,-98.14 426.56,-99.92 425.39,-93.02"/>
+<text text-anchor="middle" x="587.79" y="-57.36" font-family="Helvetica,sans-Serif" font-size="9.50">metadata_</text>
+</g>
+<!-- type~gelu_t -->
+<g id="type~~graph~~TypeGraph_node5" class="node">
+<title>type~gelu_t</title>
+<g id="a_type~~graph~~TypeGraph_node5"><a xlink:href="../type/gelu_t.html" xlink:title="gelu_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="785.17,-352.27 731.17,-352.27 731.17,-328 785.17,-328 785.17,-352.27"/>
+<text text-anchor="middle" x="758.17" y="-336.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gelu_t</text>
+</a>
+</g>
+</g>
+<!-- type~gelu_t&#45;&gt;type~differentiable_activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge5" class="edge">
+<title>type~gelu_t&#45;&gt;type~differentiable_activation_strategy_t</title>
+<path fill="none" stroke="#daff00" d="M730.95,-339.28C683.1,-337.72 579.09,-334.34 498.16,-331.71"/>
+<polygon fill="#daff00" stroke="#daff00" points="498.52,-328.22 488.41,-331.39 498.29,-335.21 498.52,-328.22"/>
+</g>
+<!-- type~hyperparameters_t -->
+<g id="type~~graph~~TypeGraph_node6" class="node">
+<title>type~hyperparameters_t</title>
+<g id="a_type~~graph~~TypeGraph_node6"><a xlink:href="../type/hyperparameters_t.html" xlink:title="hyperparameters_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="444.16,-562.27 330.64,-562.27 330.64,-538 444.16,-538 444.16,-562.27"/>
+<text text-anchor="middle" x="387.4" y="-546.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hyperparameters_t</text>
+</a>
+</g>
+</g>
+<!-- type~inference_engine_t -->
+<g id="type~~graph~~TypeGraph_node7" class="node">
+<title>type~inference_engine_t</title>
+<g id="a_type~~graph~~TypeGraph_node7"><a xlink:href="../type/inference_engine_t.html" xlink:title="inference_engine_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="814.56,-168.27 701.79,-168.27 701.79,-144 814.56,-144 814.56,-168.27"/>
+<text text-anchor="middle" x="758.17" y="-152.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_t</text>
+</a>
+</g>
+</g>
+<!-- type~inference_engine_t&#45;&gt;type~activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge8" class="edge">
+<title>type~inference_engine_t&#45;&gt;type~activation_strategy_t</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M739.73,-168.67C723.02,-179.86 696.64,-195.49 671.04,-202.13 470.96,-254.05 408.81,-170.07 206.02,-210.13"/>
+<text text-anchor="middle" x="387.4" y="-218.36" font-family="Helvetica,sans-Serif" font-size="9.50">activation_strategy_</text>
+</g>
+<!-- type~inference_engine_t&#45;&gt;type~tensor_range_t -->
+<g id="type~~graph~~TypeGraph_edge6" class="edge">
+<title>type~inference_engine_t&#45;&gt;type~tensor_range_t</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M701.57,-156.13C632.09,-156.13 513.9,-156.13 444.3,-156.13"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="444.65,-152.64 434.65,-156.14 444.65,-159.64 444.65,-152.64"/>
+<text text-anchor="middle" x="587.79" y="-158.36" font-family="Helvetica,sans-Serif" font-size="9.50">input_range_, output_range_</text>
+</g>
+<!-- type~inference_engine_t&#45;&gt;string_t -->
+<g id="type~~graph~~TypeGraph_edge7" class="edge">
+<title>type~inference_engine_t&#45;&gt;string_t</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M746.45,-143.72C731.49,-127.46 702.61,-99.75 671.04,-88.88 587.14,-60.01 480.91,-77.99 425.64,-91.07"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="425,-87.63 416.12,-93.41 426.67,-94.42 425,-87.63"/>
+<text text-anchor="middle" x="587.79" y="-91.36" font-family="Helvetica,sans-Serif" font-size="9.50">metadata_</text>
+</g>
+<!-- type~input_output_pair_t -->
+<g id="type~~graph~~TypeGraph_node8" class="node">
+<title>type~input_output_pair_t</title>
+<g id="a_type~~graph~~TypeGraph_node8"><a xlink:href="../type/input_output_pair_t.html" xlink:title="input_output_pair_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="444.16,-604.27 330.64,-604.27 330.64,-580 444.16,-580 444.16,-604.27"/>
+<text text-anchor="middle" x="387.4" y="-588.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">input_output_pair_t</text>
+</a>
+</g>
+</g>
+<!-- type~tensor_t -->
+<g id="type~~graph~~TypeGraph_node18" class="node">
+<title>type~tensor_t</title>
+<g id="a_type~~graph~~TypeGraph_node18"><a xlink:href="../type/tensor_t.html" xlink:title="tensor_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="88.02,-604.27 33.75,-604.27 33.75,-580 88.02,-580 88.02,-604.27"/>
+<text text-anchor="middle" x="60.89" y="-588.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_t</text>
+</a>
+</g>
+</g>
+<!-- type~input_output_pair_t&#45;&gt;type~tensor_t -->
+<g id="type~~graph~~TypeGraph_edge9" class="edge">
+<title>type~input_output_pair_t&#45;&gt;type~tensor_t</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M330.25,-592.13C264.2,-592.13 156.37,-592.13 99.59,-592.13"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="99.8,-588.64 89.8,-592.14 99.8,-595.64 99.8,-588.64"/>
+<text text-anchor="middle" x="205.02" y="-594.36" font-family="Helvetica,sans-Serif" font-size="9.50">inputs_, expected_outputs_</text>
+</g>
+<!-- type~layer_t -->
+<g id="type~~graph~~TypeGraph_node9" class="node">
+<title>type~layer_t</title>
+<g id="a_type~~graph~~TypeGraph_node9"><a xlink:href="../type/layer_t.html" xlink:title="layer_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="785.17,-646.27 731.17,-646.27 731.17,-622 785.17,-622 785.17,-646.27"/>
+<text text-anchor="middle" x="758.17" y="-630.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">layer_t</text>
+</a>
+</g>
+</g>
+<!-- type~layer_t&#45;&gt;type~layer_t -->
+<g id="type~~graph~~TypeGraph_edge11" class="edge">
+<title>type~layer_t&#45;&gt;type~layer_t</title>
+<path fill="none" stroke="#00ff48" stroke-dasharray="5,2" d="M785.63,-645.58C796.61,-654.77 787.46,-664.27 758.17,-664.27 741.24,-664.27 731.04,-661.1 727.57,-656.64"/>
+<polygon fill="#00ff48" stroke="#00ff48" points="730.94,-657.61 730.31,-647.03 724.2,-655.69 730.94,-657.61"/>
+<text text-anchor="middle" x="758.17" y="-666.5" font-family="Helvetica,sans-Serif" font-size="9.50">next</text>
+</g>
+<!-- type~neuron_t -->
+<g id="type~~graph~~TypeGraph_node12" class="node">
+<title>type~neuron_t</title>
+<g id="a_type~~graph~~TypeGraph_node12"><a xlink:href="../type/neuron_t.html" xlink:title="neuron_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="416.41,-646.27 358.39,-646.27 358.39,-622 416.41,-622 416.41,-646.27"/>
+<text text-anchor="middle" x="387.4" y="-630.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">neuron_t</text>
+</a>
+</g>
+</g>
+<!-- type~layer_t&#45;&gt;type~neuron_t -->
+<g id="type~~graph~~TypeGraph_edge10" class="edge">
+<title>type~layer_t&#45;&gt;type~neuron_t</title>
+<path fill="none" stroke="#00ff48" stroke-dasharray="5,2" d="M730.95,-634.13C667.22,-634.13 503.91,-634.13 428.14,-634.13"/>
+<polygon fill="#00ff48" stroke="#00ff48" points="428.27,-630.64 418.27,-634.14 428.27,-637.64 428.27,-630.64"/>
+<text text-anchor="middle" x="587.79" y="-636.36" font-family="Helvetica,sans-Serif" font-size="9.50">neuron</text>
+</g>
+<!-- type~mini_batch_t -->
+<g id="type~~graph~~TypeGraph_node10" class="node">
+<title>type~mini_batch_t</title>
+<g id="a_type~~graph~~TypeGraph_node10"><a xlink:href="../type/mini_batch_t.html" xlink:title="mini_batch_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="797.68,-604.27 718.66,-604.27 718.66,-580 797.68,-580 797.68,-604.27"/>
+<text text-anchor="middle" x="758.17" y="-588.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mini_batch_t</text>
+</a>
+</g>
+</g>
+<!-- type~mini_batch_t&#45;&gt;type~input_output_pair_t -->
+<g id="type~~graph~~TypeGraph_edge12" class="edge">
+<title>type~mini_batch_t&#45;&gt;type~input_output_pair_t</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M718.41,-592.13C656.14,-592.13 533.05,-592.13 456.06,-592.13"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="456.1,-588.64 446.1,-592.14 456.1,-595.64 456.1,-588.64"/>
+<text text-anchor="middle" x="587.79" y="-594.36" font-family="Helvetica,sans-Serif" font-size="9.50">input_output_pairs_</text>
+</g>
+<!-- type~network_configuration_t -->
+<g id="type~~graph~~TypeGraph_node11" class="node">
+<title>type~network_configuration_t</title>
+<g id="a_type~~graph~~TypeGraph_node11"><a xlink:href="../type/network_configuration_t.html" xlink:title="network_configuration_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="457.29,-520.27 317.52,-520.27 317.52,-496 457.29,-496 457.29,-520.27"/>
+<text text-anchor="middle" x="387.4" y="-504.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">network_configuration_t</text>
+</a>
+</g>
+</g>
+<!-- type~neuron_t&#45;&gt;type~neuron_t -->
+<g id="type~~graph~~TypeGraph_edge13" class="edge">
+<title>type~neuron_t&#45;&gt;type~neuron_t</title>
+<path fill="none" stroke="#00daff" stroke-dasharray="5,2" d="M416.79,-645.58C428.55,-654.77 418.75,-664.27 387.4,-664.27 368.79,-664.27 357.78,-660.92 354.36,-656.28"/>
+<polygon fill="#00daff" stroke="#00daff" points="357.61,-657.6 357.53,-647.01 350.98,-655.34 357.61,-657.6"/>
+<text text-anchor="middle" x="387.4" y="-666.5" font-family="Helvetica,sans-Serif" font-size="9.50">next</text>
+</g>
+<!-- type~relu_t -->
+<g id="type~~graph~~TypeGraph_node13" class="node">
+<title>type~relu_t</title>
+<g id="a_type~~graph~~TypeGraph_node13"><a xlink:href="../type/relu_t.html" xlink:title="relu_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="785.17,-310.27 731.17,-310.27 731.17,-286 785.17,-286 785.17,-310.27"/>
+<text text-anchor="middle" x="758.17" y="-294.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">relu_t</text>
+</a>
+</g>
+</g>
+<!-- type~relu_t&#45;&gt;type~differentiable_activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge14" class="edge">
+<title>type~relu_t&#45;&gt;type~differentiable_activation_strategy_t</title>
+<path fill="none" stroke="#0091ff" d="M730.95,-300.27C683.1,-304.16 579.09,-312.62 498.16,-319.21"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="498.09,-315.7 488.41,-320 498.66,-322.68 498.09,-315.7"/>
+</g>
+<!-- type~sigmoid_t -->
+<g id="type~~graph~~TypeGraph_node14" class="node">
+<title>type~sigmoid_t</title>
+<g id="a_type~~graph~~TypeGraph_node14"><a xlink:href="../type/sigmoid_t.html" xlink:title="sigmoid_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="789.43,-436.27 726.91,-436.27 726.91,-412 789.43,-412 789.43,-436.27"/>
+<text text-anchor="middle" x="758.17" y="-420.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sigmoid_t</text>
+</a>
+</g>
+</g>
+<!-- type~sigmoid_t&#45;&gt;type~differentiable_activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge15" class="edge">
+<title>type~sigmoid_t&#45;&gt;type~differentiable_activation_strategy_t</title>
+<path fill="none" stroke="#0048ff" d="M726.46,-419.44C678.52,-411.74 583.24,-394.98 504.54,-372.13 478.56,-364.59 450.15,-353.87 427.93,-344.9"/>
+<polygon fill="#0048ff" stroke="#0048ff" points="429.54,-341.78 418.96,-341.24 426.89,-348.26 429.54,-341.78"/>
+</g>
+<!-- type~step_t -->
+<g id="type~~graph~~TypeGraph_node15" class="node">
+<title>type~step_t</title>
+<g id="a_type~~graph~~TypeGraph_node15"><a xlink:href="../type/step_t.html" xlink:title="step_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="414.4,-24.27 360.4,-24.27 360.4,0 414.4,0 414.4,-24.27"/>
+<text text-anchor="middle" x="387.4" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">step_t</text>
+</a>
+</g>
+</g>
+<!-- type~step_t&#45;&gt;type~activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge16" class="edge">
+<title>type~step_t&#45;&gt;type~activation_strategy_t</title>
+<path fill="none" stroke="#0000ff" d="M360.01,-16.23C339.67,-20.07 311.23,-26.92 288.27,-38.13 204.1,-79.25 120.31,-153.93 82.59,-189.82"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="80.31,-187.16 75.52,-196.61 85.16,-192.21 80.31,-187.16"/>
+</g>
+<!-- type~swish_t -->
+<g id="type~~graph~~TypeGraph_node16" class="node">
+<title>type~swish_t</title>
+<g id="a_type~~graph~~TypeGraph_node16"><a xlink:href="../type/swish_t.html" xlink:title="swish_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="785.17,-394.27 731.17,-394.27 731.17,-370 785.17,-370 785.17,-394.27"/>
+<text text-anchor="middle" x="758.17" y="-378.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">swish_t</text>
+</a>
+</g>
+</g>
+<!-- type~swish_t&#45;&gt;type~differentiable_activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge17" class="edge">
+<title>type~swish_t&#45;&gt;type~differentiable_activation_strategy_t</title>
+<path fill="none" stroke="#4800ff" d="M730.95,-378.29C680.61,-370.92 568.12,-354.45 485.74,-342.39"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="486.47,-338.96 476.07,-340.97 485.46,-345.88 486.47,-338.96"/>
+</g>
+<!-- type~trainable_engine_t -->
+<g id="type~~graph~~TypeGraph_node19" class="node">
+<title>type~trainable_engine_t</title>
+<g id="a_type~~graph~~TypeGraph_node19"><a xlink:href="../type/trainable_engine_t.html" xlink:title="trainable_engine_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="813.43,-261.27 702.91,-261.27 702.91,-237 813.43,-237 813.43,-261.27"/>
+<text text-anchor="middle" x="758.17" y="-245.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_t</text>
+</a>
+</g>
+</g>
+<!-- type~trainable_engine_t&#45;&gt;type~differentiable_activation_strategy_t -->
+<g id="type~~graph~~TypeGraph_edge20" class="edge">
+<title>type~trainable_engine_t&#45;&gt;type~differentiable_activation_strategy_t</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M702.67,-256.89C640.01,-266 541.12,-280.97 504.54,-289.88 480.39,-295.77 454.04,-304.27 432.55,-311.77"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="431.48,-308.44 423.22,-315.07 433.81,-315.03 431.48,-308.44"/>
+<text text-anchor="middle" x="587.79" y="-291.36" font-family="Helvetica,sans-Serif" font-size="9.50">differentiable_activation_strategy_</text>
+</g>
+<!-- type~trainable_engine_t&#45;&gt;type~tensor_range_t -->
+<g id="type~~graph~~TypeGraph_edge18" class="edge">
+<title>type~trainable_engine_t&#45;&gt;type~tensor_range_t</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M702.6,-248.61C649.44,-246.09 567.62,-236.75 504.54,-205.13 494.7,-200.2 496,-193.75 486.54,-188.13 473.53,-180.4 458.42,-174.29 444.01,-169.57"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="445.21,-166.28 434.62,-166.67 443.15,-172.97 445.21,-166.28"/>
+<text text-anchor="middle" x="587.79" y="-248.36" font-family="Helvetica,sans-Serif" font-size="9.50">input_range_, output_range_</text>
+</g>
+<!-- type~trainable_engine_t&#45;&gt;string_t -->
+<g id="type~~graph~~TypeGraph_edge19" class="edge">
+<title>type~trainable_engine_t&#45;&gt;string_t</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M743.44,-236.57C727.37,-222.65 699.34,-200.74 671.04,-189.88 601.36,-163.16 566.11,-210.31 504.54,-168.13 490.76,-158.69 499.29,-145.93 486.54,-135.13 469.4,-120.62 445.71,-112.19 425.9,-107.34"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="426.76,-103.95 416.24,-105.22 425.25,-110.79 426.76,-103.95"/>
+<text text-anchor="middle" x="587.79" y="-192.36" font-family="Helvetica,sans-Serif" font-size="9.50">metadata_</text>
+</g>
+<!-- type~training_configuration_t -->
+<g id="type~~graph~~TypeGraph_node20" class="node">
+<title>type~training_configuration_t</title>
+<g id="a_type~~graph~~TypeGraph_node20"><a xlink:href="../type/training_configuration_t.html" xlink:title="training_configuration_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="827.31,-520.27 689.04,-520.27 689.04,-496 827.31,-496 827.31,-520.27"/>
+<text text-anchor="middle" x="758.17" y="-504.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_t</text>
+</a>
+</g>
+</g>
+<!-- type~training_configuration_t&#45;&gt;type~hyperparameters_t -->
+<g id="type~~graph~~TypeGraph_edge21" class="edge">
+<title>type~training_configuration_t&#45;&gt;type~hyperparameters_t</title>
+<path fill="none" stroke="#ff0091" stroke-dasharray="5,2" d="M688.61,-520.57C682.67,-521.49 676.76,-522.37 671.04,-523.13 597.8,-533 513.41,-540.57 456.05,-545.15"/>
+<polygon fill="#ff0091" stroke="#ff0091" points="455.79,-541.66 446.1,-545.93 456.34,-548.64 455.79,-541.66"/>
+<text text-anchor="middle" x="587.79" y="-542.36" font-family="Helvetica,sans-Serif" font-size="9.50">hyperparameters_</text>
+</g>
+<!-- type~training_configuration_t&#45;&gt;type~network_configuration_t -->
+<g id="type~~graph~~TypeGraph_edge22" class="edge">
+<title>type~training_configuration_t&#45;&gt;type~network_configuration_t</title>
+<path fill="none" stroke="#ff0091" stroke-dasharray="5,2" d="M688.68,-508.13C626.46,-508.13 534.63,-508.13 468.92,-508.13"/>
+<polygon fill="#ff0091" stroke="#ff0091" points="469.3,-504.64 459.3,-508.14 469.3,-511.64 469.3,-504.64"/>
+<text text-anchor="middle" x="587.79" y="-510.36" font-family="Helvetica,sans-Serif" font-size="9.50">network_configuration_</text>
+</g>
+<!-- file_t -->
+<g id="type~~graph~~TypeGraph_node22" class="node">
+<title>file_t</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="414.4,-478.27 360.4,-478.27 360.4,-454 414.4,-454 414.4,-478.27"/>
+<text text-anchor="middle" x="387.4" y="-462.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">file_t</text>
+</g>
+<!-- type~training_configuration_t&#45;&gt;file_t -->
+<g id="type~~graph~~TypeGraph_edge23" class="edge">
+<title>type~training_configuration_t&#45;&gt;file_t</title>
+<path fill="none" stroke="#ff0091" d="M688.68,-500.33C610.99,-491.49 487.15,-477.38 425.62,-470.37"/>
+<polygon fill="#ff0091" stroke="#ff0091" points="426.37,-466.94 416.03,-469.28 425.57,-473.89 426.37,-466.94"/>
+</g>
+<!-- type~ubounds_t -->
+<g id="type~~graph~~TypeGraph_node21" class="node">
+<title>type~ubounds_t</title>
+<g id="a_type~~graph~~TypeGraph_node21"><a xlink:href="../type/ubounds_t.html" xlink:title="ubounds_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="791.31,-718.27 725.04,-718.27 725.04,-694 791.31,-694 791.31,-718.27"/>
+<text text-anchor="middle" x="758.17" y="-702.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ubounds_t</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#TypeGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="TypeGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="184pt" height="32pt"
+ viewBox="0.00 0.00 183.88 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 179.88,-28.27 179.88,4 -4,4"/>
+<!-- Type -->
+<g id="node1" class="node">
+<title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="175.88,-24.27 72.12,-24.27 72.12,0 175.88,0 175.88,-24.27"/>
+<text text-anchor="middle" x="124" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a derived type to the parent type which it
+extends. Dashed arrows point from a derived type to the other
+types it contains as a components, with a label listing the name(s) of
+said component(s).
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

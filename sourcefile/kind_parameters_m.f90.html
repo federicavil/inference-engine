@@ -1,0 +1,1292 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>kind_parameters_m.f90 &ndash; Inference-Engine</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>kind_parameters_m.f90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.2% of total for source files.">6 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/kind_parameters_m.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">kind_parameters_m.f90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/kind_parameters_m.html">kind_parameters_m</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/kind_parameters_m.f90.html#src">kind_parameters_m.f90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: sourcefile~~kind_parameters_m.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefilekind_parameters_mf90AfferentGraph" width="641pt" height="418pt"
+ viewBox="0.00 0.00 641.00 418.12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph" class="graph" transform="scale(0.402471 0.402471) rotate(0) translate(4 1034.89)">
+<title>sourcefile~~kind_parameters_m.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1034.89 1588.66,-1034.89 1588.66,4 -4,4"/>
+<!-- sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~kind_parameters_m.f90</title>
+<polygon fill="none" stroke="black" points="137.52,-674.89 0,-674.89 0,-650.62 137.52,-650.62 137.52,-674.89"/>
+<text text-anchor="middle" x="68.76" y="-659.16" font-family="Helvetica,sans-Serif" font-size="10.50">kind_parameters_m.f90</text>
+</g>
+<!-- sourcefile~activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~activation_strategy_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/activation_strategy_m.f90.html" xlink:title="activation_strategy_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="322.29,-754.89 173.52,-754.89 173.52,-730.62 322.29,-730.62 322.29,-754.89"/>
+<text text-anchor="middle" x="247.91" y="-739.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">activation_strategy_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~activation_strategy_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~activation_strategy_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M219.23,-730.26C189.28,-716.73 141.35,-695.09 107.86,-679.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="109.47,-676.85 98.92,-675.92 106.59,-683.23 109.47,-676.85"/>
+</g>
+<!-- sourcefile~gelu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~gelu_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/gelu_m.f90.html" xlink:title="gelu_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="737.58,-714.89 666.81,-714.89 666.81,-690.62 737.58,-690.62 737.58,-714.89"/>
+<text text-anchor="middle" x="702.2" y="-699.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gelu_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~gelu_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~gelu_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M666.52,-691.47C621.86,-678.15 541.69,-658.33 471.93,-662.76"/>
+</g>
+<!-- sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node24" class="node">
+<title>sourcefile~differentiable_activation_strategy_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node24"><a xlink:href="../sourcefile/differentiable_activation_strategy_m.f90.html" xlink:title="differentiable_activation_strategy_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="583.56,-714.89 358.29,-714.89 358.29,-690.62 583.56,-690.62 583.56,-714.89"/>
+<text text-anchor="middle" x="470.93" y="-699.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">differentiable_activation_strategy_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~gelu_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge85" class="edge">
+<title>sourcefile~gelu_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M666.37,-702.76C646.92,-702.76 621.37,-702.76 595.22,-702.76"/>
+<polygon fill="#ff3f00" stroke="#ff3f00" points="595.51,-699.26 585.51,-702.76 595.51,-706.26 595.51,-699.26"/>
+</g>
+<!-- sourcefile~gelu_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~gelu_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/gelu_s.f90.html" xlink:title="gelu_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="923.48,-704.89 857.96,-704.89 857.96,-680.62 923.48,-680.62 923.48,-704.89"/>
+<text text-anchor="middle" x="890.72" y="-689.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gelu_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~gelu_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~gelu_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M857.49,-687.47C787.39,-676.62 615.8,-653.62 471.93,-662.76"/>
+</g>
+<!-- sourcefile~gelu_s.f90&#45;&gt;sourcefile~gelu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge26" class="edge">
+<title>sourcefile~gelu_s.f90&#45;&gt;sourcefile~gelu_m.f90</title>
+<path fill="none" stroke="#ff4800" stroke-dasharray="5,2" d="M857.65,-694.48C827.84,-696.07 783.08,-698.47 749.41,-700.28"/>
+<polygon fill="#ff4800" stroke="#ff4800" points="749.31,-696.78 739.52,-700.81 749.69,-703.77 749.31,-696.78"/>
+</g>
+<!-- sourcefile~hyperparameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~hyperparameters_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/hyperparameters_m.f90.html" xlink:title="hyperparameters_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="541.19,-161.89 400.67,-161.89 400.67,-137.62 541.19,-137.62 541.19,-161.89"/>
+<text text-anchor="middle" x="470.93" y="-146.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hyperparameters_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~hyperparameters_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~hyperparameters_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M400.2,-146.03C352.83,-147.11 291.31,-156 248.91,-189.76"/>
+</g>
+<!-- sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~inference_engine_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node6"><a xlink:href="../sourcefile/inference_engine_m.f90.html" xlink:title="inference_engine_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1136.37,-424.89 996.6,-424.89 996.6,-400.62 1136.37,-400.62 1136.37,-424.89"/>
+<text text-anchor="middle" x="1066.49" y="-409.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M889.72,-426.76C826.18,-435.27 841.31,-495.44 784.83,-525.76 752.01,-543.37 737.68,-530.68 703.2,-544.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M701.2,-544.76C667.11,-558.67 648.41,-535.9 619.56,-558.76 587.4,-584.23 615.73,-618.3 583.56,-643.76 544.09,-674.99 522.16,-659.73 471.93,-662.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M469.93,-662.76C371.87,-668.67 346.98,-657.22 248.91,-662.76"/>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge23" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M889.72,-776.76C884.73,-780.13 790.8,-803 784.83,-803.76 610.35,-825.85 403.43,-782.7 305.58,-758.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="306.5,-754.76 295.94,-755.69 304.77,-761.54 306.5,-754.76"/>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~gelu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge27" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~gelu_m.f90</title>
+<path fill="none" stroke="#ff4800" stroke-dasharray="5,2" d="M1063.42,-425.2C1055.82,-468.28 1026.37,-613.95 960.6,-713.76 937.77,-748.4 926.06,-753.49 891.72,-776.76"/>
+<path fill="none" stroke="#ff4800" stroke-dasharray="5,2" d="M889.72,-776.76C847.27,-805.51 832.65,-747.24 784.83,-728.76 773.37,-724.33 760.81,-720.05 749.04,-716.29"/>
+<polygon fill="#ff4800" stroke="#ff4800" points="750.11,-712.95 739.52,-713.3 748.01,-719.63 750.11,-712.95"/>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~hyperparameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge30" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~hyperparameters_m.f90</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M1063.96,-400.4C1058.37,-360.33 1035.19,-232.88 960.6,-167.76 936.68,-146.87 920.46,-162.25 891.72,-148.76"/>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M889.72,-148.76C832.12,-121.72 657.28,-132.21 552.92,-141.49"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="552.64,-138 543,-142.39 553.28,-144.97 552.64,-138"/>
+</g>
+<!-- sourcefile~inference_engine_m_.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~inference_engine_m_.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node7"><a xlink:href="../sourcefile/inference_engine_m_.f90.html" xlink:title="inference_engine_m_.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="774.71,-794.89 629.69,-794.89 629.69,-770.62 774.71,-770.62 774.71,-794.89"/>
+<text text-anchor="middle" x="702.2" y="-779.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m_.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~inference_engine_m_.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge45" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~inference_engine_m_.f90</title>
+<path fill="none" stroke="#91ff00" stroke-dasharray="5,2" d="M889.72,-776.76C872.88,-788.16 827.73,-789.82 786.07,-788.56"/>
+<polygon fill="#91ff00" stroke="#91ff00" points="786.36,-785.07 776.24,-788.2 786.1,-792.06 786.36,-785.07"/>
+</g>
+<!-- sourcefile~input_output_pair_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~input_output_pair_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node8"><a xlink:href="../sourcefile/input_output_pair_m.f90.html" xlink:title="input_output_pair_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="541.19,-634.89 400.67,-634.89 400.67,-610.62 541.19,-610.62 541.19,-634.89"/>
+<text text-anchor="middle" x="470.93" y="-619.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">input_output_pair_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~input_output_pair_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge49" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~input_output_pair_m.f90</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M889.72,-426.76C767.72,-440.02 710.58,-401.45 619.56,-483.76 580.46,-519.11 622.28,-561 583.56,-596.76 574.72,-604.92 563.82,-610.68 552.34,-614.71"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="551.67,-611.26 543.11,-617.51 553.7,-617.96 551.67,-611.26"/>
+</g>
+<!-- sourcefile~mini_batch_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node10" class="node">
+<title>sourcefile~mini_batch_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node10"><a xlink:href="../sourcefile/mini_batch_m.f90.html" xlink:title="mini_batch_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="755.21,-398.89 649.19,-398.89 649.19,-374.62 755.21,-374.62 755.21,-398.89"/>
+<text text-anchor="middle" x="702.2" y="-383.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mini_batch_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~mini_batch_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge54" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~mini_batch_m.f90</title>
+<path fill="none" stroke="#00ff48" stroke-dasharray="5,2" d="M996.48,-417.43C964.56,-419.82 926.17,-423.01 891.72,-426.76"/>
+<path fill="none" stroke="#00ff48" stroke-dasharray="5,2" d="M889.72,-426.76C864.55,-429.49 802.91,-414.69 757.34,-402.33"/>
+<polygon fill="#00ff48" stroke="#00ff48" points="758.46,-399 747.89,-399.73 756.6,-405.75 758.46,-399"/>
+</g>
+<!-- sourcefile~relu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node12" class="node">
+<title>sourcefile~relu_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node12"><a xlink:href="../sourcefile/relu_m.f90.html" xlink:title="relu_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="736.08,-634.89 668.31,-634.89 668.31,-610.62 736.08,-610.62 736.08,-634.89"/>
+<text text-anchor="middle" x="702.2" y="-619.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">relu_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~relu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge60" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~relu_m.f90</title>
+<path fill="none" stroke="#00ffda" stroke-dasharray="5,2" d="M1062.73,-425.37C1051.11,-474.87 1001.62,-652.65 891.72,-642.76"/>
+<path fill="none" stroke="#00ffda" stroke-dasharray="5,2" d="M889.72,-642.76C841.07,-638.38 785.4,-632.27 747.63,-627.95"/>
+<polygon fill="#00ffda" stroke="#00ffda" points="748.36,-624.51 738.02,-626.85 747.56,-631.47 748.36,-624.51"/>
+</g>
+<!-- sourcefile~sigmoid_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node14" class="node">
+<title>sourcefile~sigmoid_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node14"><a xlink:href="../sourcefile/sigmoid_m.f90.html" xlink:title="sigmoid_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="935.48,-870.89 845.96,-870.89 845.96,-846.62 935.48,-846.62 935.48,-870.89"/>
+<text text-anchor="middle" x="890.72" y="-855.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sigmoid_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~sigmoid_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge63" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~sigmoid_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M1064.09,-425.05C1056.67,-488.15 1020.06,-775 960.6,-837.76 956.57,-842.02 951.7,-845.42 946.43,-848.14"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="945.19,-844.86 937.34,-851.97 947.91,-851.31 945.19,-844.86"/>
+</g>
+<!-- sourcefile~step_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node15" class="node">
+<title>sourcefile~step_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node15"><a xlink:href="../sourcefile/step_m.f90.html" xlink:title="step_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="505.94,-912.89 435.92,-912.89 435.92,-888.62 505.94,-888.62 505.94,-912.89"/>
+<text text-anchor="middle" x="470.93" y="-897.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">step_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~step_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge67" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~step_m.f90</title>
+<path fill="none" stroke="#0048ff" stroke-dasharray="5,2" d="M889.72,-776.76C863.42,-794.57 844.99,-775.15 820.83,-795.76 791.47,-820.8 813.98,-849.47 784.83,-874.76 756.26,-899.54 740.52,-892.7 703.2,-898.76"/>
+<path fill="none" stroke="#0048ff" stroke-dasharray="5,2" d="M701.2,-898.76C638.17,-908.98 564.11,-907.18 517.59,-904.4"/>
+<polygon fill="#0048ff" stroke="#0048ff" points="518.1,-900.93 507.89,-903.78 517.65,-907.92 518.1,-900.93"/>
+</g>
+<!-- sourcefile~swish_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node17" class="node">
+<title>sourcefile~swish_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node17"><a xlink:href="../sourcefile/swish_m.f90.html" xlink:title="swish_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="928.73,-828.89 852.71,-828.89 852.71,-804.62 928.73,-804.62 928.73,-828.89"/>
+<text text-anchor="middle" x="890.72" y="-813.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">swish_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~swish_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge70" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~swish_m.f90</title>
+<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M1065.82,-425.08C1066.56,-476.85 1062.58,-679.13 960.6,-790.76 954.84,-797.06 947.41,-801.84 939.56,-805.47"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="938.52,-802.11 930.51,-809.04 941.1,-808.62 938.52,-802.11"/>
+</g>
+<!-- sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node18" class="node">
+<title>sourcefile~tensor_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node18"><a xlink:href="../sourcefile/tensor_m.f90.html" xlink:title="tensor_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="288.54,-378.89 207.27,-378.89 207.27,-354.62 288.54,-354.62 288.54,-378.89"/>
+<text text-anchor="middle" x="247.91" y="-363.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge73" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M701.2,-346.76C555.89,-337.01 383.99,-351.85 300.11,-360.79"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="299.94,-357.29 290.38,-361.85 300.69,-364.25 299.94,-357.29"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node20" class="node">
+<title>sourcefile~trainable_engine_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node20"><a xlink:href="../sourcefile/trainable_engine_m.f90.html" xlink:title="trainable_engine_m.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="960.6,-200.89 820.83,-200.89 820.83,-176.62 960.6,-176.62 960.6,-200.89"/>
+<text text-anchor="middle" x="890.72" y="-185.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_m.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~trainable_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge80" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~trainable_engine_m.f90</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M1055.89,-400.39C1027.6,-363.92 944.2,-256.41 908.37,-210.23"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="911.31,-208.31 902.42,-202.55 905.78,-212.6 911.31,-208.31"/>
+</g>
+<!-- sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node21" class="node">
+<title>sourcefile~training_configuration_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node21"><a xlink:href="../sourcefile/training_configuration_m.f90.html" xlink:title="training_configuration_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="784.83,-200.89 619.56,-200.89 619.56,-176.62 784.83,-176.62 784.83,-200.89"/>
+<text text-anchor="middle" x="702.2" y="-185.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge82" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90</title>
+<path fill="none" stroke="#ff0091" stroke-dasharray="5,2" d="M889.72,-148.76C877.84,-143.18 809.27,-159.82 758.7,-173.31"/>
+<polygon fill="#ff0091" stroke="#ff0091" points="758.1,-169.85 749.35,-175.83 759.91,-176.61 758.1,-169.85"/>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge86" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M889.72,-776.76C880.99,-782.66 713.33,-745.61 703.2,-742.76"/>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M701.2,-742.76C662.61,-731.9 619.5,-723.45 581.16,-717.18"/>
+<polygon fill="#ff3f00" stroke="#ff3f00" points="581.88,-713.75 571.45,-715.62 580.77,-720.66 581.88,-713.75"/>
+</g>
+<!-- sourcefile~tensor_range_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node41" class="node">
+<title>sourcefile~tensor_range_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node41"><a xlink:href="../sourcefile/tensor_range_m.f90.html" xlink:title="tensor_range_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="529.94,-318.89 411.92,-318.89 411.92,-294.62 529.94,-294.62 529.94,-318.89"/>
+<text text-anchor="middle" x="470.93" y="-303.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_range_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~tensor_range_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge94" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~tensor_range_m.f90</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M1043.79,-400.34C1023.13,-389.17 990.78,-373.38 960.6,-365.76 849.38,-337.66 817.8,-351.7 703.2,-346.76"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M701.2,-346.76C645.08,-342.99 582.2,-331.49 536.5,-321.79"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="537.27,-318.37 526.75,-319.68 535.79,-325.21 537.27,-318.37"/>
+</g>
+<!-- sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M469.93,-742.76C423.28,-723.87 405.76,-740.48 358.29,-723.76 305.79,-705.26 304.56,-661.51 248.91,-662.76"/>
+</g>
+<!-- sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge24" class="edge">
+<title>sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M469.93,-742.76C424.61,-724.41 369.66,-724.32 325.88,-728.87"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="325.75,-725.36 316.22,-729.98 326.55,-732.31 325.75,-725.36"/>
+</g>
+<!-- sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge74" class="edge">
+<title>sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M629.32,-778.06C583.03,-773.16 522.3,-763.15 471.93,-742.76"/>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M469.93,-742.76C423.28,-723.87 396.09,-756.98 358.29,-723.76 332.23,-700.85 273.26,-466.6 254.65,-390.49"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="258.05,-389.68 252.28,-380.79 251.25,-391.33 258.05,-389.68"/>
+</g>
+<!-- sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge87" class="edge">
+<title>sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M652.14,-770.23C641.12,-766.57 629.69,-762.09 619.56,-756.76 601.62,-747.31 601.86,-737.48 583.56,-728.76 575.32,-724.83 566.46,-721.47 557.45,-718.61"/>
+<polygon fill="#ff3f00" stroke="#ff3f00" points="558.46,-715.26 547.87,-715.79 556.48,-721.98 558.46,-715.26"/>
+</g>
+<!-- sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~tensor_range_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge95" class="edge">
+<title>sourcefile~inference_engine_m_.f90&#45;&gt;sourcefile~tensor_range_m.f90</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M673.23,-770.25C654.72,-760.4 631.69,-744.82 619.56,-723.76 539.74,-585.19 672.85,-498.42 583.56,-365.76 570.42,-346.23 548.67,-332.71 527.84,-323.58"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="529.38,-320.44 518.8,-319.9 526.74,-326.92 529.38,-320.44"/>
+</g>
+<!-- sourcefile~input_output_pair_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~input_output_pair_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M411.87,-635.39C357.41,-646.85 279.85,-662.06 248.91,-662.76"/>
+</g>
+<!-- sourcefile~input_output_pair_m.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge75" class="edge">
+<title>sourcefile~input_output_pair_m.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M459.26,-610.41C424.12,-569.7 311.6,-439.37 267.18,-387.93"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="269.89,-385.71 260.71,-380.43 264.59,-390.28 269.89,-385.71"/>
+</g>
+<!-- sourcefile~layer_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~layer_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node9"><a xlink:href="../sourcefile/layer_m.f90.html" xlink:title="layer_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="927.98,-950.89 853.46,-950.89 853.46,-926.62 927.98,-926.62 927.98,-950.89"/>
+<text text-anchor="middle" x="890.72" y="-935.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">layer_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~layer_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~layer_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M853.03,-947.38C832.99,-951.77 807.67,-956.79 784.83,-959.76 646.66,-977.7 609.28,-1002.08 471.93,-978.76"/>
+</g>
+<!-- sourcefile~layer_m.f90&#45;&gt;sourcefile~inference_engine_m_.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge47" class="edge">
+<title>sourcefile~layer_m.f90&#45;&gt;sourcefile~inference_engine_m_.f90</title>
+<path fill="none" stroke="#91ff00" stroke-dasharray="5,2" d="M853.12,-930.3C841.84,-926.36 829.99,-920.73 820.83,-912.76 795.63,-890.82 806.42,-872.26 784.83,-846.76 769.95,-829.18 749.56,-813.19 732.88,-801.59"/>
+<polygon fill="#91ff00" stroke="#91ff00" points="735.06,-798.84 724.81,-796.14 731.14,-804.64 735.06,-798.84"/>
+</g>
+<!-- sourcefile~neuron_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node11" class="node">
+<title>sourcefile~neuron_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node11"><a xlink:href="../sourcefile/neuron_m.f90.html" xlink:title="neuron_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="744.71,-1030.89 659.69,-1030.89 659.69,-1006.62 744.71,-1006.62 744.71,-1030.89"/>
+<text text-anchor="middle" x="702.2" y="-1015.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">neuron_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~layer_m.f90&#45;&gt;sourcefile~neuron_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge58" class="edge">
+<title>sourcefile~layer_m.f90&#45;&gt;sourcefile~neuron_m.f90</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M853.04,-950.28C842.36,-954.25 830.86,-959.13 820.83,-964.76 803.15,-974.67 802.77,-983.31 784.83,-992.76 775.74,-997.54 765.62,-1001.64 755.69,-1005.06"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="754.9,-1001.64 746.47,-1008.06 757.06,-1008.3 754.9,-1001.64"/>
+</g>
+<!-- sourcefile~layer_m.f90&#45;&gt;sourcefile~tensor_range_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge96" class="edge">
+<title>sourcefile~layer_m.f90&#45;&gt;sourcefile~tensor_range_m.f90</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M853.09,-933.04C840.97,-929.28 828.61,-923.06 820.83,-912.76 763.18,-836.41 839.77,-562.08 784.83,-483.76 738.4,-417.57 684.09,-456.47 619.56,-407.76 599.94,-392.94 602.77,-381.1 583.56,-365.76 562.22,-348.7 535.21,-334.27 513.1,-323.95"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="514.61,-320.8 504.06,-319.85 511.72,-327.17 514.61,-320.8"/>
+</g>
+<!-- sourcefile~mini_batch_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~mini_batch_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M671.63,-399.36C655.91,-406.35 636.4,-415.48 619.56,-424.76 598.12,-436.56 273.37,-662.21 248.91,-662.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M246.91,-662.76C215.05,-664.55 179.92,-664.89 149.4,-664.66"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="149.5,-661.17 139.46,-664.56 149.43,-668.16 149.5,-661.17"/>
+</g>
+<!-- sourcefile~mini_batch_m.f90&#45;&gt;sourcefile~input_output_pair_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge51" class="edge">
+<title>sourcefile~mini_batch_m.f90&#45;&gt;sourcefile~input_output_pair_m.f90</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M648.87,-394.42C637.87,-398.3 627.28,-404.09 619.56,-412.76 564.13,-474.97 641.42,-536.79 583.56,-596.76 574.99,-605.64 564.02,-611.74 552.32,-615.89"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="551.43,-612.51 542.86,-618.74 553.45,-619.21 551.43,-612.51"/>
+</g>
+<!-- sourcefile~neuron_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~neuron_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M659.38,-1011.34C613.43,-1003.23 537.45,-989.89 471.93,-978.76"/>
+</g>
+<!-- sourcefile~relu_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~relu_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.06,-630.89C623.72,-641.23 542.49,-658.27 471.93,-662.76"/>
+</g>
+<!-- sourcefile~relu_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge88" class="edge">
+<title>sourcefile~relu_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M677.45,-635.39C654.09,-647.39 617.15,-665.27 583.56,-676.76 571.96,-680.73 559.47,-684.29 547.2,-687.42"/>
+<polygon fill="#ff3f00" stroke="#ff3f00" points="546.36,-684.02 537.49,-689.8 548.03,-690.82 546.36,-684.02"/>
+</g>
+<!-- sourcefile~relu_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node13" class="node">
+<title>sourcefile~relu_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node13"><a xlink:href="../sourcefile/relu_s.f90.html" xlink:title="relu_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="921.98,-556.89 859.46,-556.89 859.46,-532.62 921.98,-532.62 921.98,-556.89"/>
+<text text-anchor="middle" x="890.72" y="-541.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">relu_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~relu_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~relu_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M858.97,-537.9C820.85,-530.9 754.61,-523.77 703.2,-544.76"/>
+</g>
+<!-- sourcefile~relu_s.f90&#45;&gt;sourcefile~relu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge62" class="edge">
+<title>sourcefile~relu_s.f90&#45;&gt;sourcefile~relu_m.f90</title>
+<path fill="none" stroke="#00ffda" stroke-dasharray="5,2" d="M866.85,-557.36C845.91,-568.59 813.85,-585.02 784.83,-596.76 772.9,-601.58 759.71,-606.11 747.47,-610"/>
+<polygon fill="#00ffda" stroke="#00ffda" points="746.53,-606.63 738.01,-612.93 748.6,-613.32 746.53,-606.63"/>
+</g>
+<!-- sourcefile~sigmoid_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~sigmoid_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M845.54,-857.4C807.69,-856.68 751.76,-856.64 703.2,-860.76"/>
+</g>
+<!-- sourcefile~sigmoid_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge89" class="edge">
+<title>sourcefile~sigmoid_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M845.75,-851.3C836.78,-848.22 827.93,-843.88 820.83,-837.76 792.54,-813.33 813.93,-785.22 784.83,-761.76 755.83,-738.37 739.06,-752.84 703.2,-742.76"/>
+</g>
+<!-- sourcefile~step_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~step_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M435.72,-910.18C390.12,-920.73 308.29,-932.52 248.91,-900.76"/>
+</g>
+<!-- sourcefile~step_m.f90&#45;&gt;sourcefile~activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge25" class="edge">
+<title>sourcefile~step_m.f90&#45;&gt;sourcefile~activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445.16,-888.3C421.98,-876.24 386.75,-856.87 358.29,-836.76 325.73,-813.74 291.35,-782.99 270.01,-763.03"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="272.49,-760.55 262.81,-756.23 267.68,-765.64 272.49,-760.55"/>
+</g>
+<!-- sourcefile~step_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node16" class="node">
+<title>sourcefile~step_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node16"><a xlink:href="../sourcefile/step_s.f90.html" xlink:title="step_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="734.58,-950.89 669.81,-950.89 669.81,-926.62 734.58,-926.62 734.58,-950.89"/>
+<text text-anchor="middle" x="702.2" y="-935.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">step_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~step_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~step_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M669.61,-946.96C616.03,-960.43 509.47,-985.13 471.93,-978.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M469.93,-978.76C367.23,-961.32 340.76,-949.89 248.91,-900.76"/>
+</g>
+<!-- sourcefile~step_s.f90&#45;&gt;sourcefile~step_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge69" class="edge">
+<title>sourcefile~step_s.f90&#45;&gt;sourcefile~step_m.f90</title>
+<path fill="none" stroke="#0048ff" stroke-dasharray="5,2" d="M669.32,-933.47C629.81,-926.93 562.24,-915.73 517.33,-908.28"/>
+<polygon fill="#0048ff" stroke="#0048ff" points="518.08,-904.86 507.64,-906.68 516.93,-911.76 518.08,-904.86"/>
+</g>
+<!-- sourcefile~swish_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~swish_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M852.27,-827.19C806.57,-839.64 731.84,-859.02 703.2,-860.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M701.2,-860.76C548.84,-870.02 509.78,-861.1 358.29,-879.76 309.16,-885.81 292.56,-924.1 248.91,-900.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M246.91,-900.76C157.11,-851.78 100.03,-735.58 78.95,-685.91"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="82.2,-684.63 75.15,-676.72 75.73,-687.3 82.2,-684.63"/>
+</g>
+<!-- sourcefile~swish_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge90" class="edge">
+<title>sourcefile~swish_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M852.27,-805.08C841.79,-801.16 830.59,-796.34 820.83,-790.76 803,-780.56 803.3,-770.76 784.83,-761.76 751.34,-745.44 739.06,-752.84 703.2,-742.76"/>
+</g>
+<!-- sourcefile~tensor_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge17" class="edge">
+<title>sourcefile~tensor_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M239.52,-379.1C212.4,-424.42 118.05,-582.07 83,-640.63"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="80.09,-638.69 77.95,-649.06 86.09,-642.28 80.09,-638.69"/>
+</g>
+<!-- sourcefile~tensor_range_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node19" class="node">
+<title>sourcefile~tensor_range_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node19"><a xlink:href="../sourcefile/tensor_range_s.f90.html" xlink:title="tensor_range_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="758.58,-280.89 645.81,-280.89 645.81,-256.62 758.58,-256.62 758.58,-280.89"/>
+<text text-anchor="middle" x="702.2" y="-265.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_range_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~tensor_range_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge18" class="edge">
+<title>sourcefile~tensor_range_s.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M645.52,-257.92C526.34,-234.87 256.67,-183.57 248.91,-189.76"/>
+</g>
+<!-- sourcefile~tensor_range_s.f90&#45;&gt;sourcefile~tensor_range_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge97" class="edge">
+<title>sourcefile~tensor_range_s.f90&#45;&gt;sourcefile~tensor_range_m.f90</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M645.4,-278C614.08,-283.19 574.72,-289.72 541.42,-295.24"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="541.16,-291.73 531.87,-296.82 542.3,-298.64 541.16,-291.73"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge19" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M841.77,-176.15C834.18,-172.68 826.86,-168.29 820.83,-162.76 793.58,-137.77 808.77,-115.93 784.83,-87.76 756.17,-54.04 746.58,-39.48 703.2,-30.76"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~inference_engine_m_.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge48" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~inference_engine_m_.f90</title>
+<path fill="none" stroke="#91ff00" stroke-dasharray="5,2" d="M883.44,-201.25C869.49,-229.64 835.96,-301.57 820.83,-365.76 800.81,-450.69 839.5,-688.75 784.83,-756.76 782.73,-759.36 780.37,-761.72 777.82,-763.83"/>
+<polygon fill="#91ff00" stroke="#91ff00" points="776.01,-760.83 769.69,-769.33 779.93,-766.63 776.01,-760.83"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~mini_batch_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge56" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~mini_batch_m.f90</title>
+<path fill="none" stroke="#00ff48" stroke-dasharray="5,2" d="M885.6,-201.24C874.55,-232.82 841.22,-316.47 784.83,-360.76 779.23,-365.16 772.86,-368.82 766.22,-371.87"/>
+<polygon fill="#00ff48" stroke="#00ff48" points="764.96,-368.6 757.01,-375.61 767.6,-375.09 764.96,-368.6"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge78" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M827.92,-201.36C813.77,-204.18 798.79,-207.12 784.83,-209.76 595.63,-245.55 535.13,-209.56 358.29,-285.76 324.07,-300.5 290.51,-327.81 269.78,-346.61"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="267.52,-343.94 262.57,-353.3 272.28,-349.07 267.52,-343.94"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge83" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90</title>
+<path fill="none" stroke="#ff0091" stroke-dasharray="5,2" d="M820.53,-188.76C812.71,-188.76 804.64,-188.76 796.58,-188.76"/>
+<polygon fill="#ff0091" stroke="#ff0091" points="796.71,-185.26 786.71,-188.76 796.71,-192.26 796.71,-185.26"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge91" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M883.86,-201.36C870.79,-229.98 838.91,-302.34 820.83,-365.76 796.9,-449.67 844.33,-494.93 784.83,-558.76 733.08,-614.27 678.15,-553.51 619.56,-601.76 591.02,-625.26 612.4,-653.62 583.56,-676.76 579.57,-679.96 575.25,-682.78 570.71,-685.27"/>
+<polygon fill="#ff3f00" stroke="#ff3f00" points="569.33,-682.05 561.83,-689.53 572.36,-688.36 569.33,-682.05"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~tensor_range_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge98" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~tensor_range_m.f90</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M881.43,-201.26C865.7,-223.75 829.1,-270.49 784.83,-289.76 706.83,-323.7 607.38,-322.52 541.78,-316.46"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="542.15,-312.98 531.85,-315.47 541.45,-319.94 542.15,-312.98"/>
+</g>
+<!-- sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge20" class="edge">
+<title>sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M619.07,-183.37C496.36,-176.16 276.54,-166.73 248.91,-189.76"/>
+</g>
+<!-- sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~hyperparameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge31" class="edge">
+<title>sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~hyperparameters_m.f90</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M627.07,-176.15C603.36,-172.11 576.98,-167.63 552.81,-163.52"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="553.44,-160.07 543,-161.85 552.27,-166.97 553.44,-160.07"/>
+</g>
+<!-- sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge92" class="edge">
+<title>sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~differentiable_activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff3f00" stroke-dasharray="5,2" d="M673.12,-201.2C654.56,-211.02 631.52,-226.6 619.56,-247.76 572.49,-331.05 646.13,-604.38 583.56,-676.76 581.36,-679.3 578.97,-681.62 576.42,-683.73"/>
+<polygon fill="#ff3f00" stroke="#ff3f00" points="574.63,-680.71 568.42,-689.3 578.63,-686.46 574.63,-680.71"/>
+</g>
+<!-- sourcefile~write&#45;read&#45;infer.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node22" class="node">
+<title>sourcefile~write&#45;read&#45;infer.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node22"><a xlink:href="../sourcefile/write-read-infer.f90.html" xlink:title="write&#45;read&#45;infer.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1319.27,-56.89 1204.25,-56.89 1204.25,-32.62 1319.27,-32.62 1319.27,-56.89"/>
+<text text-anchor="middle" x="1261.76" y="-41.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write&#45;read&#45;infer.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~write&#45;read&#45;infer.f90&#45;&gt;sourcefile~kind_parameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge21" class="edge">
+<title>sourcefile~write&#45;read&#45;infer.f90&#45;&gt;sourcefile~kind_parameters_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1203.85,-49.74C1102.17,-57.22 883.09,-66.93 703.2,-30.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M701.2,-30.76C552.37,2.95 493.5,22.97 358.29,-47.76 287.7,-84.68 309.8,-138.39 248.91,-189.76"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M246.91,-189.76C103.48,-311.52 76.04,-561.43 70.91,-639.15"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="67.42,-638.78 70.33,-648.97 74.41,-639.19 67.42,-638.78"/>
+</g>
+<!-- sourcefile~write&#45;read&#45;infer.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge44" class="edge">
+<title>sourcefile~write&#45;read&#45;infer.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1240.9,-57.3C1221.04,-70.78 1190.84,-93.92 1172.37,-120.76 1111.45,-209.29 1081.78,-337.17 1071.65,-389.31"/>
+<polygon fill="#daff00" stroke="#daff00" points="1068.27,-388.36 1069.87,-398.84 1075.15,-389.65 1068.27,-388.36"/>
+</g>
+<!-- sourcefile~concurrent&#45;inferences.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node23" class="node">
+<title>sourcefile~concurrent&#45;inferences.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node23"><a xlink:href="../sourcefile/concurrent-inferences.f90.html" xlink:title="concurrent&#45;inferences.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1336.14,-592.89 1187.37,-592.89 1187.37,-568.62 1336.14,-568.62 1336.14,-592.89"/>
+<text text-anchor="middle" x="1261.76" y="-577.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">concurrent&#45;inferences.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~concurrent&#45;inferences.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge32" class="edge">
+<title>sourcefile~concurrent&#45;inferences.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1188.45,-568.28C1182.79,-565.92 1177.34,-563.1 1172.37,-559.76 1125.6,-528.29 1092.79,-468.51 1077.4,-435.71"/>
+<polygon fill="#daff00" stroke="#daff00" points="1080.63,-434.37 1073.31,-426.7 1074.26,-437.26 1080.63,-434.37"/>
+</g>
+<!-- sourcefile~differentiable_activation_strategy_m.f90&#45;&gt;sourcefile~activation_strategy_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge22" class="edge">
+<title>sourcefile~differentiable_activation_strategy_m.f90&#45;&gt;sourcefile~activation_strategy_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M400.3,-715.36C377.9,-719.41 352.89,-723.94 329.75,-728.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="329.27,-724.66 320.05,-729.88 330.52,-731.54 329.27,-724.66"/>
+</g>
+<!-- sourcefile~hyperparameters_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node25" class="node">
+<title>sourcefile~hyperparameters_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node25"><a xlink:href="../sourcefile/hyperparameters_s.f90.html" xlink:title="hyperparameters_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="769.83,-120.89 634.56,-120.89 634.56,-96.62 769.83,-96.62 769.83,-120.89"/>
+<text text-anchor="middle" x="702.2" y="-105.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hyperparameters_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~hyperparameters_s.f90&#45;&gt;sourcefile~hyperparameters_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge29" class="edge">
+<title>sourcefile~hyperparameters_s.f90&#45;&gt;sourcefile~hyperparameters_m.f90</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M634.26,-120.73C608.71,-125.3 579.3,-130.56 552.59,-135.33"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="552.05,-131.87 542.82,-137.08 553.28,-138.76 552.05,-131.87"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node26" class="node">
+<title>sourcefile~inference_engine_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node26"><a xlink:href="../sourcefile/inference_engine_s.f90.html" xlink:title="inference_engine_s.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1134.87,-910.89 998.1,-910.89 998.1,-886.62 1134.87,-886.62 1134.87,-910.89"/>
+<text text-anchor="middle" x="1066.49" y="-895.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_s.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~gelu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge28" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~gelu_m.f90</title>
+<path fill="none" stroke="#ff4800" stroke-dasharray="5,2" d="M997.66,-906.54C965.13,-908.32 925.9,-907.56 891.72,-898.76"/>
+<path fill="none" stroke="#ff4800" stroke-dasharray="5,2" d="M889.72,-898.76C858.96,-890.84 842.89,-902.6 820.83,-879.76 772.91,-830.12 831.77,-779.32 784.83,-728.76 775.42,-718.62 762.08,-712.42 748.9,-708.63"/>
+<polygon fill="#ff4800" stroke="#ff4800" points="749.98,-705.29 739.43,-706.34 748.33,-712.09 749.98,-705.29"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~inference_engine_m_.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge46" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~inference_engine_m_.f90</title>
+<path fill="none" stroke="#91ff00" stroke-dasharray="5,2" d="M889.72,-898.76C858.96,-890.84 848.62,-895.14 820.83,-879.76 801.84,-869.25 801.38,-860.8 784.83,-846.76 766.58,-831.27 745.27,-814.62 729,-802.18"/>
+<polygon fill="#91ff00" stroke="#91ff00" points="731.35,-799.57 721.27,-796.3 727.11,-805.14 731.35,-799.57"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~layer_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge52" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~layer_m.f90</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1010.98,-911.3C988.09,-916.57 961.71,-922.64 939.59,-927.74"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="938.88,-924.31 929.92,-929.96 940.45,-931.13 938.88,-924.31"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~neuron_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge57" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~neuron_m.f90</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M1013.34,-911.29C1007.48,-913.67 1001.77,-916.47 996.6,-919.76 976.42,-932.6 981.22,-947.63 960.6,-959.76 943.1,-970.05 826.57,-994.35 756.44,-1008.34"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="755.8,-1004.9 746.67,-1010.28 757.16,-1011.77 755.8,-1004.9"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~relu_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge61" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~relu_m.f90</title>
+<path fill="none" stroke="#00ffda" stroke-dasharray="5,2" d="M1006.59,-886.16C1002.89,-883.81 999.5,-881.04 996.6,-877.76 935.04,-808.12 1018.51,-744.45 960.6,-671.76 939.9,-645.77 924.8,-645.73 891.72,-642.76"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~sigmoid_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge64" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~sigmoid_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M1010.98,-886.21C990.57,-881.51 967.38,-876.17 946.91,-871.46"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="947.86,-868.09 937.33,-869.26 946.29,-874.91 947.86,-868.09"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~step_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge68" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~step_m.f90</title>
+<path fill="none" stroke="#0048ff" stroke-dasharray="5,2" d="M889.72,-898.76C809.44,-878.08 785.02,-885.48 703.2,-898.76"/>
+</g>
+<!-- sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~swish_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge71" class="edge">
+<title>sourcefile~inference_engine_s.f90&#45;&gt;sourcefile~swish_m.f90</title>
+<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M1013.34,-886.22C1007.48,-883.85 1001.77,-881.05 996.6,-877.76 976.42,-864.91 980.78,-850.6 960.6,-837.76 954.3,-833.74 947.18,-830.46 939.98,-827.78"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="941.1,-824.47 930.51,-824.65 938.9,-831.11 941.1,-824.47"/>
+</g>
+<!-- sourcefile~input_output_pair_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node27" class="node">
+<title>sourcefile~input_output_pair_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node27"><a xlink:href="../sourcefile/input_output_pair_s.f90.html" xlink:title="input_output_pair_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="769.83,-516.89 634.56,-516.89 634.56,-492.62 769.83,-492.62 769.83,-516.89"/>
+<text text-anchor="middle" x="702.2" y="-501.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">input_output_pair_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~input_output_pair_s.f90&#45;&gt;sourcefile~input_output_pair_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge50" class="edge">
+<title>sourcefile~input_output_pair_s.f90&#45;&gt;sourcefile~input_output_pair_m.f90</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M642.59,-517.33C634.31,-520.78 626.33,-525.17 619.56,-530.76 593.79,-552.02 610.16,-576.53 583.56,-596.76 574.32,-603.79 563.49,-608.96 552.28,-612.76"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="551.47,-609.35 542.9,-615.57 553.48,-616.05 551.47,-609.35"/>
+</g>
+<!-- sourcefile~layer_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node28" class="node">
+<title>sourcefile~layer_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node28"><a xlink:href="../sourcefile/layer_s.f90.html" xlink:title="layer_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1101.12,-952.89 1031.85,-952.89 1031.85,-928.62 1101.12,-928.62 1101.12,-952.89"/>
+<text text-anchor="middle" x="1066.49" y="-937.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">layer_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~layer_s.f90&#45;&gt;sourcefile~layer_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge53" class="edge">
+<title>sourcefile~layer_s.f90&#45;&gt;sourcefile~layer_m.f90</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1031.57,-940.37C1005.32,-940.06 968.65,-939.64 939.44,-939.31"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="939.8,-935.81 929.76,-939.19 939.72,-942.81 939.8,-935.81"/>
+</g>
+<!-- sourcefile~learn&#45;addition.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node29" class="node">
+<title>sourcefile~learn&#45;addition.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node29"><a xlink:href="../sourcefile/learn-addition.f90.html" xlink:title="learn&#45;addition.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1316.27,-550.89 1207.25,-550.89 1207.25,-526.62 1316.27,-526.62 1316.27,-550.89"/>
+<text text-anchor="middle" x="1261.76" y="-535.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;addition.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;addition.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge33" class="edge">
+<title>sourcefile~learn&#45;addition.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1207.1,-531C1195.19,-527.94 1182.97,-523.68 1172.37,-517.76 1134.81,-496.77 1101.62,-458.48 1083.08,-434.4"/>
+<polygon fill="#daff00" stroke="#daff00" points="1085.99,-432.44 1077.19,-426.54 1080.39,-436.64 1085.99,-432.44"/>
+</g>
+<!-- sourcefile~learn&#45;exponentiation.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node30" class="node">
+<title>sourcefile~learn&#45;exponentiation.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node30"><a xlink:href="../sourcefile/learn-exponentiation.f90.html" xlink:title="learn&#45;exponentiation.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1334.27,-508.89 1189.25,-508.89 1189.25,-484.62 1334.27,-484.62 1334.27,-508.89"/>
+<text text-anchor="middle" x="1261.76" y="-493.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;exponentiation.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;exponentiation.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge34" class="edge">
+<title>sourcefile~learn&#45;exponentiation.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1197.24,-484.17C1188.75,-481.76 1180.26,-478.97 1172.37,-475.76 1143.97,-464.18 1114.25,-445.62 1093.72,-431.64"/>
+<polygon fill="#daff00" stroke="#daff00" points="1095.89,-428.88 1085.67,-426.06 1091.9,-434.64 1095.89,-428.88"/>
+</g>
+<!-- sourcefile~learn&#45;microphysics&#45;procedures.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node31" class="node">
+<title>sourcefile~learn&#45;microphysics&#45;procedures.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node31"><a xlink:href="../sourcefile/learn-microphysics-procedures.f90.html" xlink:title="learn&#45;microphysics&#45;procedures.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1584.66,-404.89 1387.14,-404.89 1387.14,-380.62 1584.66,-380.62 1584.66,-404.89"/>
+<text text-anchor="middle" x="1485.9" y="-389.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;microphysics&#45;procedures.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge35" class="edge">
+<title>sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1455.01,-380.18C1428.32,-369.67 1387.89,-355.52 1351.14,-349.76 1272.65,-337.45 1248.94,-328.53 1172.37,-349.76 1141.94,-358.19 1111.48,-378.08 1091.29,-393.27"/>
+<polygon fill="#daff00" stroke="#daff00" points="1089.2,-390.46 1083.44,-399.35 1093.49,-395.99 1089.2,-390.46"/>
+</g>
+<!-- sourcefile~thompson_tensors_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node43" class="node">
+<title>sourcefile~thompson_tensors_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node43"><a xlink:href="../sourcefile/thompson_tensors_m.f90.html" xlink:title="thompson_tensors_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1334.27,-466.89 1189.25,-466.89 1189.25,-442.62 1334.27,-442.62 1334.27,-466.89"/>
+<text text-anchor="middle" x="1261.76" y="-451.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thompson_tensors_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~thompson_tensors_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge99" class="edge">
+<title>sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~thompson_tensors_m.f90</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M1446.17,-405.35C1419.56,-413.82 1383.37,-425 1351.14,-433.76 1343.98,-435.7 1336.47,-437.64 1328.98,-439.51"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="1328.4,-436.05 1319.53,-441.83 1330.07,-442.85 1328.4,-436.05"/>
+</g>
+<!-- sourcefile~learn&#45;multiplication.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node32" class="node">
+<title>sourcefile~learn&#45;multiplication.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node32"><a xlink:href="../sourcefile/learn-multiplication.f90.html" xlink:title="learn&#45;multiplication.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1330.89,-424.89 1192.62,-424.89 1192.62,-400.62 1330.89,-400.62 1330.89,-424.89"/>
+<text text-anchor="middle" x="1261.76" y="-409.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;multiplication.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;multiplication.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge36" class="edge">
+<title>sourcefile~learn&#45;multiplication.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1192.34,-412.76C1177.98,-412.76 1162.7,-412.76 1147.94,-412.76"/>
+<polygon fill="#daff00" stroke="#daff00" points="1148.3,-409.26 1138.3,-412.76 1148.3,-416.26 1148.3,-409.26"/>
+</g>
+<!-- sourcefile~learn&#45;power&#45;series.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node33" class="node">
+<title>sourcefile~learn&#45;power&#45;series.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node33"><a xlink:href="../sourcefile/learn-power-series.f90.html" xlink:title="learn&#45;power&#45;series.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1328.27,-382.89 1195.25,-382.89 1195.25,-358.62 1328.27,-358.62 1328.27,-382.89"/>
+<text text-anchor="middle" x="1261.76" y="-367.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;power&#45;series.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;power&#45;series.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge37" class="edge">
+<title>sourcefile~learn&#45;power&#45;series.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1202.77,-383.36C1181.94,-387.88 1158.24,-393.03 1136.56,-397.75"/>
+<polygon fill="#daff00" stroke="#daff00" points="1135.94,-394.3 1126.91,-399.84 1137.43,-401.14 1135.94,-394.3"/>
+</g>
+<!-- sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node34" class="node">
+<title>sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node34"><a xlink:href="../sourcefile/learn-saturated-mixing-ratio.f90.html" xlink:title="learn&#45;saturated&#45;mixing&#45;ratio.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1577.91,-242.89 1393.89,-242.89 1393.89,-218.62 1577.91,-218.62 1577.91,-242.89"/>
+<text text-anchor="middle" x="1485.9" y="-227.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;saturated&#45;mixing&#45;ratio.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge38" class="edge">
+<title>sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1393.65,-234.2C1315.08,-238.59 1208.79,-248.36 1172.37,-269.76 1124.64,-297.79 1092.22,-356.99 1077.14,-389.74"/>
+<polygon fill="#daff00" stroke="#daff00" points="1074,-388.19 1073.15,-398.75 1080.4,-391.02 1074,-388.19"/>
+</g>
+<!-- sourcefile~saturated_mixing_ratio_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node38" class="node">
+<title>sourcefile~saturated_mixing_ratio_m.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node38"><a xlink:href="../sourcefile/saturated_mixing_ratio_m.f90.html" xlink:title="saturated_mixing_ratio_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1346.64,-222.89 1176.87,-222.89 1176.87,-198.62 1346.64,-198.62 1346.64,-222.89"/>
+<text text-anchor="middle" x="1261.76" y="-207.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">saturated_mixing_ratio_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~saturated_mixing_ratio_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge93" class="edge">
+<title>sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~saturated_mixing_ratio_m.f90</title>
+<path fill="none" stroke="#003fff" stroke-dasharray="5,2" d="M1393.58,-222.54C1381.88,-221.48 1369.88,-220.4 1358.12,-219.34"/>
+<polygon fill="#003fff" stroke="#003fff" points="1358.72,-215.88 1348.45,-218.47 1358.09,-222.85 1358.72,-215.88"/>
+</g>
+<!-- sourcefile~mini_batch_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node35" class="node">
+<title>sourcefile~mini_batch_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node35"><a xlink:href="../sourcefile/mini_batch_s.f90.html" xlink:title="mini_batch_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="941.1,-398.89 840.33,-398.89 840.33,-374.62 941.1,-374.62 941.1,-398.89"/>
+<text text-anchor="middle" x="890.72" y="-383.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mini_batch_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~mini_batch_s.f90&#45;&gt;sourcefile~mini_batch_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge55" class="edge">
+<title>sourcefile~mini_batch_s.f90&#45;&gt;sourcefile~mini_batch_m.f90</title>
+<path fill="none" stroke="#00ff48" stroke-dasharray="5,2" d="M840.22,-386.76C817.78,-386.76 790.96,-386.76 767.02,-386.76"/>
+<polygon fill="#00ff48" stroke="#00ff48" points="767.05,-383.26 757.05,-386.76 767.05,-390.26 767.05,-383.26"/>
+</g>
+<!-- sourcefile~neuron_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node36" class="node">
+<title>sourcefile~neuron_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node36"><a xlink:href="../sourcefile/neuron_s.f90.html" xlink:title="neuron_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="930.6,-1030.89 850.83,-1030.89 850.83,-1006.62 930.6,-1006.62 930.6,-1030.89"/>
+<text text-anchor="middle" x="890.72" y="-1015.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">neuron_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~neuron_s.f90&#45;&gt;sourcefile~neuron_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge59" class="edge">
+<title>sourcefile~neuron_s.f90&#45;&gt;sourcefile~neuron_m.f90</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M850.61,-1018.76C823.24,-1018.76 786.34,-1018.76 756.3,-1018.76"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="756.68,-1015.26 746.68,-1018.76 756.68,-1022.26 756.68,-1015.26"/>
+</g>
+<!-- sourcefile~print&#45;training&#45;configuration.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node37" class="node">
+<title>sourcefile~print&#45;training&#45;configuration.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node37"><a xlink:href="../sourcefile/print-training-configuration.f90.html" xlink:title="print&#45;training&#45;configuration.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1351.14,-302.89 1172.37,-302.89 1172.37,-278.62 1351.14,-278.62 1351.14,-302.89"/>
+<text text-anchor="middle" x="1261.76" y="-287.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">print&#45;training&#45;configuration.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~print&#45;training&#45;configuration.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge39" class="edge">
+<title>sourcefile~print&#45;training&#45;configuration.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1204.02,-303.28C1193.15,-306.82 1182.12,-311.26 1172.37,-316.76 1137.38,-336.5 1104.49,-369.94 1085.17,-391.68"/>
+<polygon fill="#daff00" stroke="#daff00" points="1082.67,-389.22 1078.75,-399.07 1087.95,-393.82 1082.67,-389.22"/>
+</g>
+<!-- sourcefile~saturated_mixing_ratio_m.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge40" class="edge">
+<title>sourcefile~saturated_mixing_ratio_m.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1196.62,-223.33C1187.95,-226.78 1179.57,-231.17 1172.37,-236.76 1120.13,-277.28 1088.45,-351.75 1075.02,-389.5"/>
+<polygon fill="#daff00" stroke="#daff00" points="1071.72,-388.35 1071.79,-398.95 1078.34,-390.62 1071.72,-388.35"/>
+</g>
+<!-- sourcefile~sigmoid_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node39" class="node">
+<title>sourcefile~sigmoid_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node39"><a xlink:href="../sourcefile/sigmoid_s.f90.html" xlink:title="sigmoid_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1108.62,-868.89 1024.35,-868.89 1024.35,-844.62 1108.62,-844.62 1108.62,-868.89"/>
+<text text-anchor="middle" x="1066.49" y="-853.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sigmoid_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sigmoid_s.f90&#45;&gt;sourcefile~sigmoid_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge65" class="edge">
+<title>sourcefile~sigmoid_s.f90&#45;&gt;sourcefile~sigmoid_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M1023.86,-857.24C1000.89,-857.5 972.07,-857.83 947.2,-858.12"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="947.2,-854.62 937.24,-858.23 947.28,-861.62 947.2,-854.62"/>
+</g>
+<!-- sourcefile~swish_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node40" class="node">
+<title>sourcefile~swish_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node40"><a xlink:href="../sourcefile/swish_s.f90.html" xlink:title="swish_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1101.87,-826.89 1031.1,-826.89 1031.1,-802.62 1101.87,-802.62 1101.87,-826.89"/>
+<text text-anchor="middle" x="1066.49" y="-811.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">swish_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~swish_s.f90&#45;&gt;sourcefile~sigmoid_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge66" class="edge">
+<title>sourcefile~swish_s.f90&#45;&gt;sourcefile~sigmoid_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M1030.74,-823.55C1006.71,-829.64 974.25,-837.86 946.73,-844.83"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="945.98,-841.41 937.14,-847.25 947.69,-848.19 945.98,-841.41"/>
+</g>
+<!-- sourcefile~swish_s.f90&#45;&gt;sourcefile~swish_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge72" class="edge">
+<title>sourcefile~swish_s.f90&#45;&gt;sourcefile~swish_m.f90</title>
+<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M1030.74,-815.16C1004.88,-815.45 969.26,-815.86 940.54,-816.19"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="940.58,-812.69 930.62,-816.31 940.66,-819.69 940.58,-812.69"/>
+</g>
+<!-- sourcefile~tensor_range_m.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge76" class="edge">
+<title>sourcefile~tensor_range_m.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M412.07,-319.39C394.71,-323.41 375.67,-328.04 358.29,-332.76 338.32,-338.18 316.5,-344.81 297.65,-350.78"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="296.83,-347.36 288.37,-353.73 298.96,-354.03 296.83,-347.36"/>
+</g>
+<!-- sourcefile~tensor_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node42" class="node">
+<title>sourcefile~tensor_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node42"><a xlink:href="../sourcefile/tensor_s.f90.html" xlink:title="tensor_s.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="508.94,-398.89 432.92,-398.89 432.92,-374.62 508.94,-374.62 508.94,-398.89"/>
+<text text-anchor="middle" x="470.93" y="-383.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tensor_s.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~tensor_s.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge77" class="edge">
+<title>sourcefile~tensor_s.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M432.43,-383.36C396.04,-380.07 340.51,-375.05 300.07,-371.39"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="300.61,-367.92 290.33,-370.51 299.98,-374.89 300.61,-367.92"/>
+</g>
+<!-- sourcefile~thompson_tensors_m.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge41" class="edge">
+<title>sourcefile~thompson_tensors_m.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1202.77,-442.16C1181.94,-437.63 1158.24,-432.48 1136.56,-427.77"/>
+<polygon fill="#daff00" stroke="#daff00" points="1137.43,-424.37 1126.91,-425.67 1135.94,-431.21 1137.43,-424.37"/>
+</g>
+<!-- sourcefile~train&#45;and&#45;write.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node44" class="node">
+<title>sourcefile~train&#45;and&#45;write.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node44"><a xlink:href="../sourcefile/train-and-write.f90.html" xlink:title="train&#45;and&#45;write.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1318.14,-634.89 1205.37,-634.89 1205.37,-610.62 1318.14,-610.62 1318.14,-634.89"/>
+<text text-anchor="middle" x="1261.76" y="-619.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">train&#45;and&#45;write.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~train&#45;and&#45;write.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge42" class="edge">
+<title>sourcefile~train&#45;and&#45;write.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1205.28,-616.95C1193.59,-613.79 1181.92,-609 1172.37,-601.76 1115.88,-558.93 1085.65,-476.39 1073.68,-436.07"/>
+<polygon fill="#daff00" stroke="#daff00" points="1077.11,-435.35 1071.02,-426.68 1070.38,-437.26 1077.11,-435.35"/>
+</g>
+<!-- sourcefile~trainable_engine_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node45" class="node">
+<title>sourcefile~trainable_engine_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node45"><a xlink:href="../sourcefile/trainable_engine_s.f90.html" xlink:title="trainable_engine_s.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1133.75,-160.89 999.23,-160.89 999.23,-136.62 1133.75,-136.62 1133.75,-160.89"/>
+<text text-anchor="middle" x="1066.49" y="-145.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_s.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~trainable_engine_s.f90&#45;&gt;sourcefile~tensor_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge79" class="edge">
+<title>sourcefile~trainable_engine_s.f90&#45;&gt;sourcefile~tensor_m.f90</title>
+<path fill="none" stroke="#9100ff" stroke-dasharray="5,2" d="M1035.68,-136.16C930.35,-93.83 570.58,31.9 358.29,-128.76 355.94,-130.53 285.77,-285.27 259.08,-344.26"/>
+<polygon fill="#9100ff" stroke="#9100ff" points="256.04,-342.47 255.11,-353.03 262.42,-345.36 256.04,-342.47"/>
+</g>
+<!-- sourcefile~trainable_engine_s.f90&#45;&gt;sourcefile~trainable_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge81" class="edge">
+<title>sourcefile~trainable_engine_s.f90&#45;&gt;sourcefile~trainable_engine_m.f90</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M1010.98,-161.3C994,-165.21 975.09,-169.56 957.43,-173.63"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="956.76,-170.19 947.8,-175.85 958.33,-177.01 956.76,-170.19"/>
+</g>
+<!-- sourcefile~training_configuration_s.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_node46" class="node">
+<title>sourcefile~training_configuration_s.f90</title>
+<g id="a_sourcefile~~kind_parameters_m.f90~~AfferentGraph_node46"><a xlink:href="../sourcefile/training_configuration_s.f90.html" xlink:title="training_configuration_s.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1342.89,-153.89 1180.62,-153.89 1180.62,-129.62 1342.89,-129.62 1342.89,-153.89"/>
+<text text-anchor="middle" x="1261.76" y="-138.16" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_s.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge43" class="edge">
+<title>sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#daff00" stroke-dasharray="5,2" d="M1226.34,-154.32C1208.43,-162.26 1187.23,-174.01 1172.37,-189.76 1115.87,-249.63 1085.05,-345.47 1073.23,-389.4"/>
+<polygon fill="#daff00" stroke="#daff00" points="1069.89,-388.31 1070.77,-398.87 1076.67,-390.07 1069.89,-388.31"/>
+</g>
+<!-- sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~kind_parameters_m.f90~~AfferentGraph_edge84" class="edge">
+<title>sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~training_configuration_m.f90</title>
+<path fill="none" stroke="#ff0091" stroke-dasharray="5,2" d="M1183.99,-129.14C1095.19,-117.15 945.26,-104.96 820.83,-134.76 789.75,-142.2 756.9,-158.04 733.83,-170.65"/>
+<polygon fill="#ff0091" stroke="#ff0091" points="732.3,-167.49 725.29,-175.43 735.72,-173.6 732.3,-167.49"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefilekind_parameters_mf90AfferentGraph = svgPanZoom('#sourcefilekind_parameters_mf90AfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="200pt" height="32pt"
+ viewBox="0.00 0.00 199.52 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 195.52,-28.27 195.52,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="191.52,-24.27 87.75,-24.27 87.75,0 191.52,0 191.52,-24.27"/>
+<text text-anchor="middle" x="139.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">! Copyright (c), The Regents of the University of California</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">! Terms of use are as specified in LICENSE.txt</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="k">module </span><span class="n">kind_parameters_m</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">implicit none</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="k">  private</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="k">  public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rkind</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rkind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">kind</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="k">end module </span><span class="n">kind_parameters_m</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

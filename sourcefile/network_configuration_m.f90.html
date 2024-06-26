@@ -1,0 +1,663 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>network_configuration_m.f90 &ndash; Inference-Engine</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>network_configuration_m.f90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.9% of total for source files.">60 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/network_configuration_m.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">network_configuration_m.f90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/network_configuration_m.html">network_configuration_m</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/network_configuration_m.f90.html#src">network_configuration_m.f90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: sourcefile~~network_configuration_m.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefilenetwork_configuration_mf90AfferentGraph" width="641pt" height="288pt"
+ viewBox="0.00 0.00 641.00 287.97" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph" class="graph" transform="scale(0.545128 0.545128) rotate(0) translate(4 524.27)">
+<title>sourcefile~~network_configuration_m.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-524.27 1171.87,-524.27 1171.87,4 -4,4"/>
+<!-- sourcefile~network_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~network_configuration_m.f90</title>
+<polygon fill="none" stroke="black" points="166.77,-210.27 0,-210.27 0,-186 166.77,-186 166.77,-210.27"/>
+<text text-anchor="middle" x="83.39" y="-194.53" font-family="Helvetica,sans-Serif" font-size="10.50">network_configuration_m.f90</text>
+</g>
+<!-- sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~inference_engine_m.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/inference_engine_m.f90.html" xlink:title="inference_engine_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="719.58,-251.27 579.81,-251.27 579.81,-227 719.58,-227 719.58,-251.27"/>
+<text text-anchor="middle" x="649.7" y="-235.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~network_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~network_configuration_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M472.93,-238.13C352.75,-231.44 322.23,-233.89 202.77,-219.13 188.79,-217.41 173.96,-215.13 159.7,-212.72"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="160.35,-209.28 149.9,-211.02 159.15,-216.18 160.35,-209.28"/>
+</g>
+<!-- sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~training_configuration_m.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/training_configuration_m.f90.html" xlink:title="training_configuration_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="368.04,-210.27 202.77,-210.27 202.77,-186 368.04,-186 368.04,-210.27"/>
+<text text-anchor="middle" x="285.41" y="-194.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge17" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M579.73,-240.32C547.81,-240.46 509.41,-240.06 474.93,-238.13"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M472.93,-238.13C426.63,-235.55 375.18,-223.83 338.06,-213.74"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="339.05,-210.38 328.48,-211.07 337.18,-217.13 339.05,-210.38"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node16" class="node">
+<title>sourcefile~trainable_engine_m.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node16"><a xlink:href="../sourcefile/trainable_engine_m.f90.html" xlink:title="trainable_engine_m.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="543.81,-210.27 404.04,-210.27 404.04,-186 543.81,-186 543.81,-210.27"/>
+<text text-anchor="middle" x="473.93" y="-194.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_m.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~trainable_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge22" class="edge">
+<title>sourcefile~inference_engine_m.f90&#45;&gt;sourcefile~trainable_engine_m.f90</title>
+<path fill="none" stroke="#b600ff" stroke-dasharray="5,2" d="M595.61,-226.61C577.84,-222.42 557.84,-217.7 539.3,-213.32"/>
+<polygon fill="#b600ff" stroke="#b600ff" points="540.29,-209.96 529.75,-211.07 538.68,-216.77 540.29,-209.96"/>
+</g>
+<!-- sourcefile~network_configuration_s.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~network_configuration_s.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/network_configuration_s.f90.html" xlink:title="network_configuration_s.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="367.29,-168.27 203.52,-168.27 203.52,-144 367.29,-144 367.29,-168.27"/>
+<text text-anchor="middle" x="285.41" y="-152.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">network_configuration_s.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~network_configuration_s.f90&#45;&gt;sourcefile~network_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~network_configuration_s.f90&#45;&gt;sourcefile~network_configuration_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M224.39,-168.74C202.74,-173.28 178.08,-178.46 155.56,-183.19"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.9,-179.75 145.84,-185.23 156.34,-186.6 154.9,-179.75"/>
+</g>
+<!-- sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~network_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~training_configuration_m.f90&#45;&gt;sourcefile~network_configuration_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M202.47,-198.13C194.55,-198.13 186.48,-198.13 178.45,-198.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="178.68,-194.64 168.68,-198.14 178.68,-201.64 178.68,-194.64"/>
+</g>
+<!-- sourcefile~concurrent&#45;inferences.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~concurrent&#45;inferences.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/concurrent-inferences.f90.html" xlink:title="concurrent&#45;inferences.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="919.35,-478.27 770.58,-478.27 770.58,-454 919.35,-454 919.35,-478.27"/>
+<text text-anchor="middle" x="844.97" y="-462.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">concurrent&#45;inferences.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~concurrent&#45;inferences.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~concurrent&#45;inferences.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M770.22,-454.04C765,-451.58 760.04,-448.65 755.58,-445.13 695.16,-397.61 666.44,-305.88 655.8,-262.7"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="659.25,-262.07 653.57,-253.12 652.43,-263.66 659.25,-262.07"/>
+</g>
+<!-- sourcefile~learn&#45;addition.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~learn&#45;addition.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node6"><a xlink:href="../sourcefile/learn-addition.f90.html" xlink:title="learn&#45;addition.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="899.48,-436.27 790.46,-436.27 790.46,-412 899.48,-412 899.48,-436.27"/>
+<text text-anchor="middle" x="844.97" y="-420.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;addition.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;addition.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~learn&#45;addition.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M790.2,-418.25C778.04,-415.11 765.74,-410.35 755.58,-403.13 704.86,-367.11 672.85,-298.1 658.87,-262.17"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="662.28,-261.3 655.49,-253.16 655.73,-263.75 662.28,-261.3"/>
+</g>
+<!-- sourcefile~learn&#45;exponentiation.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~learn&#45;exponentiation.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node7"><a xlink:href="../sourcefile/learn-exponentiation.f90.html" xlink:title="learn&#45;exponentiation.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="917.48,-394.27 772.46,-394.27 772.46,-370 917.48,-370 917.48,-394.27"/>
+<text text-anchor="middle" x="844.97" y="-378.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;exponentiation.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;exponentiation.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~learn&#45;exponentiation.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M772.89,-369.52C766.83,-367.18 760.97,-364.42 755.58,-361.13 714.12,-335.89 680.61,-288.69 663.37,-260.98"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="666.53,-259.45 658.36,-252.7 660.54,-263.07 666.53,-259.45"/>
+</g>
+<!-- sourcefile~learn&#45;microphysics&#45;procedures.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~learn&#45;microphysics&#45;procedures.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node8"><a xlink:href="../sourcefile/learn-microphysics-procedures.f90.html" xlink:title="learn&#45;microphysics&#45;procedures.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1167.87,-332.27 970.35,-332.27 970.35,-308 1167.87,-308 1167.87,-332.27"/>
+<text text-anchor="middle" x="1069.11" y="-316.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;microphysics&#45;procedures.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M970.11,-314.39C907.91,-309.16 826.13,-299.34 755.58,-281.13 732.02,-275.06 706.67,-265.01 686.8,-256.27"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="688.3,-253.1 677.74,-252.2 685.43,-259.49 688.3,-253.1"/>
+</g>
+<!-- sourcefile~thompson_tensors_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node14" class="node">
+<title>sourcefile~thompson_tensors_m.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node14"><a xlink:href="../sourcefile/thompson_tensors_m.f90.html" xlink:title="thompson_tensors_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="917.48,-352.27 772.46,-352.27 772.46,-328 917.48,-328 917.48,-352.27"/>
+<text text-anchor="middle" x="844.97" y="-336.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thompson_tensors_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~thompson_tensors_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge21" class="edge">
+<title>sourcefile~learn&#45;microphysics&#45;procedures.f90&#45;&gt;sourcefile~thompson_tensors_m.f90</title>
+<path fill="none" stroke="#0024ff" stroke-dasharray="5,2" d="M970.03,-328.97C956.32,-330.2 942.34,-331.46 928.94,-332.66"/>
+<polygon fill="#0024ff" stroke="#0024ff" points="929,-329.15 919.35,-333.53 929.63,-336.12 929,-329.15"/>
+</g>
+<!-- sourcefile~learn&#45;multiplication.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~learn&#45;multiplication.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node9"><a xlink:href="../sourcefile/learn-multiplication.f90.html" xlink:title="learn&#45;multiplication.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="914.1,-272.27 775.83,-272.27 775.83,-248 914.1,-248 914.1,-272.27"/>
+<text text-anchor="middle" x="844.97" y="-256.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;multiplication.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;multiplication.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~learn&#45;multiplication.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M775.55,-252.7C761.19,-251.14 745.91,-249.48 731.15,-247.88"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="731.82,-244.43 721.5,-246.83 731.06,-251.39 731.82,-244.43"/>
+</g>
+<!-- sourcefile~learn&#45;power&#45;series.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node10" class="node">
+<title>sourcefile~learn&#45;power&#45;series.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node10"><a xlink:href="../sourcefile/learn-power-series.f90.html" xlink:title="learn&#45;power&#45;series.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="911.48,-230.27 778.46,-230.27 778.46,-206 911.48,-206 911.48,-230.27"/>
+<text text-anchor="middle" x="844.97" y="-214.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;power&#45;series.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;power&#45;series.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~learn&#45;power&#45;series.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M777.99,-225.3C762.95,-226.94 746.79,-228.69 731.21,-230.39"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="731.06,-226.88 721.5,-231.44 731.82,-233.84 731.06,-226.88"/>
+</g>
+<!-- sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node11" class="node">
+<title>sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node11"><a xlink:href="../sourcefile/learn-saturated-mixing-ratio.f90.html" xlink:title="learn&#45;saturated&#45;mixing&#45;ratio.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1161.12,-168.27 977.1,-168.27 977.1,-144 1161.12,-144 1161.12,-168.27"/>
+<text text-anchor="middle" x="1069.11" y="-152.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn&#45;saturated&#45;mixing&#45;ratio.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1026.27,-143.51C962.92,-126.99 840.99,-105.57 755.58,-155.13 727.69,-171.32 744.78,-198.01 719.58,-218.13 718.43,-219.06 717.23,-219.94 716,-220.78"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="714.26,-217.74 707.34,-225.76 717.75,-223.81 714.26,-217.74"/>
+</g>
+<!-- sourcefile~saturated_mixing_ratio_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node13" class="node">
+<title>sourcefile~saturated_mixing_ratio_m.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node13"><a xlink:href="../sourcefile/saturated_mixing_ratio_m.f90.html" xlink:title="saturated_mixing_ratio_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="929.85,-188.27 760.08,-188.27 760.08,-164 929.85,-164 929.85,-188.27"/>
+<text text-anchor="middle" x="844.97" y="-172.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">saturated_mixing_ratio_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~saturated_mixing_ratio_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge20" class="edge">
+<title>sourcefile~learn&#45;saturated&#45;mixing&#45;ratio.f90&#45;&gt;sourcefile~saturated_mixing_ratio_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M976.79,-164.36C965.09,-165.41 953.09,-166.49 941.33,-167.55"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="941.3,-164.04 931.66,-168.42 941.93,-171.01 941.3,-164.04"/>
+</g>
+<!-- sourcefile~print&#45;training&#45;configuration.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node12" class="node">
+<title>sourcefile~print&#45;training&#45;configuration.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node12"><a xlink:href="../sourcefile/print-training-configuration.f90.html" xlink:title="print&#45;training&#45;configuration.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="934.35,-108.27 755.58,-108.27 755.58,-84 934.35,-84 934.35,-108.27"/>
+<text text-anchor="middle" x="844.97" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">print&#45;training&#45;configuration.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~print&#45;training&#45;configuration.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~print&#45;training&#45;configuration.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M776.2,-108.76C768.66,-112.21 761.55,-116.58 755.58,-122.13 722.21,-153.16 752.8,-186.94 719.58,-218.13 718.8,-218.87 718,-219.57 717.18,-220.25"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="715.24,-217.34 708.87,-225.8 719.13,-223.16 715.24,-217.34"/>
+</g>
+<!-- sourcefile~saturated_mixing_ratio_m.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~saturated_mixing_ratio_m.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M780.96,-188.68C772.31,-191.1 763.63,-193.91 755.58,-197.13 738.38,-204.02 736.55,-210.72 719.58,-218.13 715.81,-219.78 711.86,-221.36 707.86,-222.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="706.89,-219.47 698.61,-226.08 709.2,-226.08 706.89,-219.47"/>
+</g>
+<!-- sourcefile~thompson_tensors_m.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~thompson_tensors_m.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M790.53,-327.55C778.74,-323.91 766.51,-319.46 755.58,-314.13 725.18,-299.32 694.13,-275.87 673.79,-259.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="676.05,-256.47 666.13,-252.73 671.55,-261.83 676.05,-256.47"/>
+</g>
+<!-- sourcefile~train&#45;and&#45;write.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node15" class="node">
+<title>sourcefile~train&#45;and&#45;write.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node15"><a xlink:href="../sourcefile/train-and-write.f90.html" xlink:title="train&#45;and&#45;write.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="901.35,-66.27 788.58,-66.27 788.58,-42 901.35,-42 901.35,-66.27"/>
+<text text-anchor="middle" x="844.97" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">train&#45;and&#45;write.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~train&#45;and&#45;write.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~train&#45;and&#45;write.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M788.36,-57.82C776.26,-61.03 764.45,-66.38 755.58,-75.13 708.93,-121.17 764.77,-170.66 719.58,-218.13 718.98,-218.76 718.37,-219.37 717.73,-219.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="715.84,-217.01 709.89,-225.78 720.01,-222.63 715.84,-217.01"/>
+</g>
+<!-- sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge18" class="edge">
+<title>sourcefile~trainable_engine_m.f90&#45;&gt;sourcefile~training_configuration_m.f90</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M403.74,-198.13C395.92,-198.13 387.85,-198.13 379.79,-198.13"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="379.92,-194.64 369.92,-198.14 379.92,-201.64 379.92,-194.64"/>
+</g>
+<!-- sourcefile~training_configuration_s.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node17" class="node">
+<title>sourcefile~training_configuration_s.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node17"><a xlink:href="../sourcefile/training_configuration_s.f90.html" xlink:title="training_configuration_s.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="926.1,-24.27 763.83,-24.27 763.83,0 926.1,0 926.1,-24.27"/>
+<text text-anchor="middle" x="844.97" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_s.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M766.2,-24.6C762.33,-27.01 758.75,-29.84 755.58,-33.13 697.58,-93.57 775.66,-155.91 719.58,-218.13 719.11,-218.66 718.63,-219.17 718.13,-219.66"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="716.1,-216.81 710.39,-225.74 720.42,-222.32 716.1,-216.81"/>
+</g>
+<!-- sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~training_configuration_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge19" class="edge">
+<title>sourcefile~training_configuration_s.f90&#45;&gt;sourcefile~training_configuration_m.f90</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M786.64,-24.67C776.24,-27.25 765.54,-30.11 755.58,-33.13 579.75,-86.47 543.37,-122.17 368.04,-177.13 361.96,-179.04 355.58,-180.91 349.19,-182.69"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="348.65,-179.21 339.92,-185.21 350.49,-185.97 348.65,-179.21"/>
+</g>
+<!-- sourcefile~write&#45;read&#45;infer.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node18" class="node">
+<title>sourcefile~write&#45;read&#45;infer.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node18"><a xlink:href="../sourcefile/write-read-infer.f90.html" xlink:title="write&#45;read&#45;infer.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="902.48,-520.27 787.46,-520.27 787.46,-496 902.48,-496 902.48,-520.27"/>
+<text text-anchor="middle" x="844.97" y="-504.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write&#45;read&#45;infer.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~write&#45;read&#45;infer.f90&#45;&gt;sourcefile~inference_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~write&#45;read&#45;infer.f90&#45;&gt;sourcefile~inference_engine_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M786.98,-502.81C775.64,-499.61 764.49,-494.67 755.58,-487.13 685.16,-427.58 660.99,-312.54 653.6,-262.89"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="657.11,-262.68 652.28,-253.25 650.17,-263.64 657.11,-262.68"/>
+</g>
+<!-- sourcefile~trainable_engine_s.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_node19" class="node">
+<title>sourcefile~trainable_engine_s.f90</title>
+<g id="a_sourcefile~~network_configuration_m.f90~~AfferentGraph_node19"><a xlink:href="../sourcefile/trainable_engine_s.f90.html" xlink:title="trainable_engine_s.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="716.96,-209.27 582.44,-209.27 582.44,-185 716.96,-185 716.96,-209.27"/>
+<text text-anchor="middle" x="649.7" y="-193.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_s.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~trainable_engine_s.f90&#45;&gt;sourcefile~trainable_engine_m.f90 -->
+<g id="sourcefile~~network_configuration_m.f90~~AfferentGraph_edge23" class="edge">
+<title>sourcefile~trainable_engine_s.f90&#45;&gt;sourcefile~trainable_engine_m.f90</title>
+<path fill="none" stroke="#b600ff" stroke-dasharray="5,2" d="M582.01,-197.52C573.26,-197.57 564.22,-197.62 555.28,-197.67"/>
+<polygon fill="#b600ff" stroke="#b600ff" points="555.52,-194.17 545.54,-197.73 555.56,-201.17 555.52,-194.17"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefilenetwork_configuration_mf90AfferentGraph = svgPanZoom('#sourcefilenetwork_configuration_mf90AfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="200pt" height="32pt"
+ viewBox="0.00 0.00 199.52 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 195.52,-28.27 195.52,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="191.52,-24.27 87.75,-24.27 87.75,0 191.52,0 191.52,-24.27"/>
+<text text-anchor="middle" x="139.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">network_configuration_m</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">  </span><span class="k">use </span><span class="n">julienne_string_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">string_t</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">implicit none</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="k">  private</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="k">  public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">network_configuration_t</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="k">type </span><span class="n">network_configuration_t</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">    </span><span class="k">private</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="k">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">skip_connections_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nodes_per_layer_</span><span class="p">(:)</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">activation_name_</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">  </span><span class="k">contains</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="k">    procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">to_json</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">equals</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">    </span><span class="k">generic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">operator</span><span class="p">(</span><span class="o">==</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">equals</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">activation_name</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nodes_per_layer</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">skip_connections</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">  </span><span class="k">end type</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="k">  interface </span><span class="n">network_configuration_t</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="k">pure module function </span><span class="n">from_json</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">network_configuration</span><span class="p">)</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="k">      type</span><span class="p">(</span><span class="n">string_t</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lines</span><span class="p">(:)</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">)</span><span class="w"> </span><span class="n">network_configuration</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="k">    pure module function </span><span class="n">from_components</span><span class="p">(</span><span class="n">skip_connections</span><span class="p">,</span><span class="w"> </span><span class="n">nodes_per_layer</span><span class="p">,</span><span class="w"> </span><span class="n">activation_name</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">network_configuration</span><span class="p">)</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="k">      </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">skip_connections</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nodes_per_layer</span><span class="p">(:)</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">activation_name</span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">)</span><span class="w"> </span><span class="n">network_configuration</span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-37" name="ln-37" href="#ln-37"></a>
+<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="k">  end interface</span>
+<a id="ln-39" name="ln-39" href="#ln-39"></a>
+<a id="ln-40" name="ln-40" href="#ln-40"></a><span class="k">  interface</span>
+<a id="ln-41" name="ln-41" href="#ln-41"></a>
+<a id="ln-42" name="ln-42" href="#ln-42"></a><span class="k">    pure module function </span><span class="n">to_json</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-44" name="ln-44" href="#ln-44"></a><span class="k">      class</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
+<a id="ln-45" name="ln-45" href="#ln-45"></a><span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">string_t</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lines</span><span class="p">(:)</span>
+<a id="ln-46" name="ln-46" href="#ln-46"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-47" name="ln-47" href="#ln-47"></a>
+<a id="ln-48" name="ln-48" href="#ln-48"></a><span class="k">    elemental module function </span><span class="n">equals</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">lhs_equals_rhs</span><span class="p">)</span>
+<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-50" name="ln-50" href="#ln-50"></a><span class="k">      class</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span>
+<a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">      </span><span class="kt">logical </span><span class="n">lhs_equals_rhs</span>
+<a id="ln-52" name="ln-52" href="#ln-52"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-53" name="ln-53" href="#ln-53"></a>
+<a id="ln-54" name="ln-54" href="#ln-54"></a><span class="k">    elemental module function </span><span class="n">activation_name</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<a id="ln-55" name="ln-55" href="#ln-55"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="k">      class</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
+<a id="ln-57" name="ln-57" href="#ln-57"></a><span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">string_t</span><span class="p">)</span><span class="w"> </span><span class="n">string</span>
+<a id="ln-58" name="ln-58" href="#ln-58"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-59" name="ln-59" href="#ln-59"></a>
+<a id="ln-60" name="ln-60" href="#ln-60"></a><span class="k">    pure module function </span><span class="n">nodes_per_layer</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+<a id="ln-61" name="ln-61" href="#ln-61"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-62" name="ln-62" href="#ln-62"></a><span class="k">      class</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
+<a id="ln-63" name="ln-63" href="#ln-63"></a><span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nodes</span><span class="p">(:)</span>
+<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-65" name="ln-65" href="#ln-65"></a>
+<a id="ln-66" name="ln-66" href="#ln-66"></a><span class="k">    elemental module function </span><span class="n">skip_connections</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">using_skip</span><span class="p">)</span>
+<a id="ln-67" name="ln-67" href="#ln-67"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-68" name="ln-68" href="#ln-68"></a><span class="k">      class</span><span class="p">(</span><span class="n">network_configuration_t</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
+<a id="ln-69" name="ln-69" href="#ln-69"></a><span class="w">      </span><span class="kt">logical </span><span class="n">using_skip</span>
+<a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-71" name="ln-71" href="#ln-71"></a>
+<a id="ln-72" name="ln-72" href="#ln-72"></a>
+<a id="ln-73" name="ln-73" href="#ln-73"></a><span class="k">  end interface</span>
+<a id="ln-74" name="ln-74" href="#ln-74"></a>
+<a id="ln-75" name="ln-75" href="#ln-75"></a><span class="k">end module</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1408 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>network_configuration_m &ndash; Inference-Engine</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>network_configuration_m
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.7% of total for modules and submodules.">60 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/network_configuration_m.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/network_configuration_m.f90.html'>network_configuration_m.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">network_configuration_m</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/network_configuration_m.html#interface-network_configuration_t">network_configuration_t</a>
+            <a class="list-group-item" href="../module/network_configuration_m.html#interface-activation_name">activation_name</a>
+            <a class="list-group-item" href="../module/network_configuration_m.html#interface-equals~2">equals</a>
+            <a class="list-group-item" href="../module/network_configuration_m.html#interface-nodes_per_layer~2">nodes_per_layer</a>
+            <a class="list-group-item" href="../module/network_configuration_m.html#interface-skip_connections">skip_connections</a>
+            <a class="list-group-item" href="../module/network_configuration_m.html#interface-to_json~3">to_json</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/network_configuration_m.html#type-network_configuration_t">network_configuration_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">julienne_string_m</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: module~~network_configuration_m~~UsesGraph Pages: 1 -->
+<svg id="modulenetwork_configuration_mUsesGraph" width="296pt" height="32pt"
+ viewBox="0.00 0.00 295.79 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~network_configuration_m~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>module~~network_configuration_m~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 291.79,-28.27 291.79,4 -4,4"/>
+<!-- module~network_configuration_m -->
+<g id="module~~network_configuration_m~~UsesGraph_node1" class="node">
+<title>module~network_configuration_m</title>
+<polygon fill="none" stroke="black" points="287.79,-24.27 141.27,-24.27 141.27,0 287.79,0 287.79,-24.27"/>
+<text text-anchor="middle" x="214.53" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">network_configuration_m</text>
+</g>
+<!-- julienne_string_m -->
+<g id="module~~network_configuration_m~~UsesGraph_node2" class="node">
+<title>julienne_string_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="105.27,-24.27 0,-24.27 0,0 105.27,0 105.27,-24.27"/>
+<text text-anchor="middle" x="52.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</g>
+<!-- module~network_configuration_m&#45;&gt;julienne_string_m -->
+<g id="module~~network_configuration_m~~UsesGraph_edge1" class="edge">
+<title>module~network_configuration_m&#45;&gt;julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M141.07,-12.13C133.07,-12.13 124.98,-12.13 117.11,-12.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="117.28,-8.64 107.28,-12.14 117.28,-15.64 117.28,-8.64"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 510.88 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li class="list-inline-item"><h5>Descendants:</h5></li>
+                  <li class="list-inline-item"><a href='network_configuration_s.html'>network_configuration_s</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: module~~network_configuration_m~~UsedByGraph Pages: 1 -->
+<svg id="modulenetwork_configuration_mUsedByGraph" width="641pt" height="414pt"
+ viewBox="0.00 0.00 641.00 413.86" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~network_configuration_m~~UsedByGraph" class="graph" transform="scale(0.608379 0.608379) rotate(0) translate(4 676.27)">
+<title>module~~network_configuration_m~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-676.27 1049.62,-676.27 1049.62,4 -4,4"/>
+<!-- module~network_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node1" class="node">
+<title>module~network_configuration_m</title>
+<polygon fill="none" stroke="black" points="146.52,-289.27 0,-289.27 0,-265 146.52,-265 146.52,-289.27"/>
+<text text-anchor="middle" x="73.26" y="-273.53" font-family="Helvetica,sans-Serif" font-size="10.50">network_configuration_m</text>
+</g>
+<!-- module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node2" class="node">
+<title>module~inference_engine_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node2"><a xlink:href="../module/inference_engine_m.html" xlink:title="inference_engine_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="636.33,-330.27 516.81,-330.27 516.81,-306 636.33,-306 636.33,-330.27"/>
+<text text-anchor="middle" x="576.57" y="-314.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inference_engine_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~network_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge1" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M421.18,-317.13C314.98,-310.46 287.95,-312.51 182.52,-298.13 169.98,-296.42 156.69,-294.2 143.88,-291.83"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="144.74,-288.43 134.26,-290.01 143.44,-295.31 144.74,-288.43"/>
+</g>
+<!-- module~training_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node4" class="node">
+<title>module~training_configuration_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node4"><a xlink:href="../module/training_configuration_m.html" xlink:title="training_configuration_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="327.54,-289.27 182.52,-289.27 182.52,-265 327.54,-265 327.54,-289.27"/>
+<text text-anchor="middle" x="255.03" y="-273.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~training_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge21" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M516.54,-319.29C488.26,-319.45 453.94,-319.07 423.18,-317.13"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M421.18,-317.13C380.44,-314.57 335.5,-303.1 302.79,-293.09"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="304.23,-289.87 293.64,-290.22 302.14,-296.55 304.23,-289.87"/>
+</g>
+<!-- module~trainable_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node11" class="node">
+<title>module~trainable_engine_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node11"><a xlink:href="../module/trainable_engine_m.html" xlink:title="trainable_engine_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="480.81,-289.27 363.54,-289.27 363.54,-265 480.81,-265 480.81,-289.27"/>
+<text text-anchor="middle" x="422.18" y="-273.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_m</text>
+</a>
+</g>
+</g>
+<!-- module~inference_engine_m&#45;&gt;module~trainable_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge30" class="edge">
+<title>module~inference_engine_m&#45;&gt;module~trainable_engine_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M529.02,-305.61C513.8,-301.52 496.71,-296.92 480.78,-292.63"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="481.99,-289.34 471.43,-290.12 480.18,-296.09 481.99,-289.34"/>
+</g>
+<!-- module~network_configuration_s -->
+<g id="module~~network_configuration_m~~UsedByGraph_node3" class="node">
+<title>module~network_configuration_s</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node3"><a xlink:href="../module/network_configuration_s.html" xlink:title="network_configuration_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="325.67,-247.27 184.4,-247.27 184.4,-223 325.67,-223 325.67,-247.27"/>
+<text text-anchor="middle" x="255.03" y="-231.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">network_configuration_s</text>
+</a>
+</g>
+</g>
+<!-- module~network_configuration_s&#45;&gt;module~network_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge3" class="edge">
+<title>module~network_configuration_s&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#ff0000" d="M200.09,-247.74C180.98,-252.2 159.28,-257.27 139.34,-261.93"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="138.57,-258.51 129.63,-264.2 140.17,-265.33 138.57,-258.51"/>
+</g>
+<!-- module~training_configuration_m&#45;&gt;module~network_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge2" class="edge">
+<title>module~training_configuration_m&#45;&gt;module~network_configuration_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M182.21,-277.13C174.29,-277.13 166.19,-277.13 158.15,-277.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="158.37,-273.64 148.37,-277.14 158.37,-280.64 158.37,-273.64"/>
+</g>
+<!-- module~addition_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node5" class="node">
+<title>module~addition_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node5"><a xlink:href="../module/addition_m.html" xlink:title="addition_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="787.35,-630.27 716.58,-630.27 716.58,-606 787.35,-606 787.35,-630.27"/>
+<text text-anchor="middle" x="751.97" y="-614.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">addition_m</text>
+</a>
+</g>
+</g>
+<!-- module~addition_m&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge4" class="edge">
+<title>module~addition_m&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M716.39,-613.73C701.17,-610.17 684.1,-603.75 672.33,-592.13 600.83,-521.6 583.22,-394.55 578.93,-341.94"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="582.43,-341.76 578.23,-332.03 575.44,-342.25 582.43,-341.76"/>
+</g>
+<!-- module~exponentiation_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node6" class="node">
+<title>module~exponentiation_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node6"><a xlink:href="../module/exponentiation_m.html" xlink:title="exponentiation_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="805.35,-550.27 698.58,-550.27 698.58,-526 805.35,-526 805.35,-550.27"/>
+<text text-anchor="middle" x="751.97" y="-534.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">exponentiation_m</text>
+</a>
+</g>
+</g>
+<!-- module~exponentiation_m&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge5" class="edge">
+<title>module~exponentiation_m&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M698.35,-527.23C688.96,-523.56 679.8,-518.66 672.33,-512.13 619.11,-465.66 592.89,-382.44 582.76,-341.79"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="586.18,-341.03 580.47,-332.1 579.36,-342.64 586.18,-341.03"/>
+</g>
+<!-- module~multiply_inputs -->
+<g id="module~~network_configuration_m~~UsedByGraph_node7" class="node">
+<title>module~multiply_inputs</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node7"><a xlink:href="../module/multiply_inputs.html" xlink:title="multiply_inputs">
+<polygon fill="#337ab7" stroke="#337ab7" points="797.85,-470.27 706.08,-470.27 706.08,-446 797.85,-446 797.85,-470.27"/>
+<text text-anchor="middle" x="751.97" y="-454.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">multiply_inputs</text>
+</a>
+</g>
+</g>
+<!-- module~multiply_inputs&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge6" class="edge">
+<title>module~multiply_inputs&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M705.69,-447.91C694.21,-444.08 682.31,-438.94 672.33,-432.13 636.44,-407.67 606.69,-365.93 590.58,-340.31"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="593.72,-338.72 585.51,-332.02 587.74,-342.38 593.72,-338.72"/>
+</g>
+<!-- module~power_series -->
+<g id="module~~network_configuration_m~~UsedByGraph_node8" class="node">
+<title>module~power_series</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node8"><a xlink:href="../module/power_series.html" xlink:title="power_series">
+<polygon fill="#337ab7" stroke="#337ab7" points="792.6,-390.27 711.33,-390.27 711.33,-366 792.6,-366 792.6,-390.27"/>
+<text text-anchor="middle" x="751.97" y="-374.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">power_series</text>
+</a>
+</g>
+</g>
+<!-- module~power_series&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge7" class="edge">
+<title>module~power_series&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M712.1,-365.5C699.4,-361.31 685.24,-356.59 672.33,-352.13 655.95,-346.49 638.05,-340.12 622.26,-334.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="623.73,-331.24 613.13,-331.13 621.35,-337.82 623.73,-331.24"/>
+</g>
+<!-- module~saturated_mixing_ratio_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node9" class="node">
+<title>module~saturated_mixing_ratio_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node9"><a xlink:href="../module/saturated_mixing_ratio_m.html" xlink:title="saturated_mixing_ratio_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="826.73,-310.27 677.21,-310.27 677.21,-286 826.73,-286 826.73,-310.27"/>
+<text text-anchor="middle" x="751.97" y="-294.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">saturated_mixing_ratio_m</text>
+</a>
+</g>
+</g>
+<!-- module~saturated_mixing_ratio_m&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge8" class="edge">
+<title>module~saturated_mixing_ratio_m&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M676.93,-306.67C667.37,-307.78 657.61,-308.9 648.11,-310"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="647.73,-306.52 638.2,-311.14 648.53,-313.47 647.73,-306.52"/>
+</g>
+<!-- module~thompson_tensors_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_node10" class="node">
+<title>module~thompson_tensors_m</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node10"><a xlink:href="../module/thompson_tensors_m.html" xlink:title="thompson_tensors_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="814.35,-230.27 689.58,-230.27 689.58,-206 814.35,-206 814.35,-230.27"/>
+<text text-anchor="middle" x="751.97" y="-214.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thompson_tensors_m</text>
+</a>
+</g>
+</g>
+<!-- module~thompson_tensors_m&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge9" class="edge">
+<title>module~thompson_tensors_m&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M697.01,-230.71C688.26,-234.19 679.67,-238.59 672.33,-244.13 649.6,-261.29 658.85,-279.71 636.33,-297.13 635.02,-298.15 633.65,-299.12 632.25,-300.04"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="630.8,-296.84 623.78,-304.78 634.22,-302.95 630.8,-296.84"/>
+</g>
+<!-- module~trainable_engine_m&#45;&gt;module~training_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge22" class="edge">
+<title>module~trainable_engine_m&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M363.42,-277.13C355.64,-277.13 347.54,-277.13 339.43,-277.13"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="339.5,-273.64 329.5,-277.14 339.5,-280.64 339.5,-273.64"/>
+</g>
+<!-- module~training_configuration_s -->
+<g id="module~~network_configuration_m~~UsedByGraph_node12" class="node">
+<title>module~training_configuration_s</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node12"><a xlink:href="../module/training_configuration_s.html" xlink:title="training_configuration_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="821.85,-24.27 682.08,-24.27 682.08,0 821.85,0 821.85,-24.27"/>
+<text text-anchor="middle" x="751.97" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">training_configuration_s</text>
+</a>
+</g>
+</g>
+<!-- module~training_configuration_s&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge10" class="edge">
+<title>module~training_configuration_s&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M682.22,-24.67C678.58,-27.05 675.23,-29.85 672.33,-33.13 594.01,-121.95 710.93,-205.17 636.33,-297.13 636.08,-297.44 635.83,-297.75 635.57,-298.04"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="633.34,-295.34 628.06,-304.53 637.92,-300.64 633.34,-295.34"/>
+</g>
+<!-- module~training_configuration_s&#45;&gt;module~training_configuration_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge23" class="edge">
+<title>module~training_configuration_s&#45;&gt;module~training_configuration_m</title>
+<path fill="none" stroke="#0000ff" d="M695.22,-24.68C687.39,-27.12 679.56,-29.93 672.33,-33.13 505.51,-107.14 493.43,-180.08 327.54,-256.13 323.96,-257.78 320.22,-259.32 316.42,-260.78"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="315.25,-257.47 306.99,-264.11 317.59,-264.07 315.25,-257.47"/>
+</g>
+<!-- program~concurrent_inferences -->
+<g id="module~~network_configuration_m~~UsedByGraph_node13" class="node">
+<title>program~concurrent_inferences</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node13"><a xlink:href="../program/concurrent_inferences.html" xlink:title="concurrent_inferences">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="816.98,-150.27 686.96,-150.27 686.96,-126 816.98,-126 816.98,-150.27"/>
+<text text-anchor="middle" x="751.97" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">concurrent_inferences</text>
+</a>
+</g>
+</g>
+<!-- program~concurrent_inferences&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge11" class="edge">
+<title>program~concurrent_inferences&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M691.32,-150.62C684.25,-154.08 677.67,-158.5 672.33,-164.13 630.23,-208.61 677.89,-252.16 636.33,-297.13 635.75,-297.76 635.15,-298.37 634.53,-298.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="632.73,-295.94 626.84,-304.74 636.94,-301.53 632.73,-295.94"/>
+</g>
+<!-- program~learn_addition -->
+<g id="module~~network_configuration_m~~UsedByGraph_node14" class="node">
+<title>program~learn_addition</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node14"><a xlink:href="../program/learn_addition.html" xlink:title="learn_addition">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1000.62,-600.27 912.6,-600.27 912.6,-576 1000.62,-576 1000.62,-600.27"/>
+<text text-anchor="middle" x="956.61" y="-584.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn_addition</text>
+</a>
+</g>
+</g>
+<!-- program~learn_addition&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge12" class="edge">
+<title>program~learn_addition&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M912.15,-589.05C842.26,-589.65 709.01,-586.96 672.33,-559.13 601.66,-505.51 583.63,-391.37 579.08,-341.86"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="582.58,-341.68 578.3,-331.99 575.6,-342.24 582.58,-341.68"/>
+</g>
+<!-- program~learn_addition&#45;&gt;module~addition_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge24" class="edge">
+<title>program~learn_addition&#45;&gt;module~addition_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M912.14,-594.57C878.7,-599.52 832.63,-606.34 798.65,-611.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="798.51,-607.85 789.13,-612.78 799.53,-614.78 798.51,-607.85"/>
+</g>
+<!-- program~learn_exponentiation -->
+<g id="module~~network_configuration_m~~UsedByGraph_node15" class="node">
+<title>program~learn_exponentiation</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node15"><a xlink:href="../program/learn_exponentiation.html" xlink:title="learn_exponentiation">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1018.62,-539.27 894.6,-539.27 894.6,-515 1018.62,-515 1018.62,-539.27"/>
+<text text-anchor="middle" x="956.61" y="-523.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn_exponentiation</text>
+</a>
+</g>
+</g>
+<!-- program~learn_exponentiation&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge13" class="edge">
+<title>program~learn_exponentiation&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M894.27,-522.78C822.05,-516.62 707.45,-503.33 672.33,-479.13 623.38,-445.41 595.95,-377.45 584.32,-341.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="587.71,-340.69 581.41,-332.16 581.02,-342.75 587.71,-340.69"/>
+</g>
+<!-- program~learn_exponentiation&#45;&gt;module~exponentiation_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge25" class="edge">
+<title>program~learn_exponentiation&#45;&gt;module~exponentiation_m</title>
+<path fill="none" stroke="#ff5400" stroke-dasharray="5,2" d="M894.26,-530.47C869.82,-531.79 841.69,-533.32 816.99,-534.66"/>
+<polygon fill="#ff5400" stroke="#ff5400" points="816.85,-531.16 807.06,-535.2 817.23,-538.15 816.85,-531.16"/>
+</g>
+<!-- program~learn_microphysics_procedures -->
+<g id="module~~network_configuration_m~~UsedByGraph_node16" class="node">
+<title>program~learn_microphysics_procedures</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node16"><a xlink:href="../program/learn_microphysics_procedures.html" xlink:title="learn_microphysics_procedures">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1045.62,-210.27 867.6,-210.27 867.6,-186 1045.62,-186 1045.62,-210.27"/>
+<text text-anchor="middle" x="956.61" y="-194.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn_microphysics_procedures</text>
+</a>
+</g>
+</g>
+<!-- program~learn_microphysics_procedures&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge14" class="edge">
+<title>program~learn_microphysics_procedures&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M918.56,-185.59C860.32,-168.38 746.37,-145.1 672.33,-197.13 633.68,-224.3 669.77,-263.77 636.33,-297.13 635.71,-297.75 635.07,-298.35 634.42,-298.93"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="632.44,-296.04 626.3,-304.67 636.49,-301.76 632.44,-296.04"/>
+</g>
+<!-- program~learn_microphysics_procedures&#45;&gt;module~thompson_tensors_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge29" class="edge">
+<title>program~learn_microphysics_procedures&#45;&gt;module~thompson_tensors_m</title>
+<path fill="none" stroke="#54ff00" stroke-dasharray="5,2" d="M867.32,-206.85C853.48,-208.21 839.32,-209.61 825.89,-210.94"/>
+<polygon fill="#54ff00" stroke="#54ff00" points="825.91,-207.42 816.3,-211.88 826.59,-214.39 825.91,-207.42"/>
+</g>
+<!-- program~learn_multiplication -->
+<g id="module~~network_configuration_m~~UsedByGraph_node17" class="node">
+<title>program~learn_multiplication</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node17"><a xlink:href="../program/learn_multiplication.html" xlink:title="learn_multiplication">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1015.25,-450.27 897.98,-450.27 897.98,-426 1015.25,-426 1015.25,-450.27"/>
+<text text-anchor="middle" x="956.61" y="-434.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn_multiplication</text>
+</a>
+</g>
+</g>
+<!-- program~learn_multiplication&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge15" class="edge">
+<title>program~learn_multiplication&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M897.65,-439.53C838.49,-438.86 745.24,-431.88 672.33,-399.13 641.31,-385.21 612.67,-357.86 595.18,-338.82"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="598.02,-336.74 588.75,-331.61 592.79,-341.4 598.02,-336.74"/>
+</g>
+<!-- program~learn_multiplication&#45;&gt;module~multiply_inputs -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge26" class="edge">
+<title>program~learn_multiplication&#45;&gt;module~multiply_inputs</title>
+<path fill="none" stroke="#ffaa00" stroke-dasharray="5,2" d="M897.54,-443.87C869.91,-446.59 837,-449.84 809.56,-452.55"/>
+<polygon fill="#ffaa00" stroke="#ffaa00" points="809.28,-449.06 799.67,-453.53 809.97,-456.03 809.28,-449.06"/>
+</g>
+<!-- program~learn_power_series -->
+<g id="module~~network_configuration_m~~UsedByGraph_node18" class="node">
+<title>program~learn_power_series</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node18"><a xlink:href="../program/learn_power_series.html" xlink:title="learn_power_series">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1013.75,-370.27 899.48,-370.27 899.48,-346 1013.75,-346 1013.75,-370.27"/>
+<text text-anchor="middle" x="956.61" y="-354.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">learn_power_series</text>
+</a>
+</g>
+</g>
+<!-- program~learn_power_series&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge16" class="edge">
+<title>program~learn_power_series&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M899.01,-352.15C832.05,-345.06 720.52,-333.26 648.02,-325.59"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="648.55,-322.13 638.24,-324.55 647.82,-329.09 648.55,-322.13"/>
+</g>
+<!-- program~learn_power_series&#45;&gt;module~power_series -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge27" class="edge">
+<title>program~learn_power_series&#45;&gt;module~power_series</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M899.16,-363.71C869.39,-366.64 833.13,-370.22 804.18,-373.08"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="804.18,-369.56 794.57,-374.03 804.86,-376.53 804.18,-369.56"/>
+</g>
+<!-- program~print_training_configuration -->
+<g id="module~~network_configuration_m~~UsedByGraph_node19" class="node">
+<title>program~print_training_configuration</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node19"><a xlink:href="../program/print_training_configuration.html" xlink:title="print_training_configuration">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="831.6,-108.27 672.33,-108.27 672.33,-84 831.6,-84 831.6,-108.27"/>
+<text text-anchor="middle" x="751.97" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">print_training_configuration</text>
+</a>
+</g>
+</g>
+<!-- program~print_training_configuration&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge17" class="edge">
+<title>program~print_training_configuration&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M682.82,-108.66C678.97,-111.04 675.42,-113.84 672.33,-117.13 616.5,-176.63 689.66,-235.4 636.33,-297.13 635.98,-297.54 635.61,-297.95 635.24,-298.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="633.15,-295.53 627.6,-304.56 637.56,-300.96 633.15,-295.53"/>
+</g>
+<!-- program~train_and_write -->
+<g id="module~~network_configuration_m~~UsedByGraph_node20" class="node">
+<title>program~train_and_write</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node20"><a xlink:href="../program/train_and_write.html" xlink:title="train_and_write">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="798.6,-66.27 705.33,-66.27 705.33,-42 798.6,-42 798.6,-66.27"/>
+<text text-anchor="middle" x="751.97" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">train_and_write</text>
+</a>
+</g>
+</g>
+<!-- program~train_and_write&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge18" class="edge">
+<title>program~train_and_write&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M705,-57.38C692.84,-60.43 680.77,-65.81 672.33,-75.13 605.28,-149.27 700.28,-220.31 636.33,-297.13 635.98,-297.55 635.63,-297.96 635.26,-298.36"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="633.15,-295.56 627.72,-304.66 637.64,-300.94 633.15,-295.56"/>
+</g>
+<!-- program~train_saturated_mixture_ratio -->
+<g id="module~~network_configuration_m~~UsedByGraph_node21" class="node">
+<title>program~train_saturated_mixture_ratio</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node21"><a xlink:href="../program/train_saturated_mixture_ratio.html" xlink:title="train_saturated_mixture_ratio">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1040.75,-290.27 872.48,-290.27 872.48,-266 1040.75,-266 1040.75,-290.27"/>
+<text text-anchor="middle" x="956.61" y="-274.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">train_saturated_mixture_ratio</text>
+</a>
+</g>
+</g>
+<!-- program~train_saturated_mixture_ratio&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge19" class="edge">
+<title>program~train_saturated_mixture_ratio&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M872.1,-266.81C814.94,-261.73 737.91,-260.14 672.33,-277.13 654.61,-281.73 653,-289.59 636.33,-297.13 633.02,-298.63 629.58,-300.1 626.08,-301.51"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="625.02,-298.17 616.96,-305.05 627.55,-304.7 625.02,-298.17"/>
+</g>
+<!-- program~train_saturated_mixture_ratio&#45;&gt;module~saturated_mixing_ratio_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge28" class="edge">
+<title>program~train_saturated_mixture_ratio&#45;&gt;module~saturated_mixing_ratio_m</title>
+<path fill="none" stroke="#aaff00" stroke-dasharray="5,2" d="M872.02,-286.39C860.81,-287.49 849.31,-288.63 838.09,-289.73"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="838.08,-286.22 828.48,-290.68 838.77,-293.18 838.08,-286.22"/>
+</g>
+<!-- program~write_read_infer -->
+<g id="module~~network_configuration_m~~UsedByGraph_node22" class="node">
+<title>program~write_read_infer</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node22"><a xlink:href="../program/write_read_infer.html" xlink:title="write_read_infer">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="800.48,-672.27 703.46,-672.27 703.46,-648 800.48,-648 800.48,-672.27"/>
+<text text-anchor="middle" x="751.97" y="-656.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_read_infer</text>
+</a>
+</g>
+</g>
+<!-- program~write_read_infer&#45;&gt;module~inference_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge20" class="edge">
+<title>program~write_read_infer&#45;&gt;module~inference_engine_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M703.28,-655.54C691.95,-652.4 680.73,-647.32 672.33,-639.13 587.41,-556.4 577.66,-401.65 577.2,-342.22"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="580.7,-342.27 577.22,-332.26 573.7,-342.25 580.7,-342.27"/>
+</g>
+<!-- module~trainable_engine_s -->
+<g id="module~~network_configuration_m~~UsedByGraph_node23" class="node">
+<title>module~trainable_engine_s</title>
+<g id="a_module~~network_configuration_m~~UsedByGraph_node23"><a xlink:href="../module/trainable_engine_s.html" xlink:title="trainable_engine_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="632.58,-288.27 520.56,-288.27 520.56,-264 632.58,-264 632.58,-288.27"/>
+<text text-anchor="middle" x="576.57" y="-272.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">trainable_engine_s</text>
+</a>
+</g>
+</g>
+<!-- module~trainable_engine_s&#45;&gt;module~trainable_engine_m -->
+<g id="module~~network_configuration_m~~UsedByGraph_edge31" class="edge">
+<title>module~trainable_engine_s&#45;&gt;module~trainable_engine_m</title>
+<path fill="none" stroke="#00ff00" d="M520.12,-276.5C511.11,-276.56 501.67,-276.62 492.38,-276.68"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="492.64,-273.18 482.66,-276.74 492.68,-280.18 492.64,-273.18"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulenetwork_configuration_mUsedByGraph = svgPanZoom('#modulenetwork_configuration_mUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 11.0.0 (20240428.1522)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 510.88 32.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-network_configuration_t"></span>
+      <h3>public        interface <a href='../interface/network_configuration_t.html'>network_configuration_t</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure module function from_components(skip_connections, nodes_per_layer, activation_name) result(network_configuration)  
+    <a href="../proc/from_components~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-skip_connections~2"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>skip_connections</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nodes_per_layer~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nodes_per_layer</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-activation_name~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>activation_name</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/network_configuration_t.html'>network_configuration_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function from_json(lines) result(network_configuration)  
+    <a href="../proc/from_json~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lines~4"></span>
+              type(string_t),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lines</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/network_configuration_t.html'>network_configuration_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-activation_name"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function activation_name(self) result(string)  
+    <a href="../proc/activation_name.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~27"></span>
+              class(<a href='../type/network_configuration_t.html'>network_configuration_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(string_t)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-equals~2"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function equals(lhs, rhs) result(lhs_equals_rhs)  
+    <a href="../proc/equals~3.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~3"></span>
+              class(<a href='../type/network_configuration_t.html'>network_configuration_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~4"></span>
+              class(<a href='../type/network_configuration_t.html'>network_configuration_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-nodes_per_layer~2"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function nodes_per_layer(self) result(nodes)  
+    <a href="../proc/nodes_per_layer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~28"></span>
+              class(<a href='../type/network_configuration_t.html'>network_configuration_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer, allocatable, (:)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-skip_connections"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function skip_connections(self) result(using_skip)  
+    <a href="../proc/skip_connections.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~29"></span>
+              class(<a href='../type/network_configuration_t.html'>network_configuration_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-to_json~3"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function to_json(self) result(lines)  
+    <a href="../proc/to_json~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~26"></span>
+              class(<a href='../type/network_configuration_t.html'>network_configuration_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(string_t), allocatable, (:)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-network_configuration_t"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/network_configuration_t.html'>network_configuration_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-activation_name_"></span>
+              character(len=:),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>activation_name_</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nodes_per_layer_"></span>
+              integer,
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>nodes_per_layer_</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-skip_connections_"></span>
+              logical,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>skip_connections_</strong></td>
+<td> =</td>
+                <td>.false.</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <h4>Constructor</h4>
+          
+        <table class="table table-striped varlist">
+          <tbody>
+                <tr>
+                  <td>
+                        private
+
+                    pure, module
+                    function
+                    <strong>from_components</strong>
+                    (skip_connections, nodes_per_layer, activation_name)
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    pure, module
+                    function
+                    <strong>from_json</strong>
+                    (lines)
+                  </td>
+                  <td></td>
+                </tr>
+          </tbody>
+        </table>
+
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/network_configuration_t.html#boundprocedure-activation_name~2'>activation_name</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/network_configuration_t.html#boundprocedure-equals~3'>equals</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/network_configuration_t.html#boundprocedure-nodes_per_layer~3'>nodes_per_layer</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/network_configuration_t.html#boundprocedure-operator%28%3D%3D%29~3'>operator(==)</a></strong> => <a href='/home/runner/work/inference-engine/inference-engine/doc/html/type/network_configuration_t.html#boundprocedure-equals~3'>equals</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/network_configuration_t.html#boundprocedure-skip_connections'>skip_connections</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/network_configuration_t.html#boundprocedure-to_json~3'>to_json</a></strong></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

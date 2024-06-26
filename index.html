@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="./favicon.png">
+
+    <title> Inference-Engine </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/pygments.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/local.css" rel="stylesheet">
+      <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">Inference-Engine </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="./search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <!-- Main component for a primary marketing message or call to action -->
+    <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+      <p>A deep learning library targeting high-performance computing (HPC) applications with performance-critical inference and training needs.</p>
+        <p> Find us on&hellip;</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="https://github.com/berkeleylab/inference-engine
+https://github.com/berkeleylab/inference-engine" role="button">GitHub</a>
+        
+        
+        
+        
+        <a class="btn btn-lg btn-danger" style="float:right" href="https://github.com/berkeleylab/inference-engine/releases" role="button">Download the Source</a>
+      </p>
+    </div>
+
+      <div class="row" id='text'>
+        <div class=col-md-8>
+          <h1>Inference-Engine</h1>
+          <div class="codehilite"><pre><span></span><code>  _        __                                                     <span class="ge">_            </span>
+<span class="ge"> (_</span>)      / <span class="ge">_|                                                   (_</span>)           
+  <span class="ge">_ _</span> __ | |_ ___ _ __ ___ _ __   ___ ___         ___ _ __   __ <span class="ge">_ _</span> _ __   ___ 
+ | | &#39;_ \|  <span class="ge">_/ _</span> \ &#39;__/ <span class="ge">_ \ &#39;_</span> \ / __/ _ \  __   / <span class="ge">_ \ &#39;_</span> \ / <span class="ge">_` | | &#39;_</span> \ / _ \
+ | | | | | ||  __/ | |  __/ | | | (_|  __/ |__| |  __/ | | | (_| | | | | |  __/
+ |_|_| |_|_| \___|_|  \___|_| |_|\___\___|       \___|_| |_|\__, |_|_| |_|\___|
+                                                             __/ |             
+                                                            |___/              
+</code></pre></div>
+
+<p><img alt="GitHub manifest version" src="https://img.shields.io/github/manifest-json/v/BerkeleyLab/inference-engine">
+<img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/BerkeleyLab/inference-engine/main">
+<a href="https://github.com/BerkeleyLab/inference-engine/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/BerkeleyLab/inference-engine"></a>
+<a href="https://github.com/BerkeleyLab/inference-engine"><img alt="GitHub license" src="https://img.shields.io/github/license/BerkeleyLab/inference-engine"></a>
+<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/BerkeleyLab/inference-engine?style=social"></p>
+<h1 id="inference-engine">Inference-Engine</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#downloading-building-and-testing">Downloading, Building and testing</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#documentation">Documentation</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Inference-Engine supports research in concurrent, large-batch inference and training of deep, feed-forward neural networks. Inference-Engine targets high-performance computing (HPC) applications with performance-critical inference and training needs.  The initial target application is <em>in situ</em> training of a cloud microphysics model proxy for the Intermediate Complexity Atmospheric Research (<a href="https://github.com/NCAR/icar">ICAR</a>) model.  Such a proxy must support concurrent inference at every grid point at every time step of an ICAR run.  For validation purposes, Inference-Engine also supports the export and import of neural networks to and from Python by the companion package <a href="https://go.lbl.gov/nexport">nexport</a>. </p>
+<p>The features of Inference-Engine that make it suitable for use in HPC applications include</p>
+<ol>
+<li>Implementation in Fortran 2018.</li>
+<li>Exposing concurrency via </li>
+<li><code>Elemental</code>, implicitly <code>pure</code> inference procedures,</li>
+<li>An <code>elemental</code> and implicitly <code>pure</code> activation strategy, and</li>
+<li>A <code>pure</code> training subroutine,</li>
+<li>Gathering network weights and biases into contiguous arrays for efficient memory access patterns, and</li>
+<li>User-controlled mini-batch size facilitating <code>in situ</code> training at application runtime.</li>
+</ol>
+<p>Making Inference-Engine's <code>infer</code> functions and <code>train</code> subroutines <code>pure</code> facilitates invoking those procedures inside Fortran <code>do concurrent</code> constructs, which some compilers can offload automatically to graphics processing units (GPUs).  The use of contiguous arrays facilitates spatial locality in memory access patterns.  User control of mini-batch size facilitates in-situ training at application runtime.</p>
+<p>The available optimizers for training neural networks are
+1. Stochastic gradient descent
+2. Adam (recommended)</p>
+<h2 id="build-and-test">Build and Test</h2>
+<p>With the <a href="https://github.com/fortran-lang/fpm">Fortran Package Manager</a> (<code>fpm</code>) and a recent version of a Fortran compiler installed, enter one of the commmands below to build the Inference-Engine library and run the test suite:</p>
+<h3 id="gnu-gfortran">GNU (<code>gfortran</code>)</h3>
+<div class="codehilite"><pre><span></span><code>fpm test
+</code></pre></div>
+
+<h3 id="intel-ifx">Intel (<code>ifx</code>)</h3>
+<div class="codehilite"><pre><span></span><code>fpm test --compiler ifx
+</code></pre></div>
+
+<h4 id="experimental-automatic-offloading-of-do-concurrent-to-gpus"><em>Experimental:</em> Automatic offloading of <code>do concurrent</code> to GPUs</h4>
+<p>This capability is under development with the goal to facilitate GPU automatic offloading via the following command:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">fpm</span><span class="w"> </span><span class="nv">test</span><span class="w"> </span><span class="o">--</span><span class="nv">compiler</span><span class="w"> </span><span class="nv">ifx</span><span class="w"> </span><span class="o">--</span><span class="nv">flag</span><span class="w"> </span><span class="s2">&quot;-fopenmp-target-do-concurrent -qopenmp -fopenmp-targets=spir64&quot;</span>
+</code></pre></div>
+
+<h3 id="llvm-flang-new">LLVM (<code>flang-new</code>)</h3>
+<p>Support for LLVM <code>flang-new</code> is under development and currently requires building <code>flang-new</code> from source with assumed-rank support enabled:</p>
+<div class="codehilite"><pre><span></span><code>fpm test --compiler flang-new --flag &quot;-mmlir -allow-assumed-rank&quot;
+</code></pre></div>
+
+<p>A script that might help with building <code>flang-new</code> from source is in the <a href="https://github.com/rouson/handy-dandy/blob/main/src/fresh-llvm-build.sh">handy-dandy</a> repository.</p>
+<h3 id="nag-nagfor-under-development">NAG (<code>nagfor</code>) -- under development</h3>
+<div class="codehilite"><pre><span></span><code>fpm test --compiler nagfor --flag -fpp
+</code></pre></div>
+
+<h3 id="hpe-crayftnsh-under-development">HPE (<code>crayftn.sh</code>) -- under development</h3>
+<p>Support for the Cray Compiler Environment (CCE) Fortran compiler is under development.
+Building with the CCE <code>ftn</code> compiler wrapper requires an additional trivial wrapper.
+With a shell script named <code>crayftn.sh</code> of the following form in your <code>PATH</code></p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+ftn<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>execute the following command:</p>
+<div class="codehilite"><pre><span></span><code>fpm test --compiler crayftn.sh
+</code></pre></div>
+
+<h2 id="examples">Examples</h2>
+<p>The <a href="./example">example</a> subdirectory contains demonstrations of several intended use cases.</p>
+<h2 id="configuring-a-training-run">Configuring a Training Run</h2>
+<p>To see the format for a <a href="https://www.json.org/json-en.html">JSON</a> configuration file that defines the hyperparameters and a new network configuration for a training run, execute the provided training-configuration output example program:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">% ./build/run-fpm.sh run --example print-training-configuration</span>
+<span class="n">Project</span><span class="w"> </span><span class="s">is</span><span class="w"> </span><span class="s">up</span><span class="w"> </span><span class="s">to</span><span class="w"> </span><span class="s">date</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="s">&quot;hyperparameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="s">&quot;mini-batches&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">         </span><span class="s">&quot;learning rate&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.50000000</span><span class="p">,</span>
+<span class="w">         </span><span class="s">&quot;optimizer&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;adam&quot;</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w"> </span><span class="p">,</span>
+<span class="w">     </span><span class="s">&quot;network configuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="s">&quot;skip connections&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span>
+<span class="w">         </span><span class="s">&quot;nodes per layer&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="w">         </span><span class="s">&quot;activation function&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sigmoid&quot;</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<p>As of this writing, the JSON file format is fragile.  Because an Intel <code>ifx</code> compiler bug prevents using our preferred JSON interface, <a href="https://gitlab.com/everythingfunctional/rojff">rojff</a>, Inference-Engine currently uses a very restricted JSON subset written and read by the <a href="https://github.com/sourceryinstitute/sourcery">sourcery</a> utility's <code>string_t</code> type-bound procedures.  For this to work, it is important to keep input files as close as possible to the exact form shown above.  In particular, do not split, combine or reorder lines. Adding or removing whitespace should be ok.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Please see the Inference-Engine GitHub Pages <a href="https://berkeleylab.github.io/inference-engine/">site</a> for HTML documentation generated by [<code>ford</code>].</p>
+        </div>
+          <div class="col-md-4">
+            <div class="card card-body bg-light">
+              <h2 class="card-title">Developer Info</h2>
+              <h4 class="card-text">Berkeley Lab</h4>
+              <p class="card-text"></p>
+                <div class="text-center"><div class="btn-group" role="group">
+                    
+                    <a class="btn btn-lg btn-primary" href="https://github.com/berkeleylab"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div></div>
+            </div>
+          </div>
+      </div>
+        <div class="row">
+          <hr>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Source Files</h3>
+              <ul><li><a href='sourcefile/activation_strategy_m.f90.html'>activation_strategy_m.f90</a></li><li><a href='sourcefile/concurrent-inferences.f90.html'>concurrent-inferences.f90</a></li><li><a href='sourcefile/differentiable_activation_strategy_m.f90.html'>differentiable_activation_strategy_m.f90</a></li><li><a href='sourcefile/gelu_m.f90.html'>gelu_m.f90</a></li><li><a href='sourcefile/gelu_s.f90.html'>gelu_s.f90</a></li><li><a href='sourcefile/hyperparameters_m.f90.html'>hyperparameters_m.f90</a></li><li><a href='sourcefile/hyperparameters_s.f90.html'>hyperparameters_s.f90</a></li><li><a href='sourcefile/inference_engine_m.f90.html'>inference_engine_m.f90</a></li><li><a href='sourcefile/inference_engine_m_.f90.html'>inference_engine_m_.f90</a></li><li><a href='sourcefile/inference_engine_s.f90.html'>inference_engine_s.F90</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Modules</h3>
+              <ul><li><a href='module/activation_strategy_m.html'>activation_strategy_m</a></li><li><a href='module/addition_m.html'>addition_m</a></li><li><a href='module/differentiable_activation_strategy_m.html'>differentiable_activation_strategy_m</a></li><li><a href='module/exponentiation_m.html'>exponentiation_m</a></li><li><a href='module/gelu_m.html'>gelu_m</a></li><li><a href='module/hyperparameters_m.html'>hyperparameters_m</a></li><li><a href='module/inference_engine_m.html'>inference_engine_m</a></li><li><a href='module/inference_engine_m_.html'>inference_engine_m_</a></li><li><a href='module/input_output_pair_m.html'>input_output_pair_m</a></li><li><a href='module/kind_parameters_m.html'>kind_parameters_m</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/modules.html"><em>All modules&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Procedures</h3>
+              <ul><li><a href='interface/activation.html'>activation</a></li><li><a href='interface/activation~2.html'>activation</a></li><li><a href='interface/activation~3.html'>activation</a></li><li><a href='interface/activation~4.html'>activation</a></li><li><a href='interface/activation~5.html'>activation</a></li><li><a href='interface/activation_derivative.html'>activation_derivative</a></li><li><a href='interface/activation_derivative~2.html'>activation_derivative</a></li><li><a href='interface/activation_derivative~3.html'>activation_derivative</a></li><li><a href='interface/activation_derivative~4.html'>activation_derivative</a></li><li><a href='interface/activation_function_name.html'>activation_function_name</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Derived Types</h3>
+              <ul><li><a href='type/activation_strategy_t.html'>activation_strategy_t</a></li><li><a href='type/difference_t.html'>difference_t</a></li><li><a href='type/differentiable_activation_strategy_t.html'>differentiable_activation_strategy_t</a></li><li><a href='type/exchange_t.html'>exchange_t</a></li><li><a href='type/gelu_t.html'>gelu_t</a></li><li><a href='type/hyperparameters_t.html'>hyperparameters_t</a></li><li><a href='type/inference_engine_t.html'>inference_engine_t</a></li><li><a href='type/input_output_pair_t.html'>input_output_pair_t</a></li><li><a href='type/layer_t.html'>layer_t</a></li><li><a href='type/mini_batch_t.html'>mini_batch_t</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/types.html"><em>All derived types&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Inference-Engine
+ was developed by Berkeley Lab<br>              &copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 08:41              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="./tipuesearch/tipuesearch_content.js"></script>
+          <script src="./tipuesearch/tipuesearch_set.js"></script>
+          <script src="./tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
