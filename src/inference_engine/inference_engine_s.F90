@@ -9,6 +9,7 @@ submodule(inference_engine_m_) inference_engine_s
   use layer_m, only : layer_t
   use neuron_m, only : neuron_t
   use sourcery_formats_m, only : separated_values
+  use iso_fortran_env, only : int64, real64
   implicit none
 
   interface assert_consistency
@@ -60,16 +61,17 @@ contains
   end procedure
 
   module procedure parallel_infer
-    real(rkind), allocatable :: a(:,:)
+    real(rkind) :: a(32,4)
     integer, parameter :: input_layer = 0
     integer i,j,k, l, dims(3)
     real(rkind), allocatable :: w(:,:,:), b(:,:)
     integer, allocatable :: n(:)
     integer output_layer
+    integer(int64) t_start, t_finish, clock_rate, t_start_2,t_finish_2
 
 #ifdef __OFFLOADING
     real, allocatable, dimension(:) :: min_in, max_in, min_out, max_out
-        real, allocatable :: input_components(:,:,:,:), output_components(:,:,:,:)
+    real, allocatable :: input_components(:,:,:,:), output_components(:,:,:,:)
     integer :: lat, lon, lev
     dims = shape(inputs)
     lon = dims(1)
@@ -93,19 +95,23 @@ contains
     b = self%biases_
     output_layer = ubound(n,1)
 
-    allocate(a(maxval(n), input_layer:output_layer))
+    !allocate(a(maxval(n), input_layer:output_layer))
     allocate(outputs(dims(1),dims(2),dims(3)))
 
 #ifndef __OFFLOADING
+call system_clock(t_start, clock_rate)
     !$omp parallel do private(a) shared(inputs, outputs, n,w,b,output_layer) collapse(3)
 #else
-    !$omp target map(from:output_components) map(to:input_components,n,w,b,a,min_in,max_in,min_out,max_out)
-    !$omp teams distribute parallel do firstprivate(a) &
-    !$omp collapse(3)
+    !call system_clock(t_start_2, clock_rate)
+    !$omp target enter data map(to:input_components,n,w,b,min_in,max_in,min_out,max_out)
+    !$acc data copyout(output_components) present_or_copyin(input_components,n,w,b,min_in, max_in, min_out, max_out)
+    !call system_clock(t_finish_2)
+    !t_transf = real(t_finish - t_start, real64)/real(clock_rate, real64)
+    call system_clock(t_start, clock_rate)
+    !$acc parallel private(a) 
+    !$acc loop collapse(3) 
+    !$omp target teams distribute parallel do private(a) collapse(3)
 
-    !$acc data copyout(output_components) create(a) &
-    !$acc present_or_copyin(n,w,b) copyin(input_components,min_in,max_in,min_out,max_out) 
-    !$acc parallel loop collapse(3)
 #endif
     do i=1,dims(1)
       do j=1,dims(2)
@@ -115,6 +121,7 @@ contains
             a(1:n(input_layer),input_layer) = normalized_inputs%values()
           end associate
 #else
+
           a(1:n(input_layer),input_layer) = (input_components(i,j,k,:) - min_in)/(max_in- min_in)
 #endif
           feed_forward: &
@@ -141,17 +148,22 @@ contains
     end do  
 #ifndef __OFFLOADING    
     !$omp end parallel do
+    call system_clock(t_finish)
 #else
-    !$acc end data
-    !$omp end teams distribute parallel do
-    !$omp end target
+    !$omp end target teams distribute parallel do
+    !$acc end parallel
+    call system_clock(t_finish)
+    !call system_clock(t_start_2, clock_rate)
+    !$acc end data 
+    !$omp target exit data map(from:output_components) map(release:input_components,n,w,b,min_in,max_in,min_out,max_out)
+    !call system_clock(t_finish_2)
     do concurrent(i=1:lon, j=1:lev, k=1:lat)
       outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
     end do
 #endif
+  t_exec = real(t_finish - t_start, real64)/real(clock_rate, real64)
+  !t_transf = t_transf + real(t_finish - t_start, real64)/real(clock_rate, real64)
   end procedure
-
-
 
   pure subroutine inference_engine_consistency(self)
 
