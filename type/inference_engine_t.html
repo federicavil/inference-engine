@@ -79,7 +79,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="<p>11.2% of total for derived types.</p>Including implementation: 22 statements, 10.8% of total for derived types.">37 statements</a>
+                 title="<p>11.0% of total for derived types.</p>Including implementation: 21 statements, 10.3% of total for derived types.">36 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -125,7 +125,7 @@
             <a class="list-group-item" href="../type/inference_engine_t.html#variable-metadata_">metadata_</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#variable-nodes_">nodes_</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#variable-output_range_">output_range_</a>
-            <a class="list-group-item" href="../type/inference_engine_t.html#variable-weights_~2">weights_</a>
+            <a class="list-group-item" href="../type/inference_engine_t.html#variable-weights_">weights_</a>
         </div>
       </div>
     </div>
@@ -168,13 +168,13 @@
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-infer">infer</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-map_from_output_range">map_from_output_range</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-map_to_input_range">map_to_input_range</a>
-            <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-nodes_per_layer~2">nodes_per_layer</a>
-            <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-num_inputs~3">num_inputs</a>
+            <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-nodes_per_layer">nodes_per_layer</a>
+            <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-num_inputs">num_inputs</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-num_outputs">num_outputs</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-operator%28-%29">operator(-)</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-skip">skip</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-to_exchange">to_exchange</a>
-            <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-to_json~2">to_json</a>
+            <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-to_json">to_json</a>
             <a class="list-group-item" href="../type/inference_engine_t.html#boundprocedure-subtract">subtract</a>
         </div>
       </div>
@@ -331,7 +331,7 @@ large graphs.</div>
               <span class="anchor" id="variable-activation_strategy_"></span>
               class(<a href='activation_strategy_t.html'>activation_strategy_t</a>),
             </td>
-              <td>private,</td>
+              <td>public,</td>
             <td>
               allocatable
             </td>
@@ -348,7 +348,7 @@ large graphs.</div>
               <span class="anchor" id="variable-biases_"></span>
               real(kind=rkind),
             </td>
-              <td>private,</td>
+              <td>public,</td>
             <td>
               allocatable
             </td>
@@ -365,7 +365,7 @@ large graphs.</div>
               <span class="anchor" id="variable-input_range_"></span>
               type(<a href='tensor_range_t.html'>tensor_range_t</a>),
             </td>
-              <td>private</td>
+              <td>public</td>
             <td>
               
             </td>
@@ -382,7 +382,7 @@ large graphs.</div>
               <span class="anchor" id="variable-metadata_"></span>
               type(string_t),
             </td>
-              <td>private</td>
+              <td>public</td>
             <td>
               
             </td>
@@ -399,7 +399,7 @@ large graphs.</div>
               <span class="anchor" id="variable-nodes_"></span>
               integer,
             </td>
-              <td>private,</td>
+              <td>public,</td>
             <td>
               allocatable
             </td>
@@ -416,7 +416,7 @@ large graphs.</div>
               <span class="anchor" id="variable-output_range_"></span>
               type(<a href='tensor_range_t.html'>tensor_range_t</a>),
             </td>
-              <td>private</td>
+              <td>public</td>
             <td>
               
             </td>
@@ -430,10 +430,10 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-weights_~2"></span>
+              <span class="anchor" id="variable-weights_"></span>
               real(kind=rkind),
             </td>
-              <td>private,</td>
+              <td>public,</td>
             <td>
               allocatable
             </td>
@@ -540,7 +540,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-weights~2"></span>
+              <span class="anchor" id="variable-weights"></span>
               real(kind=rkind),
             </td>
 <td>intent(in)</td>
@@ -570,7 +570,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nodes~2"></span>
+              <span class="anchor" id="variable-nodes"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -990,7 +990,7 @@ large graphs.</div>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-nodes_per_layer~2"></span>
+      <span class="anchor" id="boundprocedure-nodes_per_layer"></span>
       <h3>
           procedure, public ::
   <strong>nodes_per_layer</strong>
@@ -1002,7 +1002,7 @@ large graphs.</div>
               <h3>interface </h3>
                   <h3>
     private pure module function nodes_per_layer(self) result(node_count)  
-    <a href="../proc/nodes_per_layer~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+    <a href="../proc/nodes_per_layer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3>
 
   
@@ -1050,7 +1050,7 @@ large graphs.</div>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-num_inputs~3"></span>
+      <span class="anchor" id="boundprocedure-num_inputs"></span>
       <h3>
           procedure, public ::
   <strong>num_inputs</strong>
@@ -1317,7 +1317,7 @@ large graphs.</div>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-to_json~2"></span>
+      <span class="anchor" id="boundprocedure-to_json"></span>
       <h3>
           procedure, public ::
   <strong>to_json</strong>
@@ -1329,7 +1329,7 @@ large graphs.</div>
               <h3>interface </h3>
                   <h3>
     private impure elemental module function to_json(self) result(json_file)  
-    <a href="../proc/to_json~3.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+    <a href="../proc/to_json.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3>
 
   
@@ -1470,7 +1470,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 08:41              </p>
+ on 2024-07-01 14:20              </p>
           </div>
         </div>
         <br>
