@@ -113,9 +113,9 @@ program concurrent_inferences
           
           !print *,"Performing multithreading/offloading inferences"
           call system_clock(t_start, clock_rate)
-          call inference_engine%parallel_infer(inputs,outputs,t_exec)  ! implicit allocation of outputs array
+          outputs = inference_engine%infer(inputs)   ! implicit allocation of outputs array
           call system_clock(t_finish)
-          time_exec = time_exec + t_exec
+          !time_exec = time_exec + t_exec
           !time_transf = time_transf + t_transf
           time_parallel = time_parallel + real(t_finish - t_start, real64)/real(clock_rate, real64)
           !print *,"Multithreading/Offloading inference time: ", real(t_finish - t_start, real64)/real(clock_rate, real64)

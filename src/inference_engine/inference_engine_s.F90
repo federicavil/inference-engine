@@ -67,7 +67,7 @@ contains
     real(rkind), allocatable :: w(:,:,:), b(:,:)
     integer, allocatable :: n(:)
     integer output_layer
-    integer(int64) t_start, t_finish, clock_rate, t_start_2,t_finish_2
+    !integer(int64) t_start, t_finish, clock_rate, t_start_2,t_finish_2
 
 #ifdef __OFFLOADING
     !real, allocatable, dimension(:) :: min_in, max_in, min_out, max_out
@@ -99,12 +99,12 @@ contains
     allocate(outputs(dims(1),dims(2),dims(3)))
 
 #ifndef __OFFLOADING
-call system_clock(t_start, clock_rate)
+!call system_clock(t_start, clock_rate)
     !$omp parallel do private(a) shared(inputs, outputs, n,w,b,output_layer) collapse(3)
 #else
     !$omp target enter data map(to:input_components,n,w,b)
     !$acc data copyout(output_components) present_or_copyin(input_components,n,w,b)
-    call system_clock(t_start, clock_rate)
+    !call system_clock(t_start, clock_rate)
     !$acc parallel private(a) 
     !$acc loop collapse(3) 
     !$omp target teams distribute parallel do private(a) collapse(3)
@@ -145,18 +145,18 @@ call system_clock(t_start, clock_rate)
     end do  
 #ifndef __OFFLOADING    
     !$omp end parallel do
-    call system_clock(t_finish)
+    !call system_clock(t_finish)
 #else
     !$omp end target teams distribute parallel do
     !$acc end parallel
-    call system_clock(t_finish)
+    !call system_clock(t_finish)
     !$acc end data 
     !$omp target exit data map(from:output_components) map(release:input_components,n,w,b)
     do concurrent(i=1:lon, j=1:lev, k=1:lat)
       outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
     end do
 #endif
-  t_exec = real(t_finish - t_start, real64)/real(clock_rate, real64)
+  !t_exec = real(t_finish - t_start, real64)/real(clock_rate, real64)
   end procedure
 
   pure subroutine inference_engine_consistency(self)

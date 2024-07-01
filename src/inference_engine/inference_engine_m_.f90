@@ -121,14 +121,12 @@ module inference_engine_m_
       type(tensor_t) outputs
     end function
 
-    module subroutine parallel_infer(self, inputs, outputs, t_exec)
+    module function parallel_infer(self, inputs) result(outputs)
       implicit none 
       class(inference_engine_t), intent(in) :: self
       type(tensor_t), intent(in) :: inputs(:,:,:)
-      type(tensor_t), allocatable, intent(out) :: outputs(:,:,:)
-      real(real64), intent(out) :: t_exec
-      !real(real64), intent(out) :: t_transf
-    end subroutine
+      type(tensor_t), allocatable :: outputs(:,:,:)
+    end function
 
     elemental module function num_outputs(self) result(output_count)
       implicit none
