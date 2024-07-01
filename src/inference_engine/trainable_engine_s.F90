@@ -25,8 +25,8 @@ contains
   module procedure construct_from_inference_engine
 
     associate(exchange => inference_engine%to_exchange())
-      trainable_engine%input_range_ = exchange%input_range_
-      trainable_engine%output_range_ = exchange%output_range_
+      ! trainable_engine%input_range_ = exchange%input_range_
+      ! trainable_engine%output_range_ = exchange%output_range_
       trainable_engine%metadata_ = exchange%metadata_
       trainable_engine%w = exchange%weights_
       trainable_engine%b = exchange%biases_
@@ -70,9 +70,9 @@ contains
 
       allocate(a(maxval(n), input_layer:output_layer)) ! Activations
 
-      associate(normalized_inputs => self%input_range_%map_to_training_range(inputs))
-        a(1:n(input_layer),input_layer) = normalized_inputs%values()
-      end associate
+      !associate(normalized_inputs => self%input_range_%map_to_training_range(inputs))
+        a(1:n(input_layer),input_layer) = inputs%values()
+      !end associate
 
       feed_forward: &
       do l = 1,output_layer
@@ -81,9 +81,9 @@ contains
         )
       end do feed_forward
  
-      associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
-        outputs = self%output_range_%map_from_training_range(normalized_outputs)
-      end associate
+      !associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
+        outputs = tensor_t(a(1:n(output_layer), output_layer))
+      !end associate
 
     end associate
 
@@ -238,25 +238,25 @@ contains
     trainable_engine%b = biases
     trainable_engine%differentiable_activation_strategy_ = differentiable_activation_strategy
 
-    block 
-      integer i
+    ! block 
+    !   integer i
 
-      if (present(input_range)) then
-         trainable_engine%input_range_ = input_range
-      else
-        associate(num_inputs => nodes(lbound(nodes,1)))
-          trainable_engine%input_range_ = tensor_range_t("inputs", minima=[(0., i=1,num_inputs)], maxima=[(1., i=1,num_inputs)])
-        end associate
-      end if
+    !   if (present(input_range)) then
+    !      trainable_engine%input_range_ = input_range
+    !   else
+    !     associate(num_inputs => nodes(lbound(nodes,1)))
+    !       trainable_engine%input_range_ = tensor_range_t("inputs", minima=[(0., i=1,num_inputs)], maxima=[(1., i=1,num_inputs)])
+    !     end associate
+    !   end if
 
-      if (present(output_range)) then
-         trainable_engine%output_range_ = output_range
-      else
-        associate(num_outputs => nodes(ubound(nodes,1)))
-          trainable_engine%output_range_ = tensor_range_t("outputs", minima=[(0., i=1,num_outputs)], maxima=[(1., i=1,num_outputs)])
-        end associate
-      end if
-    end block
+    !   if (present(output_range)) then
+    !      trainable_engine%output_range_ = output_range
+    !   else
+    !     associate(num_outputs => nodes(ubound(nodes,1)))
+    !       trainable_engine%output_range_ = tensor_range_t("outputs", minima=[(0., i=1,num_outputs)], maxima=[(1., i=1,num_outputs)])
+    !     end associate
+    !   end if
+    ! end block
 
     call trainable_engine%assert_consistent
   end procedure
@@ -265,7 +265,7 @@ contains
     ! assignment-stmt disallows the procedure from being pure because it might
     ! deallocate polymorphic allocatable subcomponent `activation_strategy_`
     ! TODO: consider how this affects design
-    inference_engine = inference_engine_t(self%metadata_, self%w, self%b, self%n, self%input_range_, self%output_range_)
+    inference_engine = inference_engine_t(self%metadata_, self%w, self%b, self%n)
   end procedure
 
   module procedure perturbed_identity_network
@@ -288,9 +288,9 @@ contains
           activation => training_configuration%differentiable_activation_strategy() &
         )
           trainable_engine = trainable_engine_t( &
-            nodes = n, weights = w, biases = b, differentiable_activation_strategy = activation, metadata = metadata, &
-            input_range = input_range, output_range = output_range &
-          )
+            nodes = n, weights = w, biases = b, differentiable_activation_strategy = activation, metadata = metadata)
+           ! input_range = input_range, output_range = output_range &
+          
         end associate
       end associate
     end associate
@@ -306,21 +306,21 @@ contains
 
   end procedure
 
-  module procedure map_to_input_training_range
-    normalized_tensor = self%input_range_%map_to_training_range(tensor)
-  end procedure
+  ! module procedure map_to_input_training_range
+  !   normalized_tensor = self%input_range_%map_to_training_range(tensor)
+  ! end procedure
 
-  module procedure map_from_input_training_range
-    unnormalized_tensor = self%input_range_%map_from_training_range(tensor)
-  end procedure
+  ! module procedure map_from_input_training_range
+  !   unnormalized_tensor = self%input_range_%map_from_training_range(tensor)
+  ! end procedure
   
-  module procedure map_to_output_training_range
-    normalized_tensor = self%output_range_%map_to_training_range(tensor)
-  end procedure
+  ! module procedure map_to_output_training_range
+  !   normalized_tensor = self%output_range_%map_to_training_range(tensor)
+  ! end procedure
 
-  module procedure map_from_output_training_range
-    unnormalized_tensor = self%output_range_%map_from_training_range(tensor)
-  end procedure
+  ! module procedure map_from_output_training_range
+  !   unnormalized_tensor = self%output_range_%map_from_training_range(tensor)
+  ! end procedure
   
 
 end submodule trainable_engine_s

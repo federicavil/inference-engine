@@ -18,7 +18,7 @@ module trainable_engine_m
   type trainable_engine_t
     !! Encapsulate the information needed to perform training
     private
-    type(tensor_range_t) input_range_, output_range_
+    !type(tensor_range_t) input_range_, output_range_
     type(string_t), allocatable :: metadata_(:)
     real(rkind), allocatable :: w(:,:,:) ! weights
     real(rkind), allocatable :: b(:,:) ! biases
@@ -32,10 +32,10 @@ module trainable_engine_m
     procedure :: num_inputs
     procedure :: num_outputs
     procedure :: to_inference_engine
-    procedure :: map_to_input_training_range
-    procedure :: map_from_input_training_range
-    procedure :: map_to_output_training_range
-    procedure :: map_from_output_training_range
+    ! procedure :: map_to_input_training_range
+    ! procedure :: map_from_input_training_range
+    ! procedure :: map_to_output_training_range
+    ! procedure :: map_from_output_training_range
   end type
 
   integer, parameter :: input_layer = 0
@@ -43,12 +43,10 @@ module trainable_engine_m
   interface trainable_engine_t
 #ifdef __INTEL_COMPILER
      pure module function construct_trainable_engine_from_padded_arrays( &
-       nodes, weights, biases, differentiable_activation_strategy, metadata, input_range, output_range &
-     ) &
+       nodes, weights, biases, differentiable_activation_strategy, metadata) &
 #else
      pure module function construct_from_padded_arrays( &
-       nodes, weights, biases, differentiable_activation_strategy, metadata, input_range, output_range &
-     ) &
+       nodes, weights, biases, differentiable_activation_strategy, metadata) &
 #endif
       result(trainable_engine)
       implicit none
@@ -56,7 +54,7 @@ module trainable_engine_m
       real(rkind), intent(in)  :: weights(:,:,:), biases(:,:)
       class(differentiable_activation_strategy_t), intent(in) :: differentiable_activation_strategy
       type(string_t), intent(in) :: metadata(:)
-      type(tensor_range_t), intent(in), optional :: input_range, output_range
+      !type(tensor_range_t), intent(in), optional :: input_range, output_range
       type(trainable_engine_t) trainable_engine
     end function
 
@@ -66,13 +64,13 @@ module trainable_engine_m
       type(trainable_engine_t) trainable_engine
     end function
 
-    module function perturbed_identity_network(training_configuration, perturbation_magnitude, metadata, input_range, output_range)&
+    module function perturbed_identity_network(training_configuration, perturbation_magnitude, metadata)&
       result(trainable_engine)
       implicit none
       type(training_configuration_t), intent(in) :: training_configuration
       type(string_t), intent(in) :: metadata(:)
       real(rkind), intent(in) :: perturbation_magnitude
-      type(tensor_range_t) input_range, output_range
+      !type(tensor_range_t) input_range, output_range
       type(trainable_engine_t) trainable_engine
     end function
 
@@ -125,33 +123,33 @@ module trainable_engine_m
       type(inference_engine_t) :: inference_engine
     end function
 
-    elemental module function map_to_input_training_range(self, tensor) result(normalized_tensor)
-      implicit none
-      class(trainable_engine_t), intent(in) :: self
-      type(tensor_t), intent(in) :: tensor
-      type(tensor_t) normalized_tensor
-    end function
+    ! elemental module function map_to_input_training_range(self, tensor) result(normalized_tensor)
+    !   implicit none
+    !   class(trainable_engine_t), intent(in) :: self
+    !   type(tensor_t), intent(in) :: tensor
+    !   type(tensor_t) normalized_tensor
+    ! end function
 
-    elemental module function map_from_input_training_range(self, tensor) result(unnormalized_tensor)
-      implicit none
-      class(trainable_engine_t), intent(in) :: self
-      type(tensor_t), intent(in) :: tensor
-      type(tensor_t) unnormalized_tensor
-    end function
+    ! elemental module function map_from_input_training_range(self, tensor) result(unnormalized_tensor)
+    !   implicit none
+    !   class(trainable_engine_t), intent(in) :: self
+    !   type(tensor_t), intent(in) :: tensor
+    !   type(tensor_t) unnormalized_tensor
+    ! end function
 
-    elemental module function map_to_output_training_range(self, tensor) result(normalized_tensor)
-      implicit none
-      class(trainable_engine_t), intent(in) :: self
-      type(tensor_t), intent(in) :: tensor
-      type(tensor_t) normalized_tensor
-    end function
+    ! elemental module function map_to_output_training_range(self, tensor) result(normalized_tensor)
+    !   implicit none
+    !   class(trainable_engine_t), intent(in) :: self
+    !   type(tensor_t), intent(in) :: tensor
+    !   type(tensor_t) normalized_tensor
+    ! end function
 
-    elemental module function map_from_output_training_range(self, tensor) result(unnormalized_tensor)
-      implicit none
-      class(trainable_engine_t), intent(in) :: self
-      type(tensor_t), intent(in) :: tensor
-      type(tensor_t) unnormalized_tensor
-    end function
+    ! elemental module function map_from_output_training_range(self, tensor) result(unnormalized_tensor)
+    !   implicit none
+    !   class(trainable_engine_t), intent(in) :: self
+    !   type(tensor_t), intent(in) :: tensor
+    !   type(tensor_t) unnormalized_tensor
+    ! end function
 
   end interface
 

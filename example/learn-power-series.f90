@@ -107,8 +107,8 @@ contains
     type(inference_engine_t), intent(in) :: inference_engine
     type(string_t), intent(in) :: file_name
     type(file_t) json_file
-    json_file = inference_engine%to_json()
-    call json_file%write_lines(file_name)
+    ! json_file = inference_engine%to_json()
+    ! call json_file%write_lines(file_name)
   end subroutine
 
   pure function e(j,n) result(unit_vector)

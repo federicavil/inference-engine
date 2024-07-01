@@ -7,7 +7,7 @@ module inference_engine_m_
   use sourcery_string_m, only : string_t
   use kind_parameters_m, only : rkind
   use tensor_m, only : tensor_t
-  use tensor_range_m, only : tensor_range_t
+ ! use tensor_range_m, only : tensor_range_t
   use differentiable_activation_strategy_m, only :differentiable_activation_strategy_t
   use iso_fortran_env, only : int64, real64
   implicit none
@@ -25,7 +25,7 @@ module inference_engine_m_
   type inference_engine_t
     !! Encapsulate the minimal information needed to perform inference
     !private
-    type(tensor_range_t) input_range_, output_range_
+    !type(tensor_range_t) input_range_, output_range_
     type(string_t) metadata_(size(key))
     real(rkind), allocatable :: weights_(:,:,:), biases_(:,:)
     integer, allocatable :: nodes_(:)
@@ -33,7 +33,7 @@ module inference_engine_m_
   contains
     procedure :: infer
     procedure :: parallel_infer
-    procedure :: to_json
+    !procedure :: to_json
     procedure :: num_inputs
     procedure :: num_outputs
     procedure :: nodes_per_layer
@@ -46,7 +46,7 @@ module inference_engine_m_
   end type
 
   type exchange_t
-    type(tensor_range_t) input_range_, output_range_
+    !type(tensor_range_t) input_range_, output_range_
     type(string_t) metadata_(size(key))
     real(rkind), allocatable :: weights_(:,:,:), biases_(:,:)
     integer, allocatable :: nodes_(:)
@@ -63,13 +63,13 @@ module inference_engine_m_
 
   interface inference_engine_t
 
-    pure module function construct_from_padded_arrays(metadata, weights, biases, nodes, input_range, output_range) &
+    pure module function construct_from_padded_arrays(metadata, weights, biases, nodes) &
       result(inference_engine)
       implicit none
       type(string_t), intent(in) :: metadata(:)
       real(rkind), intent(in) :: weights(:,:,:), biases(:,:)
       integer, intent(in) :: nodes(0:)
-      type(tensor_range_t), intent(in), optional :: input_range, output_range
+      !type(tensor_range_t), intent(in), optional :: input_range, output_range
       type(inference_engine_t) inference_engine
     end function
 
@@ -89,11 +89,11 @@ module inference_engine_m_
       type(exchange_t) exchange
     end function
 
-    impure elemental module function to_json(self) result(json_file)
-      implicit none
-      class(inference_engine_t), intent(in) :: self
-      type(file_t) json_file
-    end function
+    ! impure elemental module function to_json(self) result(json_file)
+    !   implicit none
+    !   class(inference_engine_t), intent(in) :: self
+    !   type(file_t) json_file
+    ! end function
 
     elemental module function norm(self) result(norm_of_self)
       implicit none

@@ -20,8 +20,8 @@ submodule(inference_engine_m_) inference_engine_s
 contains
 
   module procedure to_exchange
-    exchange%input_range_ = self%input_range_
-    exchange%output_range_ = self%output_range_
+    ! exchange%input_range_ = self%input_range_
+    ! exchange%output_range_ = self%output_range_
     exchange%metadata_ = self%metadata_
     exchange%weights_ = self%weights_
     exchange%biases_ = self%biases_
@@ -41,9 +41,9 @@ contains
 
       allocate(a(maxval(n), input_layer:output_layer))
 
-      associate(normalized_inputs => self%input_range_%map_to_training_range(inputs))
-        a(1:n(input_layer),input_layer) = normalized_inputs%values()
-      end associate
+      !associate(normalized_inputs => self%input_range_%map_to_training_range(inputs))
+        a(1:n(input_layer),input_layer) = inputs%values()
+      !end associate
 
       feed_forward: &
       do l = input_layer+1, output_layer
@@ -52,9 +52,9 @@ contains
         end associate
       end do feed_forward
  
-      associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
-        outputs = self%output_range_%map_from_training_range(normalized_outputs)
-      end associate
+      !associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
+        outputs = tensor_t(a(1:n(output_layer), output_layer))
+      !end associate
 
     end associate
 
@@ -70,17 +70,17 @@ contains
     integer(int64) t_start, t_finish, clock_rate, t_start_2,t_finish_2
 
 #ifdef __OFFLOADING
-    real, allocatable, dimension(:) :: min_in, max_in, min_out, max_out
+    !real, allocatable, dimension(:) :: min_in, max_in, min_out, max_out
     real, allocatable :: input_components(:,:,:,:), output_components(:,:,:,:)
     integer :: lat, lon, lev
     dims = shape(inputs)
     lon = dims(1)
     lev = dims(2)
     lat = dims(3)
-    min_in = self%input_range_%minima_
-    max_in = self%input_range_%maxima_
-    min_out = self%output_range_%minima_
-    max_out = self%output_range_%maxima_
+    ! min_in = self%input_range_%minima_
+    ! max_in = self%input_range_%maxima_
+    ! min_out = self%output_range_%minima_
+    ! max_out = self%output_range_%maxima_
     allocate(input_components(dims(1),dims(2),dims(3),self%num_inputs()))
     allocate(output_components(dims(1),dims(2),dims(3),self%num_outputs()))
     do concurrent(i=1:lon, j=1:lev, k=1:lat)
@@ -102,11 +102,8 @@ contains
 call system_clock(t_start, clock_rate)
     !$omp parallel do private(a) shared(inputs, outputs, n,w,b,output_layer) collapse(3)
 #else
-    !call system_clock(t_start_2, clock_rate)
-    !$omp target enter data map(to:input_components,n,w,b,min_in,max_in,min_out,max_out)
-    !$acc data copyout(output_components) present_or_copyin(input_components,n,w,b,min_in, max_in, min_out, max_out)
-    !call system_clock(t_finish_2)
-    !t_transf = real(t_finish - t_start, real64)/real(clock_rate, real64)
+    !$omp target enter data map(to:input_components,n,w,b)
+    !$acc data copyout(output_components) present_or_copyin(input_components,n,w,b)
     call system_clock(t_start, clock_rate)
     !$acc parallel private(a) 
     !$acc loop collapse(3) 
@@ -117,12 +114,12 @@ call system_clock(t_start, clock_rate)
       do j=1,dims(2)
         do k=1,dims(3)
 #ifndef __OFFLOADING
-          associate(normalized_inputs => self%input_range_%map_to_training_range(inputs(i,j,k)))
-            a(1:n(input_layer),input_layer) = normalized_inputs%values()
-          end associate
+          !associate(normalized_inputs => self%input_range_%map_to_training_range(inputs(i,j,k)))
+            a(1:n(input_layer),input_layer) = inputs(i,j,k)%values()
+         ! end associate
 #else
 
-          a(1:n(input_layer),input_layer) = (input_components(i,j,k,:) - min_in)/(max_in- min_in)
+          a(1:n(input_layer),input_layer) = input_components(i,j,k,:)! - min_in)/(max_in- min_in)
 #endif
           feed_forward: &
           do l = input_layer+1, output_layer
@@ -137,11 +134,11 @@ call system_clock(t_start, clock_rate)
           end do feed_forward
 
 #ifndef __OFFLOADING
-          associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
-            outputs(i,j,k) = self%output_range_%map_from_training_range(normalized_outputs)
-          end associate
+          !associate(normalized_outputs => tensor_t(a(1:n(output_layer), output_layer)))
+            outputs(i,j,k) = tensor_t(a(1:n(output_layer), output_layer))
+         ! end associate
 #else
-          output_components(i,j,k,:) = min_out + a(1:n(output_layer), output_layer)*(max_out - min_out)
+          output_components(i,j,k,:) = a(1:n(output_layer), output_layer)
 #endif        
         end do
       end do
@@ -153,16 +150,13 @@ call system_clock(t_start, clock_rate)
     !$omp end target teams distribute parallel do
     !$acc end parallel
     call system_clock(t_finish)
-    !call system_clock(t_start_2, clock_rate)
     !$acc end data 
-    !$omp target exit data map(from:output_components) map(release:input_components,n,w,b,min_in,max_in,min_out,max_out)
-    !call system_clock(t_finish_2)
+    !$omp target exit data map(from:output_components) map(release:input_components,n,w,b)
     do concurrent(i=1:lon, j=1:lev, k=1:lat)
       outputs(i,j,k) = tensor_t(output_components(i,j,k,:))
     end do
 #endif
   t_exec = real(t_finish - t_start, real64)/real(clock_rate, real64)
-  !t_transf = t_transf + real(t_finish - t_start, real64)/real(clock_rate, real64)
   end procedure
 
   pure subroutine inference_engine_consistency(self)
@@ -237,29 +231,29 @@ call system_clock(t_start, clock_rate)
     inference_engine%biases_ = biases
     inference_engine%nodes_ = nodes
 
-    block
-      integer i
+    ! block
+    !   integer i
 
-      if (present(input_range)) then
-        inference_engine%input_range_ = input_range
-      else
-        associate(num_inputs => nodes(lbound(nodes,1)))
-          associate(default_minima => [(0., i=1,num_inputs)], default_maxima => [(1., i=1,num_inputs)])
-            inference_engine%input_range_ = tensor_range_t("inputs", default_minima, default_maxima)
-          end associate
-        end associate
-      end if
+      ! if (present(input_range)) then
+      !   inference_engine%input_range_ = input_range
+      ! else
+      !   associate(num_inputs => nodes(lbound(nodes,1)))
+      !     associate(default_minima => [(0., i=1,num_inputs)], default_maxima => [(1., i=1,num_inputs)])
+      !       inference_engine%input_range_ = tensor_range_t("inputs", default_minima, default_maxima)
+      !     end associate
+      !   end associate
+      ! end if
 
-      if (present(output_range)) then
-        inference_engine%output_range_ = output_range
-      else
-        associate(num_outputs => nodes(ubound(nodes,1)))
-          associate(default_minima => [(0., i=1,num_outputs)], default_maxima => [(1., i=1,num_outputs)])
-            inference_engine%output_range_ = tensor_range_t("outputs", default_minima, default_maxima)
-          end associate
-        end associate
-      end if
-    end block
+    !   if (present(output_range)) then
+    !     inference_engine%output_range_ = output_range
+    !   else
+    !     associate(num_outputs => nodes(ubound(nodes,1)))
+    !       associate(default_minima => [(0., i=1,num_outputs)], default_maxima => [(1., i=1,num_outputs)])
+    !         inference_engine%output_range_ = tensor_range_t("outputs", default_minima, default_maxima)
+    !       end associate
+    !     end associate
+    !   end if
+    ! end block
 
     call set_activation_strategy(inference_engine)
     call assert_consistency(inference_engine)
@@ -269,7 +263,7 @@ call system_clock(t_start, clock_rate)
   module procedure construct_from_json
 
     type(string_t), allocatable :: lines(:), metadata(:)
-    type(tensor_range_t) input_range, output_range
+    !type(tensor_range_t) input_range, output_range
     type(layer_t) hidden_layers, output_layer
     type(neuron_t) output_neuron
     real(rkind), allocatable :: hidden_weights(:,:,:)
@@ -297,16 +291,16 @@ call system_clock(t_start, clock_rate)
       end block
     end if
 
-    call assert(adjustl(lines(l)%string())=='"tensor_range": {', 'from_json: expecting "tensor_range": {', lines(l)%string())
+    !call assert(adjustl(lines(l)%string())=='"tensor_range": {', 'from_json: expecting "tensor_range": {', lines(l)%string())
 
-    associate(prototype => tensor_range_t("",[0.],[1.]))
-      associate(num_lines => size(prototype%to_json()))
-        input_range = tensor_range_t(lines(l:l+num_lines-1))
-        l = l + num_lines
-        output_range = tensor_range_t(lines(l:l+num_lines-1))
-        l = l + num_lines
-      end associate
-    end associate
+    ! associate(prototype => tensor_range_t("",[0.],[1.]))
+    !   associate(num_lines => size(prototype%to_json()))
+    !     input_range = tensor_range_t(lines(l:l+num_lines-1))
+    !     l = l + num_lines
+    !     output_range = tensor_range_t(lines(l:l+num_lines-1))
+    !     l = l + num_lines
+    !   end associate
+    ! end associate
 
     call assert(adjustl(lines(l)%string())=='"hidden_layers": [', 'from_json: expecting "hidden_layers": [', lines(l)%string())
     l = l + 1
@@ -328,7 +322,7 @@ call system_clock(t_start, clock_rate)
        end associate
     end block
 
-    inference_engine = hidden_layers%inference_engine(metadata, output_layer, input_range, output_range)
+    inference_engine = hidden_layers%inference_engine(metadata, output_layer)
 
     call set_activation_strategy(inference_engine)
     call assert_consistency(inference_engine)
@@ -445,184 +439,184 @@ call system_clock(t_start, clock_rate)
     node_count = self%nodes_
   end procedure
 
-  module procedure to_json
+  ! module procedure to_json
 
-    type(string_t), allocatable :: lines(:)
-    integer layer, neuron, line
-    integer, parameter :: characters_per_value=17
-    character(len=:), allocatable :: comma_separated_values, csv_format
-    character(len=17) :: single_value
-    integer, parameter :: &
-      outer_object_braces = 2, hidden_layer_outer_brackets = 2, lines_per_neuron = 4, inner_brackets_per_layer  = 2, &
-      output_layer_brackets = 2, metadata_outer_braces = 2, input_range_object = 5, output_range_object = 5
+  !   type(string_t), allocatable :: lines(:)
+  !   integer layer, neuron, line
+  !   integer, parameter :: characters_per_value=17
+  !   character(len=:), allocatable :: comma_separated_values, csv_format
+  !   character(len=17) :: single_value
+  !   integer, parameter :: &
+  !     outer_object_braces = 2, hidden_layer_outer_brackets = 2, lines_per_neuron = 4, inner_brackets_per_layer  = 2, &
+  !     output_layer_brackets = 2, metadata_outer_braces = 2, input_range_object = 5, output_range_object = 5
 
-    call assert_consistency(self)
+  !   call assert_consistency(self)
 
-    csv_format = separated_values(separator=",", mold=[real(rkind)::])
+  !   csv_format = separated_values(separator=",", mold=[real(rkind)::])
 
-    associate(num_hidden_layers => size(self%nodes_)-2, &
-      neurons_per_layer => self%nodes_(lbound(self%nodes_,1)+1), &
-      num_outputs => self%num_outputs(), &
-      num_inputs => self%num_inputs() &
-    )
+  !   associate(num_hidden_layers => size(self%nodes_)-2, &
+  !     neurons_per_layer => self%nodes_(lbound(self%nodes_,1)+1), &
+  !     num_outputs => self%num_outputs(), &
+  !     num_inputs => self%num_inputs() &
+  !   )
 
-      call assert(all(neurons_per_layer==self%nodes_(lbound(self%nodes_,1)+1 : ubound(self%nodes_,1)-1)), &
-        "to_json: uniform hidden layers")
+  !     call assert(all(neurons_per_layer==self%nodes_(lbound(self%nodes_,1)+1 : ubound(self%nodes_,1)-1)), &
+  !       "to_json: uniform hidden layers")
 
-      associate(num_lines => &
-        outer_object_braces &
-        + metadata_outer_braces + size(key) &
-        + input_range_object + output_range_object &
-        + hidden_layer_outer_brackets + (num_hidden_layers)*(inner_brackets_per_layer + neurons_per_layer*lines_per_neuron) &
-        + output_layer_brackets + num_outputs*lines_per_neuron &
-      )
-        allocate(lines(num_lines))
+  !     associate(num_lines => &
+  !       outer_object_braces &
+  !       + metadata_outer_braces + size(key) &
+  !       + input_range_object + output_range_object &
+  !       + hidden_layer_outer_brackets + (num_hidden_layers)*(inner_brackets_per_layer + neurons_per_layer*lines_per_neuron) &
+  !       + output_layer_brackets + num_outputs*lines_per_neuron &
+  !     )
+  !       allocate(lines(num_lines))
 
-        line = 1
-        lines(line) = string_t('{')
+  !       line = 1
+  !       lines(line) = string_t('{')
 
-        line = line + 1
-        lines(line) = string_t('    "metadata": {')
+  !       line = line + 1
+  !       lines(line) = string_t('    "metadata": {')
 
-        line = line + 1
-        lines(line) = string_t('        "modelName": "' // &
-                                                       self%metadata_(findloc(key, "modelName", dim=1))%string() // '",')
-        line = line + 1
-        lines(line) = string_t('        "modelAuthor": "' // &
-                                                       self%metadata_(findloc(key, "modelAuthor", dim=1))%string() // '",')
-        line = line + 1
-        lines(line) = string_t('        "compilationDate": "' // &
-                                                       self%metadata_(findloc(key, "compilationDate", dim=1))%string() // '",')
-        line = line + 1
-        lines(line) = string_t('        "activationFunction": "' // &
-                                                       self%metadata_(findloc(key, "activationFunction", dim=1))%string() // '",')
-        line = line + 1
-        lines(line) = string_t('        "usingSkipConnections": ' // &
-                                                       self%metadata_(findloc(key, "usingSkipConnections", dim=1))%string())
+  !       line = line + 1
+  !       lines(line) = string_t('        "modelName": "' // &
+  !                                                      self%metadata_(findloc(key, "modelName", dim=1))%string() // '",')
+  !       line = line + 1
+  !       lines(line) = string_t('        "modelAuthor": "' // &
+  !                                                      self%metadata_(findloc(key, "modelAuthor", dim=1))%string() // '",')
+  !       line = line + 1
+  !       lines(line) = string_t('        "compilationDate": "' // &
+  !                                                      self%metadata_(findloc(key, "compilationDate", dim=1))%string() // '",')
+  !       line = line + 1
+  !       lines(line) = string_t('        "activationFunction": "' // &
+  !                                                      self%metadata_(findloc(key, "activationFunction", dim=1))%string() // '",')
+  !       line = line + 1
+  !       lines(line) = string_t('        "usingSkipConnections": ' // &
+  !                                                      self%metadata_(findloc(key, "usingSkipConnections", dim=1))%string())
 
-        line = line + 1
-        lines(line) = string_t('    },')
+  !       line = line + 1
+  !       lines(line) = string_t('    },')
 
-        block
-          type(string_t), allocatable :: input_range_json(:), output_range_json(:)
+  !       block
+  !         type(string_t), allocatable :: input_range_json(:), output_range_json(:)
 
-          line = line + 1
-          input_range_json = self%input_range_%to_json() 
-          associate(last_line => ubound(input_range_json,1))
-            call assert(last_line==input_range_object, "inference_engine_s(to_json): input_range object line count")
-            input_range_json(last_line) = input_range_json(last_line) // ","
-            lines(line:line+input_range_object-1) = input_range_json
-            line = line + input_range_object-1
-          end associate
+  !         line = line + 1
+  !         input_range_json = self%input_range_%to_json() 
+  !         associate(last_line => ubound(input_range_json,1))
+  !           call assert(last_line==input_range_object, "inference_engine_s(to_json): input_range object line count")
+  !           input_range_json(last_line) = input_range_json(last_line) // ","
+  !           lines(line:line+input_range_object-1) = input_range_json
+  !           line = line + input_range_object-1
+  !         end associate
 
-          line = line + 1
-          output_range_json = self%output_range_%to_json() 
-          associate(last_line => ubound(output_range_json,1))
-            call assert(last_line==output_range_object, "inference_engine_s(to_json): output_range object line count")
-            output_range_json(last_line) = output_range_json(last_line) // ","
-            lines(line:line+output_range_object-1) = output_range_json
-            line = line + input_range_object-1
-          end associate
-        end block
+  !         line = line + 1
+  !         output_range_json = self%output_range_%to_json() 
+  !         associate(last_line => ubound(output_range_json,1))
+  !           call assert(last_line==output_range_object, "inference_engine_s(to_json): output_range object line count")
+  !           output_range_json(last_line) = output_range_json(last_line) // ","
+  !           lines(line:line+output_range_object-1) = output_range_json
+  !           line = line + input_range_object-1
+  !         end associate
+  !       end block
 
-        line = line + 1
-        lines(line) = string_t('     "hidden_layers": [')
+  !       line = line + 1
+  !       lines(line) = string_t('     "hidden_layers": [')
 
-        layer = 1 
-        line = line + 1
-        lines(line) = string_t('         [')
-        do neuron = 1, neurons_per_layer
-          line = line + 1
-          lines(line) = string_t('             {')
-          line = line + 1
-          if (allocated(comma_separated_values)) deallocate(comma_separated_values)
-          allocate(character(len=num_inputs*(characters_per_value+1)-1)::comma_separated_values)
-          block
-            integer l          
-            associate(n => self%nodes_)
-              l = 1
-              write(comma_separated_values, fmt = csv_format) self%weights_(neuron,1:n(l-1),l)
-            end associate
-          end block
-          lines(line) = string_t('                "weights": [' // trim(comma_separated_values) // '],')
-          line = line + 1
-          write(single_value, fmt = csv_format) self%biases_(neuron,layer)
-          lines(line) = string_t('                 "bias": ' // trim(single_value))
-          line = line + 1
-          lines(line) = string_t("             }" // trim(merge(' ',',',neuron==neurons_per_layer)))
-        end do
-        line = line + 1
-        lines(line) = string_t(trim(merge("         ] ", "         ],", any(num_hidden_layers==[1,line]))))
+  !       layer = 1 
+  !       line = line + 1
+  !       lines(line) = string_t('         [')
+  !       do neuron = 1, neurons_per_layer
+  !         line = line + 1
+  !         lines(line) = string_t('             {')
+  !         line = line + 1
+  !         if (allocated(comma_separated_values)) deallocate(comma_separated_values)
+  !         allocate(character(len=num_inputs*(characters_per_value+1)-1)::comma_separated_values)
+  !         block
+  !           integer l          
+  !           associate(n => self%nodes_)
+  !             l = 1
+  !             write(comma_separated_values, fmt = csv_format) self%weights_(neuron,1:n(l-1),l)
+  !           end associate
+  !         end block
+  !         lines(line) = string_t('                "weights": [' // trim(comma_separated_values) // '],')
+  !         line = line + 1
+  !         write(single_value, fmt = csv_format) self%biases_(neuron,layer)
+  !         lines(line) = string_t('                 "bias": ' // trim(single_value))
+  !         line = line + 1
+  !         lines(line) = string_t("             }" // trim(merge(' ',',',neuron==neurons_per_layer)))
+  !       end do
+  !       line = line + 1
+  !       lines(line) = string_t(trim(merge("         ] ", "         ],", any(num_hidden_layers==[1,line]))))
 
-        do layer = 1, num_hidden_layers-1
-          line = line + 1
-          lines(line) = string_t('         [')
-          block
-            real(rkind), allocatable :: hidden_layer_weights(:,:)
-            integer j, l
+  !       do layer = 1, num_hidden_layers-1
+  !         line = line + 1
+  !         lines(line) = string_t('         [')
+  !         block
+  !           real(rkind), allocatable :: hidden_layer_weights(:,:)
+  !           integer j, l
           
-            associate(n => self%nodes_, l => layer + 1)
-              allocate(hidden_layer_weights(n(l),n(l-1)))
-              do concurrent(j = 1:n(l))
-                hidden_layer_weights(j,1:n(l-1)) = self%weights_(j,1:n(l-1),l)
-              end do
-              hidden_layer_weights = transpose(hidden_layer_weights)
-            end associate
-          do neuron = 1, neurons_per_layer
-            line = line + 1
-            lines(line) = string_t('             {')
-            line = line + 1
-            if (allocated(comma_separated_values)) deallocate(comma_separated_values)
-            allocate(character(len=neurons_per_layer*(characters_per_value+1)-1)::comma_separated_values)
-            write(comma_separated_values, fmt = csv_format) hidden_layer_weights(:, neuron)
-            lines(line) = string_t('                "weights": [' // trim(comma_separated_values) // '],')
-            line = line + 1
-            write(single_value, fmt = csv_format) self%biases_(neuron,layer+1)
-            lines(line) = string_t('                 "bias": ' // trim(single_value))
-            line = line + 1
-            lines(line) = string_t("             }" // trim(merge(' ',',',neuron==neurons_per_layer)))
-          end do
-          end block
-          line = line + 1
-          lines(line) = string_t("         ]" // trim(merge(' ',',',layer==num_hidden_layers-1)))
-        end do
+  !           associate(n => self%nodes_, l => layer + 1)
+  !             allocate(hidden_layer_weights(n(l),n(l-1)))
+  !             do concurrent(j = 1:n(l))
+  !               hidden_layer_weights(j,1:n(l-1)) = self%weights_(j,1:n(l-1),l)
+  !             end do
+  !             hidden_layer_weights = transpose(hidden_layer_weights)
+  !           end associate
+  !         do neuron = 1, neurons_per_layer
+  !           line = line + 1
+  !           lines(line) = string_t('             {')
+  !           line = line + 1
+  !           if (allocated(comma_separated_values)) deallocate(comma_separated_values)
+  !           allocate(character(len=neurons_per_layer*(characters_per_value+1)-1)::comma_separated_values)
+  !           write(comma_separated_values, fmt = csv_format) hidden_layer_weights(:, neuron)
+  !           lines(line) = string_t('                "weights": [' // trim(comma_separated_values) // '],')
+  !           line = line + 1
+  !           write(single_value, fmt = csv_format) self%biases_(neuron,layer+1)
+  !           lines(line) = string_t('                 "bias": ' // trim(single_value))
+  !           line = line + 1
+  !           lines(line) = string_t("             }" // trim(merge(' ',',',neuron==neurons_per_layer)))
+  !         end do
+  !         end block
+  !         line = line + 1
+  !         lines(line) = string_t("         ]" // trim(merge(' ',',',layer==num_hidden_layers-1)))
+  !       end do
 
-        line = line + 1
-        lines(line) = string_t("     ],")
+  !       line = line + 1
+  !       lines(line) = string_t("     ],")
 
-        line = line + 1
-        lines(line) = string_t('     "output_layer": [')
+  !       line = line + 1
+  !       lines(line) = string_t('     "output_layer": [')
 
-        do neuron = 1, num_outputs
-          line = line + 1
-          lines(line) = string_t('             {')
-          line = line + 1
-          if (allocated(comma_separated_values)) deallocate(comma_separated_values)
-          allocate(character(len=neurons_per_layer*(characters_per_value+1)-1)::comma_separated_values)
-          associate(n => self%nodes_, l => ubound(self%nodes_,1))
-            write(comma_separated_values, fmt = csv_format) self%weights_(neuron,1:n(l-1),l)
-          end associate
-          lines(line) = string_t('                "weights": [' // trim(comma_separated_values) // '],')
-          line = line + 1
-          write(single_value, fmt = csv_format) self%biases_(neuron,ubound(self%biases_,2))
-          lines(line) = string_t('                 "bias": ' // trim(single_value))
-          line = line + 1
-          lines(line) = string_t("             }" // trim(merge(' ',',',neuron==num_outputs)))
-        end do
+  !       do neuron = 1, num_outputs
+  !         line = line + 1
+  !         lines(line) = string_t('             {')
+  !         line = line + 1
+  !         if (allocated(comma_separated_values)) deallocate(comma_separated_values)
+  !         allocate(character(len=neurons_per_layer*(characters_per_value+1)-1)::comma_separated_values)
+  !         associate(n => self%nodes_, l => ubound(self%nodes_,1))
+  !           write(comma_separated_values, fmt = csv_format) self%weights_(neuron,1:n(l-1),l)
+  !         end associate
+  !         lines(line) = string_t('                "weights": [' // trim(comma_separated_values) // '],')
+  !         line = line + 1
+  !         write(single_value, fmt = csv_format) self%biases_(neuron,ubound(self%biases_,2))
+  !         lines(line) = string_t('                 "bias": ' // trim(single_value))
+  !         line = line + 1
+  !         lines(line) = string_t("             }" // trim(merge(' ',',',neuron==num_outputs)))
+  !       end do
 
-        line = line + 1
-        lines(line) = string_t('     ]')
+  !       line = line + 1
+  !       lines(line) = string_t('     ]')
 
-        line = line + 1
-        lines(line) = string_t('}')
+  !       line = line + 1
+  !       lines(line) = string_t('}')
 
-        call assert(line == num_lines, "inference_engine_t%to_json: all lines defined", intrinsic_array_t([num_lines, line]))
-      end associate
-    end associate
+  !       call assert(line == num_lines, "inference_engine_t%to_json: all lines defined", intrinsic_array_t([num_lines, line]))
+  !     end associate
+  !   end associate
  
-    json_file = file_t(lines)
+  !   json_file = file_t(lines)
 
-  end procedure to_json
+  ! end procedure to_json
 
   module procedure skip
     use_skip_connections = self%metadata_(findloc(key, "usingSkipConnections", dim=1))%string() == "true"

@@ -158,7 +158,7 @@ program concurrent_inferences
     open(2, file = 'd_b.dat', status = 'replace')
     open(3, file = 'd_n.dat', status = 'replace')
     open(4, file = 'd_dim.dat', status='replace')
-    open(5, file = 'd_range.dat', status='replace')
+    !open(5, file = 'd_range.dat', status='replace')
     dims_3 = shape(inference_engine%weights_)
     write(4,*) dims_3(1),dims_3(2),dims_3(3)
     dims_2 = shape(inference_engine%biases_)
@@ -169,11 +169,11 @@ program concurrent_inferences
     write(4,*) inference_engine%num_inputs(), inference_engine%num_outputs()  
     
     !write(5,*) inference_engine%input_range_%layer_
-    write(5,*) inference_engine%input_range_%minima_
-    write(5,*) inference_engine%input_range_%maxima_
-    !write(5,*) inference_engine%output_range_%layer_
-    write(5,*) inference_engine%output_range_%minima_
-    write(5,*) inference_engine%output_range_%maxima_
+    ! write(5,*) inference_engine%input_range_%minima_
+    ! write(5,*) inference_engine%input_range_%maxima_
+    ! !write(5,*) inference_engine%output_range_%layer_
+    ! write(5,*) inference_engine%output_range_%minima_
+    ! write(5,*) inference_engine%output_range_%maxima_
      
 
     do i=1, dims_3(1)
