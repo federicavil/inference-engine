@@ -53,8 +53,8 @@ program concurrent_inferences
     lat = 1
     do lon=1,nPoints+1,50000 
       n_operations = (lat * lev * lon) * n_operations_single_point / 10**9
-      byte_to_transfer = ((lat*lon*lev)*(inference_engine%num_inputs()+inference_engine%num_outputs()) + dims_n(1)&
-                  + dims_b(1)*dims_b(2) + dims_w(1)*dims_w(2)+dims_w(3) + 2*inference_engine%num_inputs() + 2*inference_engine%num_outputs())/10**9
+      byte_to_transfer = (sizeof(input_components(1,1,1,1))*((lat*lon*lev)*(inference_engine%num_inputs()+inference_engine%num_outputs()) &
+                  + dims_b(1)*dims_b(2) + dims_w(1)*dims_w(2)+dims_w(3) + 2*inference_engine%num_inputs() + 2*inference_engine%num_outputs())+ (sizeof(lon)*dims_n(1)))/10**6
       allocate(inputs(lon,lev,lat))
       allocate(outputs(lon,lev,lat))
       allocate(input_components(lon,lev,lat,inference_engine%num_inputs()))
@@ -142,7 +142,7 @@ program concurrent_inferences
       time_exec = time_exec / maxrep
       error_sum = error_sum / maxrep
       write(1, '(I7,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8)') &
-      lon, time_serial, time_parallel, time_exec, real(n_operations)/time_serial, n_operations/time_exec, time_serial/time_parallel, time_serial/time_exec, error_sum, byte_to_transfer/(time_parallel-time_exec) 
+      lon, time_serial, time_parallel, time_exec, real(n_operations)/time_serial, n_operations/time_exec, time_serial/time_parallel, time_serial/time_exec, error_sum, real(byte_to_transfer)/(time_parallel-time_exec)
     end do
     close(1)
   end block
