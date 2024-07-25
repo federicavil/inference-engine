@@ -46,12 +46,11 @@ program concurrent_inferences
     allocate(outputs_serial(inference_engine%num_outputs()))
     allocate(outputs_parallel(inference_engine%num_outputs()))
     open(unit=1, file="results.csv", status='replace', action='write')
-    write(1, '(A)') 'NPoints;TimeSer;TimeParal;TimeExec;GFLOPSSer;GFLOPSExec;SpeedUpParal;SpeedupExec;RelError;Bandwidth'
-
+    write(1, '(A)') 'NPoints;'
     print *,"Defining an array of tensor_t input objects with random normalized components"
     lev = 1
     lat = 1
-    do lon=1,nPoints+1,50000 
+    do lon=nPoints,nPoints+1,50000 
       n_operations = (lat * lev * lon) * n_operations_single_point / 10**9
       byte_to_transfer = (sizeof(input_components(1,1,1,1))*((lat*lon*lev)*(inference_engine%num_inputs()+inference_engine%num_outputs()) &
                   + dims_b(1)*dims_b(2) + dims_w(1)*dims_w(2)+dims_w(3) + 2*inference_engine%num_inputs() + 2*inference_engine%num_outputs())+ (sizeof(lon)*dims_n(1)))/10**6
@@ -116,10 +115,8 @@ program concurrent_inferences
           call inference_engine%parallel_infer(inputs,outputs,t_exec)  ! implicit allocation of outputs array
           call system_clock(t_finish)
           time_exec = time_exec + t_exec
-          !time_transf = time_transf + t_transf
           time_parallel = time_parallel + real(t_finish - t_start, real64)/real(clock_rate, real64)
-          !print *,"Multithreading/Offloading inference time: ", real(t_finish - t_start, real64)/real(clock_rate, real64)
-          !print *, t_exec
+
           do i=1,lon
             do j=1,lev
               do k=1,lat
@@ -141,7 +138,7 @@ program concurrent_inferences
       time_serial = time_serial / maxrep
       time_exec = time_exec / maxrep
       error_sum = error_sum / maxrep
-      write(1, '(I7,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8)') &
+      write(1, '(I7,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8,";",F12.8)') &
       lon, time_serial, time_parallel, time_exec, real(n_operations)/time_serial, n_operations/time_exec, time_serial/time_parallel, time_serial/time_exec, error_sum, real(byte_to_transfer)/(time_parallel-time_exec)
     end do
     close(1)
